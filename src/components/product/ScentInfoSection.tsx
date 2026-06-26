@@ -1,0 +1,93 @@
+'use client'
+
+import { useState } from 'react'
+import type { ScentProfile } from '@/types'
+
+interface ScentInfoSectionProps {
+  scentProfile: ScentProfile
+}
+
+function Tag({ label }: { label: string }) {
+  return (
+    <span className="inline-block border border-accent text-accent text-[13px] font-serif px-2.5 py-0.5 rounded-full">
+      {label}
+    </span>
+  )
+}
+
+function Field({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="font-serif uppercase text-[12px] text-gray-500 tracking-wide mb-1">{label}</p>
+      <p className="font-serif text-[15px] text-secondary leading-[1.7]">{value}</p>
+    </div>
+  )
+}
+
+export default function ScentInfoSection({ scentProfile }: ScentInfoSectionProps) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="border-t border-b border-gray-200">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="flex w-full items-center justify-between py-4 text-left"
+        aria-expanded={open}
+      >
+        <span className="font-serif font-bold text-[18px] text-secondary">Scent Information</span>
+        <span className="font-serif text-[18px] text-secondary" aria-hidden="true">
+          {open ? '−' : '+'}
+        </span>
+      </button>
+
+      {open && (
+        <div className="pb-6 flex flex-col gap-6">
+          <Field label="Fragrance Family" value={scentProfile.family} />
+
+          <div>
+            <p className="font-serif uppercase text-[12px] text-gray-500 tracking-wide mb-3">
+              Fragrance Notes
+            </p>
+            <div className="grid grid-cols-3 gap-4">
+              {(
+                [
+                  { key: 'Top', notes: scentProfile.notes.top },
+                  { key: 'Middle', notes: scentProfile.notes.middle },
+                  { key: 'Base', notes: scentProfile.notes.base },
+                ] as const
+              ).map(({ key, notes }) => (
+                <div key={key}>
+                  <p className="font-serif uppercase text-[12px] text-gray-500 tracking-wide mb-2">
+                    {key}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {notes.map((note) => (
+                      <Tag key={note} label={note} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <Field label="Style" value={scentProfile.style} />
+
+          <div>
+            <p className="font-serif uppercase text-[12px] text-gray-500 tracking-wide mb-2">
+              Occasion
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {scentProfile.occasion.map((occ) => (
+                <Tag key={occ} label={occ} />
+              ))}
+            </div>
+          </div>
+
+          <Field label="Emotional Description" value={scentProfile.emotionalDescription} />
+          <Field label="Target Audience" value={scentProfile.targetAudience} />
+          <Field label="Feeling" value={scentProfile.feeling} />
+        </div>
+      )}
+    </div>
+  )
+}

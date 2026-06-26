@@ -116,6 +116,19 @@ export interface BlogPost {
   readTime: number;
 }
 
+// --- Product Listing ---
+
+export type SortOption = 'default' | 'price-asc' | 'price-desc' | 'name-asc' | 'newest'
+
+export interface FilterState {
+  categories: string[]
+  collections: string[]
+  priceMin: number
+  priceMax: number
+  fragranceFamilies: string[]
+  sort: SortOption
+}
+
 // --- Coupons ---
 
 export interface Coupon {
