@@ -116,6 +116,12 @@ export interface BlogPost {
   readTime: number;
 }
 
+export interface NewReviewForm {
+  author: string
+  rating: number
+  comment: string
+}
+
 // --- Product Listing ---
 
 export type SortOption = 'default' | 'price-asc' | 'price-desc' | 'name-asc' | 'newest'

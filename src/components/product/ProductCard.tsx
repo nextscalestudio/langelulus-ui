@@ -7,6 +7,7 @@ import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import { useToast } from '@/components/ui/Toast'
 import StarRating from './StarRating'
+import { useCartStore } from '@/lib/store/cart-store'
 
 const formatVND = (price: number) =>
   new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
@@ -17,9 +18,10 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const toast = useToast()
+  const addItem = useCartStore((state) => state.addItem)
 
   function handleAddToCart() {
-    // TODO: wire cart store addItem() in spec 24
+    addItem(product, product.availableVolumes[0])
     toast.success('Added to cart')
   }
 

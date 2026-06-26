@@ -35,7 +35,7 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-4">
-          <CartIconButton count={0} />
+          <CartIconButton />
           <button
             aria-label="Sign in"
             className="font-serif border border-secondary px-4 py-1.5 text-secondary hover:bg-secondary hover:text-bg transition-colors"

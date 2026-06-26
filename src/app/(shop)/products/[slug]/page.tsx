@@ -5,6 +5,9 @@ import ProductGallery from '@/components/product/ProductGallery'
 import ProductInfo from '@/components/product/ProductInfo'
 import ScentInfoSection from '@/components/product/ScentInfoSection'
 import ProductSpecsSection from '@/components/product/ProductSpecsSection'
+import ProductPolicies from '@/components/product/ProductPolicies'
+import ReviewSection from '@/components/product/ReviewSection'
+import RelatedProducts from '@/components/product/RelatedProducts'
 
 interface PageProps {
   params: { slug: string }
@@ -33,6 +36,11 @@ export default function ProductDetailPage({ params }: PageProps) {
           <ScentInfoSection scentProfile={product.scentProfile} />
           <ProductSpecsSection specs={product.specs} usageGuide={product.usageGuide} />
         </div>
+        <div className="mt-8">
+          <ProductPolicies />
+        </div>
+        <ReviewSection productId={product.id} />
+        <RelatedProducts current={product} />
       </div>
     </main>
   )

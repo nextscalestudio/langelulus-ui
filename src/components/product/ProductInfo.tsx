@@ -2,16 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import type { Product, CartItem } from '@/types'
+import type { Product } from '@/types'
 import Button from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
+import { useCartStore } from '@/lib/store/cart-store'
 
 interface ProductInfoProps {
   product: Product
 }
-
-// TODO: spec 24 — replace with cart store addItem
-function addItem(_item: CartItem) {}
 
 const formatPrice = (price: number) =>
   new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
@@ -19,6 +17,7 @@ const formatPrice = (price: number) =>
 export default function ProductInfo({ product }: ProductInfoProps) {
   const router = useRouter()
   const toast = useToast()
+  const addItem = useCartStore((state) => state.addItem)
 
   const [selectedVolume, setSelectedVolume] = useState(product.availableVolumes[0])
   const [quantity, setQuantity] = useState(1)
@@ -43,12 +42,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
   }
 
   function handleAddToCart() {
-    addItem({ product, quantity, selectedVolume })
+    addItem(product, selectedVolume, quantity)
     toast.success('Added to cart')
   }
 
   function handleBuyNow() {
-    addItem({ product, quantity, selectedVolume })
+    addItem(product, selectedVolume, quantity)
     router.push('/checkout')
   }
 

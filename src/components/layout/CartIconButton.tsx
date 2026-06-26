@@ -1,11 +1,18 @@
-interface CartIconButtonProps {
-  count: number
-}
+'use client'
 
-export default function CartIconButton({ count }: CartIconButtonProps) {
+import { useCartStore } from '@/lib/store/cart-store'
+import { useUIStore } from '@/lib/store/ui-store'
+import { getItemCount } from '@/lib/store/cart-helpers'
+
+export default function CartIconButton() {
+  const items = useCartStore((state) => state.items)
+  const openCart = useUIStore((state) => state.openCart)
+  const count = getItemCount(items)
+
   return (
     <button
       aria-label={`Cart, ${count} item${count === 1 ? '' : 's'}`}
+      onClick={openCart}
       className="relative flex items-center justify-center"
     >
       <svg
@@ -24,12 +31,14 @@ export default function CartIconButton({ count }: CartIconButtonProps) {
         <line x1="3" y1="6" x2="21" y2="6" />
         <path d="M16 10a4 4 0 0 1-8 0" />
       </svg>
-      <span
-        className="absolute -top-2 -right-2 flex items-center justify-center bg-accent text-white text-[10px] font-bold rounded-full w-[18px] h-[18px]"
-        aria-hidden="true"
-      >
-        {count}
-      </span>
+      {count > 0 && (
+        <span
+          className="absolute -top-2 -right-2 flex items-center justify-center bg-accent text-white text-[10px] font-bold rounded-full w-[18px] h-[18px]"
+          aria-hidden="true"
+        >
+          {count}
+        </span>
+      )}
     </button>
   )
 }
