@@ -115,3 +115,8 @@ src/
 Before implementing any component, check `docs/specs/` for a matching spec.
 Implement exactly what the spec says — do not add unlisted features.
 After generating, verify every item in the spec's Acceptance Criteria.
+
+<!-- SPECKIT START -->
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan
+<!-- SPECKIT END -->

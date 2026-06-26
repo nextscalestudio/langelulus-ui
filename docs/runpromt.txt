@@ -1,0 +1,18 @@
+By raw claude cli
+
+@docs/CLAUDE.md @docs/specs/02-navbar.spec.md
+
+Implement all files in Section 5...
+
+Verify Section 7 after generating — mark ✅ or ❌
+
+
+Make spec as done
+Mark spec 02-navbar as done in docs/roadmap.md
+/clear
+
+By speckit command
+/specikit-implement @docs/CLAUDE.md @docs/specs/02-navbar.spec.md
+
+Mark spec 02-navbar as done in docs/roadmap.md
+/clear

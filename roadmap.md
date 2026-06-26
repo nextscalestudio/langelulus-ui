@@ -14,7 +14,7 @@
 
 | #   | Feature                          | Spec file                           | Est. files | Depends on      |
 | --- | -------------------------------- | ----------------------------------- | ---------- | --------------- |
-| 01  | Project setup + TS interfaces    | 01-project-setup.spec.md            | 5          | —               |
+| 01  | ~~Project setup + TS interfaces~~ | ~~01-project-setup.spec.md~~       | 5          | ✅ Done         |
 | 02  | Navbar                           | 02-navbar.spec.md                   | 2          | 01              |
 | 03  | Footer                           | 03-footer.spec.md                   | 1          | 01              |
 | 04  | Product + blog types + data      | 04-data.spec.md                     | 4          | 01              |
