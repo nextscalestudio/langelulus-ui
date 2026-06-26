@@ -4,6 +4,10 @@ import BrandIntro from '@/components/home/BrandIntro'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
 import FeaturedProducts from '@/components/home/FeaturedProducts'
 import CollectionsSection from '@/components/home/CollectionsSection'
+import ScentStories from '@/components/home/ScentStories'
+import Testimonials from '@/components/home/Testimonials'
+import FeaturedArticles from '@/components/home/FeaturedArticles'
+import LifestyleGallery from '@/components/home/LifestyleGallery'
 
 export default function HomePage() {
   return (
@@ -14,6 +18,10 @@ export default function HomePage() {
       <WhyChooseUs />
       <FeaturedProducts />
       <CollectionsSection />
+      <ScentStories />
+      <Testimonials />
+      <FeaturedArticles />
+      <LifestyleGallery />
     </main>
   )
 }

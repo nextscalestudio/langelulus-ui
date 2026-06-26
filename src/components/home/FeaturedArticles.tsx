@@ -1,0 +1,67 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import blogPosts from '@/data/blog-posts'
+import Badge from '@/components/ui/Badge'
+
+const recentPosts = [...blogPosts]
+  .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+  .slice(0, 3)
+
+export default function FeaturedArticles() {
+  return (
+    <section className="bg-bg py-16 px-4">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="font-serif text-[36px] text-secondary text-center mb-12">
+          From the Journal
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {recentPosts.map((post) => (
+            <article key={post.id} className="flex flex-col">
+              <Link href={`/blog/${post.slug}`} className="block overflow-hidden mb-4">
+                <div className="relative aspect-video">
+                  <Image
+                    src={post.thumbnail}
+                    alt={post.title}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </Link>
+
+              <div className="flex flex-col flex-1">
+                <Badge className="mb-3 self-start">{post.category}</Badge>
+
+                <Link href={`/blog/${post.slug}`}>
+                  <h3 className="font-serif font-bold text-[18px] text-secondary mb-2 hover:text-accent transition-colors">
+                    {post.title}
+                  </h3>
+                </Link>
+
+                <p className="text-[16px] text-gray-500 line-clamp-2 mb-4 flex-1">
+                  {post.description}
+                </p>
+
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="font-serif text-accent underline hover:opacity-70 transition-opacity self-start"
+                >
+                  Read more
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="flex justify-center">
+          <Link
+            href="/blog"
+            className="inline-flex items-center justify-center font-serif px-5 py-2.5 text-base border border-secondary text-secondary hover:bg-secondary hover:text-white transition-colors"
+          >
+            View All Articles
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}

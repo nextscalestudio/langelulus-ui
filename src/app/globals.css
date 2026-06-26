@@ -22,3 +22,12 @@ body {
   color: var(--color-secondary);
   font-family: 'Times New Roman', Times, serif;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
