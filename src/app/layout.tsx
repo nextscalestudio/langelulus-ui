@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import { ToastProvider } from '@/components/ui/Toast'
 
 export const metadata: Metadata = {
   title: 'Parfum',
@@ -14,7 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-serif">
-        {children}
+        <ToastProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </ToastProvider>
       </body>
     </html>
   )

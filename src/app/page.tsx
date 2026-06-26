@@ -1,7 +1,19 @@
+import HeroSection from '@/components/home/HeroSection'
+import PromoStrip from '@/components/home/PromoStrip'
+import BrandIntro from '@/components/home/BrandIntro'
+import WhyChooseUs from '@/components/home/WhyChooseUs'
+import FeaturedProducts from '@/components/home/FeaturedProducts'
+import CollectionsSection from '@/components/home/CollectionsSection'
+
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <h1 className="text-accent text-4xl font-serif">Welcome to Parfum</h1>
+    <main>
+      <PromoStrip />
+      <HeroSection />
+      <BrandIntro />
+      <WhyChooseUs />
+      <FeaturedProducts />
+      <CollectionsSection />
     </main>
   )
 }
