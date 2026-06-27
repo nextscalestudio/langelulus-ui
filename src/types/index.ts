@@ -156,3 +156,37 @@ export interface Coupon {
   minOrderValue?: number;
   expiresAt?: string;
 }
+
+// --- About Sub-pages ---
+
+export interface Perfumer {
+  id: string
+  name: string
+  roleVi: string
+  roleEn: string
+  bioVi: string
+  bioEn: string
+  image: string
+  specialties: string[]
+  yearsExp: number
+}
+
+export interface Certification {
+  id: string
+  nameVi: string
+  nameEn: string
+  issuerVi: string
+  issuerEn: string
+  year: number
+  descriptionVi: string
+  descriptionEn: string
+}
+
+export interface PhilosophyPrinciple {
+  id: string
+  number: number
+  titleVi: string
+  titleEn: string
+  descriptionVi: string
+  descriptionEn: string
+}

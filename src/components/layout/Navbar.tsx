@@ -3,11 +3,7 @@ import { auth } from '@/auth'
 import CartIconButton from './CartIconButton'
 import NavbarAuthButton from './NavbarAuthButton'
 import SearchIconButton from './SearchIconButton'
-
-const NAV_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
-]
+import NavLinks from './NavLinks'
 
 export default async function Navbar() {
   const session = await auth()
@@ -26,18 +22,7 @@ export default async function Navbar() {
           PARFUM
         </Link>
 
-        <ul className="hidden md:flex items-center gap-8 list-none m-0 p-0">
-          {NAV_LINKS.map(({ label, href }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                className="font-serif text-secondary hover:text-accent transition-colors"
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <NavLinks />
 
         <div className="flex items-center gap-4">
           <SearchIconButton />
