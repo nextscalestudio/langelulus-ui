@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { auth } from '@/auth'
 import CartIconButton from './CartIconButton'
 import NavbarAuthButton from './NavbarAuthButton'
+import SearchIconButton from './SearchIconButton'
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
@@ -39,6 +40,7 @@ export default async function Navbar() {
         </ul>
 
         <div className="flex items-center gap-4">
+          <SearchIconButton />
           <CartIconButton />
           <NavbarAuthButton user={session?.user} />
         </div>

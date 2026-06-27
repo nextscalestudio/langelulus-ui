@@ -1,18 +1,37 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { collections } from '@/data/collections'
+import { fadeUp, staggerContainer } from '@/lib/animations'
+
+const MotionLink = motion(Link)
 
 export default function CollectionsSection() {
   return (
     <section className="bg-secondary py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-serif text-[36px] text-white text-center mb-10">
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="font-serif text-[36px] text-white text-center mb-10"
+        >
           Our Collections
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        </motion.h2>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 md:grid-cols-3 gap-6"
+        >
           {collections.map((collection) => (
-            <Link
+            <MotionLink
               key={collection.slug}
+              variants={fadeUp}
               href={`/products?collection=${collection.slug}`}
               className="group relative h-72 overflow-hidden block"
               aria-label={`Explore ${collection.name} collection`}
@@ -32,9 +51,9 @@ export default function CollectionsSection() {
                   Explore
                 </span>
               </div>
-            </Link>
+            </MotionLink>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -1,7 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import { testimonials } from '@/data/testimonials'
+import { fadeUp } from '@/lib/animations'
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -54,9 +56,15 @@ export default function Testimonials() {
   return (
     <section className="bg-secondary py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-serif text-[36px] text-white text-center mb-12">
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="font-serif text-[36px] text-white text-center mb-12"
+        >
           What Our Customers Say
-        </h2>
+        </motion.h2>
 
         <div
           ref={scrollRef}

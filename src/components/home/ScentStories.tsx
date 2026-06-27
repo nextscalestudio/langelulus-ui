@@ -1,18 +1,32 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { scentStories } from '@/data/scent-stories'
+import { fadeUp } from '@/lib/animations'
 
 export default function ScentStories() {
   return (
     <section className="bg-bg py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-serif text-[36px] text-secondary text-center mb-16">
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="font-serif text-[36px] text-secondary text-center mb-16"
+        >
           Scent Stories
-        </h2>
+        </motion.h2>
         <div className="flex flex-col gap-20">
           {scentStories.map((story, index) => (
-            <div
+            <motion.div
               key={story.productSlug}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
               className={`flex flex-col md:flex-row gap-10 items-center ${
                 index % 2 !== 0 ? 'md:flex-row-reverse' : ''
               }`}
@@ -39,7 +53,7 @@ export default function ScentStories() {
                   Read more
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

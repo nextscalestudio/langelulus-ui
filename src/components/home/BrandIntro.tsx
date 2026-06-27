@@ -1,4 +1,8 @@
+'use client'
+
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { fadeUp } from '@/lib/animations'
 
 export default function BrandIntro() {
   return (
@@ -12,7 +16,12 @@ export default function BrandIntro() {
             className="object-cover"
           />
         </div>
-        <div>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <p className="font-serif italic text-[28px] text-accent leading-snug mb-6">
             Scent is memory. We craft yours.
           </p>
@@ -25,7 +34,7 @@ export default function BrandIntro() {
             Each bottle is more than a scent — it&apos;s an invitation to discover who you are.
             Authentic. Refined. Unforgettable.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

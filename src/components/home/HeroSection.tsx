@@ -1,6 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import Button from '@/components/ui/Button'
+import { fadeIn } from '@/lib/animations'
 
 export default function HeroSection() {
   return (
@@ -14,12 +18,22 @@ export default function HeroSection() {
       />
       <div className="absolute inset-0 bg-black/40" />
       <div className="relative z-10 text-center px-4">
-        <h1 className="font-serif text-[36px] md:text-[64px] text-white leading-tight mb-4">
+        <motion.h1
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
+          className="font-serif text-[36px] md:text-[64px] text-white leading-tight mb-4"
+        >
           Discover Your Signature Scent
-        </h1>
-        <p className="font-serif text-[20px] text-white/80 mb-8">
+        </motion.h1>
+        <motion.p
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
+          className="font-serif text-[20px] text-white/80 mb-8"
+        >
           Luxury perfumes crafted for those who dare to be unforgettable
-        </p>
+        </motion.p>
         <Link href="/products">
           <Button variant="primary" size="lg">Shop Now</Button>
         </Link>

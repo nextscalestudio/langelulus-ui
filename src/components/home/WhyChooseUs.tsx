@@ -1,3 +1,8 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { fadeUp, staggerContainer } from '@/lib/animations'
+
 interface ReasonCard {
   icon: string
   title: string
@@ -31,12 +36,28 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-secondary py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-serif text-white text-center text-[32px] mb-12">
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="font-serif text-white text-center text-[32px] mb-12"
+        >
           Why Choose Us
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        </motion.h2>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+        >
           {reasons.map((reason) => (
-            <div key={reason.title} className="flex flex-col items-center text-center gap-4">
+            <motion.div
+              key={reason.title}
+              variants={fadeUp}
+              className="flex flex-col items-center text-center gap-4"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -56,9 +77,9 @@ export default function WhyChooseUs() {
               <p className="font-serif text-white text-[14px] opacity-80 leading-relaxed">
                 {reason.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

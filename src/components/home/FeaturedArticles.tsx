@@ -1,7 +1,11 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import blogPosts from '@/data/blog-posts'
 import Badge from '@/components/ui/Badge'
+import { fadeUp, staggerContainer } from '@/lib/animations'
 
 const recentPosts = [...blogPosts]
   .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
@@ -11,13 +15,25 @@ export default function FeaturedArticles() {
   return (
     <section className="bg-bg py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-serif text-[36px] text-secondary text-center mb-12">
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="font-serif text-[36px] text-secondary text-center mb-12"
+        >
           From the Journal
-        </h2>
+        </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+        >
           {recentPosts.map((post) => (
-            <article key={post.id} className="flex flex-col">
+            <motion.article key={post.id} variants={fadeUp} className="flex flex-col">
               <Link href={`/blog/${post.slug}`} className="block overflow-hidden mb-4">
                 <div className="relative aspect-video">
                   <Image
@@ -49,9 +65,9 @@ export default function FeaturedArticles() {
                   Read more
                 </Link>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
         <div className="flex justify-center">
           <Link

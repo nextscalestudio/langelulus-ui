@@ -116,6 +116,10 @@ export interface BlogPost {
   readTime: number;
 }
 
+export interface AdminBlogPost extends BlogPost {
+  status: 'published' | 'draft'
+}
+
 export interface NewReviewForm {
   author: string
   rating: number

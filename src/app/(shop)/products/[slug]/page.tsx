@@ -8,6 +8,7 @@ import ProductSpecsSection from '@/components/product/ProductSpecsSection'
 import ProductPolicies from '@/components/product/ProductPolicies'
 import ReviewSection from '@/components/product/ReviewSection'
 import RelatedProducts from '@/components/product/RelatedProducts'
+import ProductJsonLd from './_components/ProductJsonLd'
 
 interface PageProps {
   params: { slug: string }
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const product = getProductBySlug(params.slug)
   if (!product) return {}
   return {
-    title: `${product.name} | Parfum`,
+    title: product.name,
   }
 }
 
@@ -26,7 +27,9 @@ export default function ProductDetailPage({ params }: PageProps) {
   if (!product) notFound()
 
   return (
-    <main className="bg-bg py-10 px-4">
+    <>
+      <ProductJsonLd product={product} />
+      <main className="bg-bg py-10 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <ProductGallery images={product.images} name={product.name} />
@@ -43,5 +46,6 @@ export default function ProductDetailPage({ params }: PageProps) {
         <RelatedProducts current={product} />
       </div>
     </main>
+    </>
   )
 }
