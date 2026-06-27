@@ -1,12 +1,16 @@
 import Link from 'next/link'
+import { auth } from '@/auth'
 import CartIconButton from './CartIconButton'
+import NavbarAuthButton from './NavbarAuthButton'
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Products', href: '/products' },
 ]
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session = await auth()
+
   return (
     <nav
       aria-label="Main navigation"
@@ -36,12 +40,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4">
           <CartIconButton />
-          <button
-            aria-label="Sign in"
-            className="font-serif border border-secondary px-4 py-1.5 text-secondary hover:bg-secondary hover:text-bg transition-colors"
-          >
-            Sign In
-          </button>
+          <NavbarAuthButton user={session?.user} />
         </div>
       </div>
     </nav>

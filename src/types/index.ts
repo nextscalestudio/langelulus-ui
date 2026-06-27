@@ -135,6 +135,14 @@ export interface FilterState {
   sort: SortOption
 }
 
+// --- Policy ---
+
+export interface PolicySection {
+  id: string
+  title: string
+  content: string
+}
+
 // --- Coupons ---
 
 export interface Coupon {
