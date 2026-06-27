@@ -1,7 +1,8 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import type { Product } from '@/types'
 import products from '@/data/products'
 import ProductCard from '@/components/product/ProductCard'
@@ -11,6 +12,8 @@ import { fadeUp, staggerContainer } from '@/lib/animations'
 const featured: Product[] = products.filter((p) => p.isFeatured).slice(0, 6)
 
 export default function FeaturedProducts() {
+  const t = useTranslations('home.featuredProducts')
+
   return (
     <section className="bg-bg py-16 px-4">
       <div className="max-w-6xl mx-auto">
@@ -21,7 +24,7 @@ export default function FeaturedProducts() {
           viewport={{ once: true }}
           className="font-serif text-[36px] text-secondary text-center mb-2"
         >
-          Featured Fragrances
+          {t('heading')}
         </motion.h2>
         <motion.p
           variants={fadeUp}
@@ -30,7 +33,7 @@ export default function FeaturedProducts() {
           viewport={{ once: true }}
           className="font-serif text-[16px] text-accent text-center mb-10"
         >
-          Handpicked signatures for every occasion
+          {t('subheading')}
         </motion.p>
         <motion.div
           variants={staggerContainer}
@@ -47,7 +50,7 @@ export default function FeaturedProducts() {
         </motion.div>
         <div className="mt-10 flex justify-center">
           <Link href="/products">
-            <Button variant="ghost">View All</Button>
+            <Button variant="ghost">{t('viewAll')}</Button>
           </Link>
         </div>
       </div>

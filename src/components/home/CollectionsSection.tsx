@@ -1,14 +1,17 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import { collections } from '@/data/collections'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 
 const MotionLink = motion(Link)
 
 export default function CollectionsSection() {
+  const t = useTranslations('home.collections')
+
   return (
     <section className="bg-secondary py-16 px-4">
       <div className="max-w-6xl mx-auto">
@@ -19,7 +22,7 @@ export default function CollectionsSection() {
           viewport={{ once: true }}
           className="font-serif text-[36px] text-white text-center mb-10"
         >
-          Our Collections
+          {t('heading')}
         </motion.h2>
         <motion.div
           variants={staggerContainer}
@@ -48,7 +51,7 @@ export default function CollectionsSection() {
                   {collection.name}
                 </h3>
                 <span className="font-serif text-white underline text-sm group-hover:text-accent transition-colors">
-                  Explore
+                  {t('explore')}
                 </span>
               </div>
             </MotionLink>

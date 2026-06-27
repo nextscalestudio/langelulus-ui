@@ -1,12 +1,16 @@
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 
-const FOOTER_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
-  { label: 'Contact', href: '/contact' },
-]
+export default async function Footer() {
+  const tNav = await getTranslations('nav')
+  const tFooter = await getTranslations('footer')
 
-export default function Footer() {
+  const FOOTER_LINKS = [
+    { label: tNav('home'),     href: '/' },
+    { label: tNav('products'), href: '/products' },
+    { label: tNav('contact'),  href: '/contact' },
+  ]
+
   return (
     <footer className="bg-secondary text-white py-10 px-6">
       <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:items-center">
@@ -23,7 +27,7 @@ export default function Footer() {
           ))}
         </nav>
         <p className="font-serif text-[12px] text-white opacity-60 text-center">
-          © 2024 PARFUM. All rights reserved.
+          {tFooter('copyright')}
         </p>
       </div>
     </footer>

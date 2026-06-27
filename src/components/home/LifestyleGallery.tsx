@@ -1,12 +1,15 @@
 import Image from 'next/image'
+import { getTranslations } from 'next-intl/server'
 import { galleryImages } from '@/data/gallery'
 
-export default function LifestyleGallery() {
+export default async function LifestyleGallery() {
+  const t = await getTranslations('home.gallery')
+
   return (
     <section className="bg-bg py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="font-serif text-[36px] text-secondary text-center mb-12">
-          Life in Scent
+          {t('heading')}
         </h2>
 
         <div className="columns-2 md:columns-3 gap-4">

@@ -1,56 +1,58 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 
 interface NavChild {
-  label: string
+  labelKey: string
   href: string
 }
 
 interface NavItem {
-  label: string
+  labelKey: string
   href: string
   children?: NavChild[]
 }
 
-const NAV_LINKS: NavItem[] = [
-  { label: 'Trang chủ', href: '/' },
+const NAV_ITEMS: NavItem[] = [
+  { labelKey: 'home', href: '/' },
   {
-    label: 'Sản phẩm',
+    labelKey: 'products',
     href: '/products',
     children: [
-      { label: 'Tất cả sản phẩm', href: '/products' },
-      { label: 'Nam',              href: '/products?category=Nam' },
-      { label: 'Nữ',              href: '/products?category=Nữ' },
-      { label: 'Unisex',          href: '/products?category=Unisex' },
+      { labelKey: 'productsAll',    href: '/products' },
+      { labelKey: 'productsNam',    href: '/products?category=Nam' },
+      { labelKey: 'productsNu',     href: '/products?category=Nữ' },
+      { labelKey: 'productsUnisex', href: '/products?category=Unisex' },
     ],
   },
   {
-    label: 'Về chúng tôi',
+    labelKey: 'about',
     href: '/about',
     children: [
-      { label: 'Câu chuyện',           href: '/about/story' },
-      { label: 'Triết lý thương hiệu', href: '/about/philosophy' },
-      { label: 'Nhà sáng tác hương',   href: '/about/perfumers' },
-      { label: 'Chứng nhận',           href: '/about/certifications' },
-      { label: 'Catalogue',            href: '/about/catalogue' },
+      { labelKey: 'aboutStory',      href: '/about/story' },
+      { labelKey: 'aboutPhilosophy', href: '/about/philosophy' },
+      { labelKey: 'aboutPerfumers',  href: '/about/perfumers' },
+      { labelKey: 'aboutCerts',      href: '/about/certifications' },
+      { labelKey: 'aboutCatalogue',  href: '/about/catalogue' },
     ],
   },
   {
-    label: 'Blog',
+    labelKey: 'blog',
     href: '/blog',
     children: [
-      { label: 'Tất cả bài viết', href: '/blog' },
-      { label: 'Hướng dẫn hương', href: '/blog?category=Fragrance+Guide' },
-      { label: 'Phong cách sống', href: '/blog?category=Lifestyle' },
+      { labelKey: 'blogAll',       href: '/blog' },
+      { labelKey: 'blogGuide',     href: '/blog?category=Fragrance+Guide' },
+      { labelKey: 'blogLifestyle', href: '/blog?category=Lifestyle' },
     ],
   },
-  { label: 'Liên hệ',   href: '/contact' },
-  { label: 'Chính sách', href: '/policy' },
+  { labelKey: 'contact', href: '/contact' },
+  { labelKey: 'policy',  href: '/policy' },
 ]
 
 export default function NavLinks() {
+  const t = useTranslations('nav')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const navRef = useRef<HTMLUListElement>(null)
 
@@ -76,7 +78,7 @@ export default function NavLinks() {
       ref={navRef}
       className="hidden md:flex items-center gap-8 list-none m-0 p-0"
     >
-      {NAV_LINKS.map((item, i) => (
+      {NAV_ITEMS.map((item, i) => (
         <li
           key={item.href}
           className="relative"
@@ -87,7 +89,7 @@ export default function NavLinks() {
             href={item.href}
             className="font-serif text-secondary hover:text-accent transition-colors flex items-center gap-1"
           >
-            {item.label}
+            {t(item.labelKey)}
             {item.children && (
               <svg
                 aria-hidden="true"
@@ -122,7 +124,7 @@ export default function NavLinks() {
                     className="block px-4 py-2.5 font-serif text-sm text-secondary hover:text-accent hover:bg-gray-50 transition-colors"
                     onClick={() => setOpenIndex(null)}
                   >
-                    {child.label}
+                    {t(child.labelKey)}
                   </Link>
                 ))}
               </div>

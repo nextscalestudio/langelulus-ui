@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "home":            "Home",
+    "products":        "Products",
+    "productsAll":     "All Products",
+    "productsNam":     "Men",
+    "productsNu":      "Women",
+    "productsUnisex":  "Unisex",
+    "about":           "About Us",
+    "aboutStory":      "Our Story",
+    "aboutPhilosophy": "Brand Philosophy",
+    "aboutPerfumers":  "Our Perfumers",
+    "aboutCerts":      "Certifications",
+    "aboutCatalogue":  "Catalogue",
+    "blog":            "Blog",
+    "blogAll":         "All Articles",
+    "blogGuide":       "Fragrance Guide",
+    "blogLifestyle":   "Lifestyle",
+    "contact":         "Contact",
+    "policy":          "Policy"
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "vi":    "VI",
+    "en":    "EN"
+  },
+  "meta": {
+    "siteName":              "Parfum",
+    "homeTitle":             "Home | Parfum",
+    "homeDescription":       "Premium perfumes L'ANGELULUS — fragrances that tell your story.",
+    "productsTitle":         "Products | Parfum",
+    "aboutTitle":            "About Us | Parfum",
+    "aboutStoryTitle":       "Our Story | Parfum",
+    "aboutPhilosophyTitle":  "Brand Philosophy | Parfum",
+    "aboutPerfumersTitle":   "Our Perfumers | Parfum",
+    "aboutCertsTitle":       "Certifications | Parfum",
+    "aboutCatalogueTitle":   "Catalogue | Parfum",
+    "blogTitle":             "Blog | Parfum",
+    "contactTitle":          "Contact | Parfum",
+    "policyTitle":           "Policy | Parfum"
+  },
+  "about": {
+    "overviewHeading":    "About Us",
+    "storyHeading":       "Our Story",
+    "philosophyHeading":  "Brand Philosophy",
+    "perfumersHeading":   "Our Perfumers",
+    "certsHeading":       "Certifications",
+    "catalogueHeading":   "Catalogue",
+    "catalogueCtaLabel":  "Download Catalogue",
+    "catalogueDescr":     "Explore L'ANGELULUS's unique perfume collection."
+  },
+  "home": {
+    "hero": {
+      "heading":    "Discover Your Signature Scent",
+      "subheading": "Luxury perfumes crafted for those who dare to be unforgettable",
+      "cta":        "Shop Now"
+    },
+    "brandIntro": {
+      "tagline": "Scent is memory. We craft yours.",
+      "body1":   "At Parfum, we believe every fragrance tells a story. Founded by passionate perfumers who travelled the world sourcing the finest ingredients, our collection is a love letter to the art of fine fragrance.",
+      "body2":   "Each bottle is more than a scent — it's an invitation to discover who you are. Authentic. Refined. Unforgettable."
+    },
+    "whyChooseUs": {
+      "heading": "Why Choose Us",
+      "authentic": {
+        "title": "Authentic Fragrances",
+        "desc":  "100% genuine, imported directly from the source"
+      },
+      "shipping": {
+        "title": "Free Shipping",
+        "desc":  "On all orders over 500.000 ₫"
+      },
+      "returns": {
+        "title": "Easy Returns",
+        "desc":  "7-day hassle-free return policy"
+      },
+      "expert": {
+        "title": "Expert Advice",
+        "desc":  "Personal scent consultation with our specialists"
+      }
+    },
+    "featuredProducts": {
+      "heading":    "Featured Fragrances",
+      "subheading": "Handpicked signatures for every occasion",
+      "viewAll":    "View All"
+    },
+    "collections": {
+      "heading": "Our Collections",
+      "explore": "Explore"
+    },
+    "scentStories": {
+      "heading":  "Scent Stories",
+      "readMore": "Read more"
+    },
+    "testimonials": {
+      "heading": "What Our Customers Say"
+    },
+    "featuredArticles": {
+      "heading":  "From the Journal",
+      "readMore": "Read more",
+      "viewAll":  "View All Articles"
+    },
+    "gallery": {
+      "heading": "Life in Scent"
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 PARFUM. All rights reserved."
+  }
+}

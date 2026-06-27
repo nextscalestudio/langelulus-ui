@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import { testimonials } from '@/data/testimonials'
 import { fadeUp } from '@/lib/animations'
 
@@ -22,6 +23,7 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function Testimonials() {
+  const t = useTranslations('home.testimonials')
   const scrollRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -63,7 +65,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="font-serif text-[36px] text-white text-center mb-12"
         >
-          What Our Customers Say
+          {t('heading')}
         </motion.h2>
 
         <div

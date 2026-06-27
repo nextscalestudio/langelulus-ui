@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/i18n/navigation'
 import type { Product } from '@/types'
 import Button from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'

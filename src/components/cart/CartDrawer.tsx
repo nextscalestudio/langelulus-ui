@@ -1,8 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { Link, useRouter } from '@/i18n/navigation'
 import { useUIStore } from '@/lib/store/ui-store'
 import { useCartStore } from '@/lib/store/cart-store'
 import CartDrawerItem from './CartDrawerItem'

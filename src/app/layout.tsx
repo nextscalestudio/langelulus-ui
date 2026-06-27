@@ -1,22 +1,9 @@
 import type { Metadata } from 'next'
+import { cookies } from 'next/headers'
 import './globals.css'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
-import { ToastProvider } from '@/components/ui/Toast'
-import CartDrawer from '@/components/cart/CartDrawer'
-import PageTransition from '@/components/layout/PageTransition'
-import SearchModal from '@/components/layout/SearchModal'
 import GoogleAnalytics from '@/components/ui/GoogleAnalytics'
-import SocialWidget from '@/components/ui/SocialWidget'
 
 export const metadata: Metadata = {
-  title: { default: 'Parfum', template: '%s | Parfum' },
-  description: 'Luxury perfumes — discover your signature scent.',
-  openGraph: {
-    type: 'website',
-    locale: 'vi_VN',
-    siteName: 'Parfum',
-  },
   robots: { index: true, follow: true },
   ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
     ? {
@@ -27,23 +14,19 @@ export const metadata: Metadata = {
     : {}),
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const cookieStore = await cookies()
+  const lang = cookieStore.get('NEXT_LOCALE')?.value ?? 'vi'
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body className="font-serif">
         <GoogleAnalytics />
-        <ToastProvider>
-          <Navbar />
-          <PageTransition>{children}</PageTransition>
-          <Footer />
-          <CartDrawer />
-          <SearchModal />
-          <SocialWidget />
-        </ToastProvider>
+        {children}
       </body>
     </html>
   )

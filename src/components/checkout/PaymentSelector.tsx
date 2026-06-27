@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/i18n/navigation'
 import Button from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import { useCartStore } from '@/lib/store/cart-store'

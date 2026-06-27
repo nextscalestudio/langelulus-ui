@@ -1,12 +1,15 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import { scentStories } from '@/data/scent-stories'
 import { fadeUp } from '@/lib/animations'
 
 export default function ScentStories() {
+  const t = useTranslations('home.scentStories')
+
   return (
     <section className="bg-bg py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -17,7 +20,7 @@ export default function ScentStories() {
           viewport={{ once: true }}
           className="font-serif text-[36px] text-secondary text-center mb-16"
         >
-          Scent Stories
+          {t('heading')}
         </motion.h2>
         <div className="flex flex-col gap-20">
           {scentStories.map((story, index) => (
@@ -50,7 +53,7 @@ export default function ScentStories() {
                   href={`/products/${story.productSlug}`}
                   className="font-serif text-accent underline hover:opacity-70 transition-opacity"
                 >
-                  Read more
+                  {t('readMore')}
                 </Link>
               </div>
             </motion.div>

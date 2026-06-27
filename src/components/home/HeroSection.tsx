@@ -1,12 +1,15 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import Button from '@/components/ui/Button'
 import { fadeIn } from '@/lib/animations'
 
 export default function HeroSection() {
+  const t = useTranslations('home.hero')
+
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       <Image
@@ -24,7 +27,7 @@ export default function HeroSection() {
           animate="visible"
           className="font-serif text-[36px] md:text-[64px] text-white leading-tight mb-4"
         >
-          Discover Your Signature Scent
+          {t('heading')}
         </motion.h1>
         <motion.p
           variants={fadeIn}
@@ -32,10 +35,10 @@ export default function HeroSection() {
           animate="visible"
           className="font-serif text-[20px] text-white/80 mb-8"
         >
-          Luxury perfumes crafted for those who dare to be unforgettable
+          {t('subheading')}
         </motion.p>
         <Link href="/products">
-          <Button variant="primary" size="lg">Shop Now</Button>
+          <Button variant="primary" size="lg">{t('cta')}</Button>
         </Link>
       </div>
     </section>

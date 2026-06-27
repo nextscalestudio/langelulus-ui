@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/i18n/navigation'
 import { useUIStore } from '@/lib/store/ui-store'
 import products from '@/data/products'
 import blogPosts from '@/data/blog-posts'

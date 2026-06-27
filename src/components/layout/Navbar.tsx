@@ -1,9 +1,10 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { auth } from '@/auth'
 import CartIconButton from './CartIconButton'
 import NavbarAuthButton from './NavbarAuthButton'
 import SearchIconButton from './SearchIconButton'
 import NavLinks from './NavLinks'
+import LocaleSwitcher from './LocaleSwitcher'
 
 export default async function Navbar() {
   const session = await auth()
@@ -25,6 +26,7 @@ export default async function Navbar() {
         <NavLinks />
 
         <div className="flex items-center gap-4">
+          <LocaleSwitcher />
           <SearchIconButton />
           <CartIconButton />
           <NavbarAuthButton user={session?.user} />

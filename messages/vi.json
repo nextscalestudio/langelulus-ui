@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "home":            "Trang chủ",
+    "products":        "Sản phẩm",
+    "productsAll":     "Tất cả sản phẩm",
+    "productsNam":     "Nam",
+    "productsNu":      "Nữ",
+    "productsUnisex":  "Unisex",
+    "about":           "Về chúng tôi",
+    "aboutStory":      "Câu chuyện",
+    "aboutPhilosophy": "Triết lý thương hiệu",
+    "aboutPerfumers":  "Nhà sáng tác hương",
+    "aboutCerts":      "Chứng nhận",
+    "aboutCatalogue":  "Catalogue",
+    "blog":            "Blog",
+    "blogAll":         "Tất cả bài viết",
+    "blogGuide":       "Hướng dẫn nước hoa",
+    "blogLifestyle":   "Phong cách sống",
+    "contact":         "Liên hệ",
+    "policy":          "Chính sách"
+  },
+  "localeSwitcher": {
+    "label": "Ngôn ngữ",
+    "vi":    "VI",
+    "en":    "EN"
+  },
+  "meta": {
+    "siteName":              "Parfum",
+    "homeTitle":             "Trang chủ | Parfum",
+    "homeDescription":       "Nước hoa cao cấp L'ANGELULUS — hương thơm kể câu chuyện của bạn.",
+    "productsTitle":         "Sản phẩm | Parfum",
+    "aboutTitle":            "Về chúng tôi | Parfum",
+    "aboutStoryTitle":       "Câu chuyện | Parfum",
+    "aboutPhilosophyTitle":  "Triết lý thương hiệu | Parfum",
+    "aboutPerfumersTitle":   "Nhà sáng tác hương | Parfum",
+    "aboutCertsTitle":       "Chứng nhận | Parfum",
+    "aboutCatalogueTitle":   "Catalogue | Parfum",
+    "blogTitle":             "Blog | Parfum",
+    "contactTitle":          "Liên hệ | Parfum",
+    "policyTitle":           "Chính sách | Parfum"
+  },
+  "about": {
+    "overviewHeading":    "Về chúng tôi",
+    "storyHeading":       "Câu chuyện",
+    "philosophyHeading":  "Triết lý thương hiệu",
+    "perfumersHeading":   "Nhà sáng tác hương",
+    "certsHeading":       "Chứng nhận",
+    "catalogueHeading":   "Catalogue",
+    "catalogueCtaLabel":  "Tải xuống Catalogue",
+    "catalogueDescr":     "Khám phá bộ sưu tập nước hoa độc đáo của L'ANGELULUS."
+  },
+  "home": {
+    "hero": {
+      "heading":    "Khám Phá Hương Thơm Của Bạn",
+      "subheading": "Nước hoa cao cấp dành cho những người dám sống đáng nhớ",
+      "cta":        "Mua Ngay"
+    },
+    "brandIntro": {
+      "tagline": "Hương thơm là ký ức. Chúng tôi tạo nên ký ức của bạn.",
+      "body1":   "Tại Parfum, chúng tôi tin rằng mỗi hương thơm đều kể một câu chuyện. Được sáng lập bởi những người đam mê nước hoa đã đi khắp thế giới để tìm kiếm những nguyên liệu tốt nhất, bộ sưu tập của chúng tôi là bức thư tình gửi đến nghệ thuật nước hoa tinh tế.",
+      "body2":   "Mỗi chai không chỉ là một mùi hương — đó là lời mời khám phá con người thật của bạn. Chân thực. Tinh tế. Không thể quên."
+    },
+    "whyChooseUs": {
+      "heading": "Tại Sao Chọn Chúng Tôi",
+      "authentic": {
+        "title": "Hương Thơm Chính Hãng",
+        "desc":  "100% chính hãng, nhập khẩu trực tiếp từ nguồn gốc"
+      },
+      "shipping": {
+        "title": "Miễn Phí Vận Chuyển",
+        "desc":  "Cho tất cả đơn hàng trên 500.000 ₫"
+      },
+      "returns": {
+        "title": "Đổi Trả Dễ Dàng",
+        "desc":  "Chính sách đổi trả không rắc rối trong 7 ngày"
+      },
+      "expert": {
+        "title": "Tư Vấn Chuyên Nghiệp",
+        "desc":  "Tư vấn hương thơm cá nhân với các chuyên gia của chúng tôi"
+      }
+    },
+    "featuredProducts": {
+      "heading":    "Hương Thơm Nổi Bật",
+      "subheading": "Những lựa chọn tinh tế cho mọi dịp",
+      "viewAll":    "Xem Tất Cả"
+    },
+    "collections": {
+      "heading": "Bộ Sưu Tập Của Chúng Tôi",
+      "explore": "Khám Phá"
+    },
+    "scentStories": {
+      "heading":  "Câu Chuyện Hương Thơm",
+      "readMore": "Đọc thêm"
+    },
+    "testimonials": {
+      "heading": "Khách Hàng Nói Gì"
+    },
+    "featuredArticles": {
+      "heading":  "Từ Nhật Ký Thương Hiệu",
+      "readMore": "Đọc thêm",
+      "viewAll":  "Xem Tất Cả Bài Viết"
+    },
+    "gallery": {
+      "heading": "Cuộc Sống Trong Hương Thơm"
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 PARFUM. Tất cả quyền được bảo lưu."
+  }
+}

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import type { Product } from '@/types'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'

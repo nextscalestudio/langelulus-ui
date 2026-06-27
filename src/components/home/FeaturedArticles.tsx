@@ -1,8 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import blogPosts from '@/data/blog-posts'
 import Badge from '@/components/ui/Badge'
 import { fadeUp, staggerContainer } from '@/lib/animations'
@@ -12,6 +13,8 @@ const recentPosts = [...blogPosts]
   .slice(0, 3)
 
 export default function FeaturedArticles() {
+  const t = useTranslations('home.featuredArticles')
+
   return (
     <section className="bg-bg py-16 px-4">
       <div className="max-w-6xl mx-auto">
@@ -22,7 +25,7 @@ export default function FeaturedArticles() {
           viewport={{ once: true }}
           className="font-serif text-[36px] text-secondary text-center mb-12"
         >
-          From the Journal
+          {t('heading')}
         </motion.h2>
 
         <motion.div
@@ -62,7 +65,7 @@ export default function FeaturedArticles() {
                   href={`/blog/${post.slug}`}
                   className="font-serif text-accent underline hover:opacity-70 transition-opacity self-start"
                 >
-                  Read more
+                  {t('readMore')}
                 </Link>
               </div>
             </motion.article>
@@ -74,7 +77,7 @@ export default function FeaturedArticles() {
             href="/blog"
             className="inline-flex items-center justify-center font-serif px-5 py-2.5 text-base border border-secondary text-secondary hover:bg-secondary hover:text-white transition-colors"
           >
-            View All Articles
+            {t('viewAll')}
           </Link>
         </div>
       </div>
