@@ -55,6 +55,8 @@ export default function NavLinks() {
   const t = useTranslations('nav')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const navRef = useRef<HTMLUListElement>(null)
+  
+  console.log("Test locale:", t(NAV_ITEMS[0].labelKey));
 
   useEffect(() => {
     function handleOutsideClick(e: MouseEvent) {
