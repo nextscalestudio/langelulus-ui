@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { ProductSpecs, UsageGuide } from '@/types'
+import { useTranslations } from 'next-intl'
 
 interface ProductSpecsSectionProps {
   specs: ProductSpecs
@@ -40,16 +41,17 @@ function SubHeading({ label }: { label: string }) {
 }
 
 export default function ProductSpecsSection({ specs, usageGuide }: ProductSpecsSectionProps) {
+  const t = useTranslations('product')
   const [specsOpen, setSpecsOpen] = useState(false)
   const [usageOpen, setUsageOpen] = useState(false)
 
   const specRows: { label: string; value: string }[] = [
-    { label: 'Volume', value: specs.volume },
-    { label: 'Concentration', value: specs.concentration },
-    { label: 'Origin', value: specs.origin },
-    { label: 'Longevity', value: specs.longevity },
-    { label: 'Sillage', value: specs.sillage },
-    { label: 'Gender', value: specs.gender },
+    { label: t('specs.volume'), value: specs.volume },
+    { label: t('specs.concentration'), value: specs.concentration },
+    { label: t('specs.origin'), value: specs.origin },
+    { label: t('specs.longevity'), value: specs.longevity },
+    { label: t('specs.sillage'), value: specs.sillage },
+    { label: t('specs.gender'), value: specs.gender },
   ]
 
   return (
@@ -57,7 +59,7 @@ export default function ProductSpecsSection({ specs, usageGuide }: ProductSpecsS
       {/* Product Specifications accordion */}
       <div className="border-t border-b border-gray-200">
         <AccordionHeader
-          title="Product Specifications"
+          title={t('specs.heading')}
           open={specsOpen}
           onToggle={() => setSpecsOpen((o) => !o)}
         />
@@ -80,27 +82,27 @@ export default function ProductSpecsSection({ specs, usageGuide }: ProductSpecsS
       {/* Usage Guide accordion */}
       <div className="border-b border-gray-200">
         <AccordionHeader
-          title="Usage Guide"
+          title={t('usageGuide.heading')}
           open={usageOpen}
           onToggle={() => setUsageOpen((o) => !o)}
         />
         {usageOpen && (
           <div className="pb-6">
-            <SubHeading label="Spray Positions" />
+            <SubHeading label={t('usageGuide.sprayPositions')} />
             <ol className="list-decimal list-inside font-serif text-[15px] text-secondary leading-[1.7] space-y-1 pl-1">
               {usageGuide.sprayPositions.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ol>
 
-            <SubHeading label="How to Make Scent Last" />
+            <SubHeading label={t('usageGuide.longevityTips')} />
             <ol className="list-decimal list-inside font-serif text-[15px] text-secondary leading-[1.7] space-y-1 pl-1">
               {usageGuide.longevityTips.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ol>
 
-            <SubHeading label="Storage Tips" />
+            <SubHeading label={t('usageGuide.storageTips')} />
             <ol className="list-decimal list-inside font-serif text-[15px] text-secondary leading-[1.7] space-y-1 pl-1">
               {usageGuide.storageTips.map((item) => (
                 <li key={item}>{item}</li>

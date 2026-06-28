@@ -1,6 +1,7 @@
 import products from '@/data/products'
 import ProductCard from './ProductCard'
 import type { Product } from '@/types'
+import { getTranslations } from 'next-intl/server'
 
 interface RelatedProductsProps {
   current: Product
@@ -27,7 +28,9 @@ function Row({ title, items }: RowProps) {
   )
 }
 
-export default function RelatedProducts({ current }: RelatedProductsProps) {
+export default async function RelatedProducts({ current }: RelatedProductsProps) {
+  const t = await getTranslations('product.related')
+
   const byFamily = products
     .filter((p) => p.scentProfile.family === current.scentProfile.family && p.id !== current.id)
     .slice(0, 6)
@@ -46,9 +49,9 @@ export default function RelatedProducts({ current }: RelatedProductsProps) {
 
   return (
     <section className="bg-white mt-12 flex flex-col gap-10">
-      <Row title="Same Fragrance Family" items={byFamily} />
-      <Row title="Same Collection" items={byCollection} />
-      <Row title="Frequently Bought Together" items={frequentlyBought} />
+      <Row title={t('sameFamily')} items={byFamily} />
+      <Row title={t('sameCollection')} items={byCollection} />
+      <Row title={t('frequentlyBought')} items={frequentlyBought} />
     </section>
   )
 }

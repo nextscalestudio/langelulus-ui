@@ -2,6 +2,7 @@
 
 import { useRef, useState, type ChangeEvent, type FormEvent } from 'react'
 import type { NewReviewForm } from '@/types'
+import { useTranslations } from 'next-intl'
 
 const STAR_PATH =
   'M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'
@@ -12,6 +13,7 @@ interface ReviewFormProps {
 }
 
 export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
+  const t = useTranslations('product.reviewForm')
   const [author, setAuthor] = useState('')
   const [rating, setRating] = useState(0)
   const [hovered, setHovered] = useState(0)
@@ -46,7 +48,7 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div>
-        <label className="font-serif text-sm text-secondary block mb-1">Rating *</label>
+        <label className="font-serif text-sm text-secondary block mb-1">{t('rating')}</label>
         <div className="flex gap-1" role="group" aria-label="Select rating">
           {[1, 2, 3, 4, 5].map((star) => (
             <button
@@ -72,7 +74,7 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
 
       <div>
         <label htmlFor="review-author" className="font-serif text-sm text-secondary block mb-1">
-          Your Name *
+          {t('name')}
         </label>
         <input
           id="review-author"
@@ -81,13 +83,13 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
           onChange={(e) => setAuthor(e.target.value)}
           required
           className="w-full border border-[#e5e7eb] font-serif text-sm text-secondary px-3 py-2 focus:outline-none focus:border-secondary"
-          placeholder="Enter your name"
+          placeholder={t('namePlaceholder')}
         />
       </div>
 
       <div>
         <label htmlFor="review-comment" className="font-serif text-sm text-secondary block mb-1">
-          Review *
+          {t('reviewLabel')}
         </label>
         <textarea
           id="review-comment"
@@ -96,12 +98,12 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
           required
           rows={4}
           className="w-full border border-[#e5e7eb] font-serif text-sm text-secondary px-3 py-2 focus:outline-none focus:border-secondary resize-none"
-          placeholder="Share your experience with this fragrance..."
+          placeholder={t('reviewPlaceholder')}
         />
       </div>
 
       <div>
-        <label className="font-serif text-sm text-secondary block mb-1">Photos (optional)</label>
+        <label className="font-serif text-sm text-secondary block mb-1">{t('photos')}</label>
         <input
           ref={fileRef}
           type="file"
@@ -116,7 +118,7 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
           onClick={() => fileRef.current?.click()}
           className="border border-[#e5e7eb] font-serif text-sm text-secondary px-4 py-1.5 hover:border-secondary transition-colors"
         >
-          Add Photos
+          {t('addPhotos')}
         </button>
         {images.length > 0 && (
           <div className="flex gap-2 mt-2 flex-wrap">
@@ -147,14 +149,14 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
           onClick={onClose}
           className="font-serif text-sm text-secondary px-4 py-2 border border-[#e5e7eb] hover:border-secondary transition-colors"
         >
-          Cancel
+          {t('cancel')}
         </button>
         <button
           type="submit"
           disabled={!isValid}
           className="font-serif text-sm bg-secondary text-white px-6 py-2 hover:bg-accent transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          Submit Review
+          {t('submit')}
         </button>
       </div>
     </form>

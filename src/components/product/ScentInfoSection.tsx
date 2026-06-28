@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { ScentProfile } from '@/types'
+import { useTranslations } from 'next-intl'
 
 interface ScentInfoSectionProps {
   scentProfile: ScentProfile
@@ -25,6 +26,7 @@ function Field({ label, value }: { label: string; value: string }) {
 }
 
 export default function ScentInfoSection({ scentProfile }: ScentInfoSectionProps) {
+  const t = useTranslations('product.scentInfo')
   const [open, setOpen] = useState(false)
 
   return (
@@ -34,7 +36,7 @@ export default function ScentInfoSection({ scentProfile }: ScentInfoSectionProps
         className="flex w-full items-center justify-between py-4 text-left"
         aria-expanded={open}
       >
-        <span className="font-serif font-bold text-[18px] text-secondary">Scent Information</span>
+        <span className="font-serif font-bold text-[18px] text-secondary">{t('heading')}</span>
         <span className="font-serif text-[18px] text-secondary" aria-hidden="true">
           {open ? '−' : '+'}
         </span>
@@ -42,23 +44,23 @@ export default function ScentInfoSection({ scentProfile }: ScentInfoSectionProps
 
       {open && (
         <div className="pb-6 flex flex-col gap-6">
-          <Field label="Fragrance Family" value={scentProfile.family} />
+          <Field label={t('fragranceFamily')} value={scentProfile.family} />
 
           <div>
             <p className="font-serif uppercase text-[12px] text-gray-500 tracking-wide mb-3">
-              Fragrance Notes
+              {t('fragranceNotes')}
             </p>
             <div className="grid grid-cols-3 gap-4">
               {(
                 [
-                  { key: 'Top', notes: scentProfile.notes.top },
-                  { key: 'Middle', notes: scentProfile.notes.middle },
-                  { key: 'Base', notes: scentProfile.notes.base },
-                ] as const
+                  { key: 'top' as const, notes: scentProfile.notes.top },
+                  { key: 'middle' as const, notes: scentProfile.notes.middle },
+                  { key: 'base' as const, notes: scentProfile.notes.base },
+                ]
               ).map(({ key, notes }) => (
                 <div key={key}>
                   <p className="font-serif uppercase text-[12px] text-gray-500 tracking-wide mb-2">
-                    {key}
+                    {t(key)}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {notes.map((note) => (
@@ -70,11 +72,11 @@ export default function ScentInfoSection({ scentProfile }: ScentInfoSectionProps
             </div>
           </div>
 
-          <Field label="Style" value={scentProfile.style} />
+          <Field label={t('style')} value={scentProfile.style} />
 
           <div>
             <p className="font-serif uppercase text-[12px] text-gray-500 tracking-wide mb-2">
-              Occasion
+              {t('occasion')}
             </p>
             <div className="flex flex-wrap gap-1.5">
               {scentProfile.occasion.map((occ) => (
@@ -83,9 +85,9 @@ export default function ScentInfoSection({ scentProfile }: ScentInfoSectionProps
             </div>
           </div>
 
-          <Field label="Emotional Description" value={scentProfile.emotionalDescription} />
-          <Field label="Target Audience" value={scentProfile.targetAudience} />
-          <Field label="Feeling" value={scentProfile.feeling} />
+          <Field label={t('emotionalDescription')} value={scentProfile.emotionalDescription} />
+          <Field label={t('targetAudience')} value={scentProfile.targetAudience} />
+          <Field label={t('feeling')} value={scentProfile.feeling} />
         </div>
       )}
     </div>

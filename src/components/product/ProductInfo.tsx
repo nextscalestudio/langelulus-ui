@@ -6,6 +6,7 @@ import type { Product } from '@/types'
 import Button from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import { useCartStore } from '@/lib/store/cart-store'
+import { useTranslations } from 'next-intl'
 
 interface ProductInfoProps {
   product: Product
@@ -15,6 +16,7 @@ const formatPrice = (price: number) =>
   new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
 
 export default function ProductInfo({ product }: ProductInfoProps) {
+  const t = useTranslations('product')
   const router = useRouter()
   const toast = useToast()
   const addItem = useCartStore((state) => state.addItem)
@@ -43,7 +45,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
   function handleAddToCart() {
     addItem(product, selectedVolume, quantity)
-    toast.success('Added to cart')
+    toast.success(t('addedToCart'))
   }
 
   function handleBuyNow() {
@@ -60,7 +62,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       <p className="font-serif font-bold text-[1.75rem] text-accent">{formatPrice(product.price)}</p>
 
       <div className="flex flex-col gap-2">
-        <span className="text-sm font-medium text-secondary">Volume</span>
+        <span className="text-sm font-medium text-secondary">{t('volume')}</span>
         <div className="flex flex-wrap gap-2">
           {product.availableVolumes.map((vol) => (
             <button
@@ -79,7 +81,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <span className="text-sm font-medium text-secondary">Quantity</span>
+        <span className="text-sm font-medium text-secondary">{t('quantity')}</span>
         <div className="flex items-center border border-secondary w-fit">
           <button
             onClick={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -103,17 +105,17 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
       <div className="flex flex-col gap-3">
         <Button variant="primary" className="w-full justify-center" onClick={handleAddToCart}>
-          Add to Cart
+          {t('addToCart')}
         </Button>
         <Button variant="secondary" className="w-full justify-center" onClick={handleBuyNow}>
-          Buy Now
+          {t('buyNow')}
         </Button>
       </div>
 
       <button
         onClick={toggleWishlist}
         className="flex items-center gap-2 text-sm font-serif text-secondary hover:text-accent transition-colors w-fit"
-        aria-label={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+        aria-label={wishlisted ? t('removeFromWishlist') : t('addToWishlist')}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +132,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
             d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
           />
         </svg>
-        {wishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
+        {wishlisted ? t('removeFromWishlist') : t('addToWishlist')}
       </button>
     </div>
   )

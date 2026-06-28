@@ -3,6 +3,7 @@
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
 import type { Product } from '@/types'
+import { useTranslations } from 'next-intl'
 
 interface ProductFiltersProps {
   products: Product[]
@@ -12,6 +13,7 @@ const formatVND = (n: number) =>
   new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(n)
 
 export default function ProductFilters({ products }: ProductFiltersProps) {
+  const t = useTranslations('product.filters')
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -77,7 +79,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
 
   return (
     <div className="space-y-6">
-      <Section title="Category">
+      <Section title={t('category')}>
         {categories.map(cat => (
           <CheckRow
             key={cat}
@@ -88,7 +90,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
         ))}
       </Section>
 
-      <Section title="Collection">
+      <Section title={t('collection')}>
         {collections.map(col => (
           <CheckRow
             key={col}
@@ -99,7 +101,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
         ))}
       </Section>
 
-      <Section title="Fragrance Family">
+      <Section title={t('fragranceFamily')}>
         {families.map(fam => (
           <CheckRow
             key={fam}
@@ -110,7 +112,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
         ))}
       </Section>
 
-      <Section title="Price Range">
+      <Section title={t('priceRange')}>
         <div className="space-y-3">
           {/* Dual-handle slider */}
           <div className="relative h-6 select-none">

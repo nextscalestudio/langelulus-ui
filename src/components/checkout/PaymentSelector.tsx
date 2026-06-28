@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import { useCartStore } from '@/lib/store/cart-store'
 import type { Order, RecipientInfo } from '@/types'
+import { useTranslations } from 'next-intl'
 
 interface PaymentSelectorProps {
   recipientInfo: RecipientInfo
@@ -22,6 +23,7 @@ const BANK_DETAILS = {
 }
 
 export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelectorProps) {
+  const t = useTranslations('checkout')
   const [method, setMethod] = useState<PaymentMethod>('cod')
   const [loading, setLoading] = useState(false)
   const router = useRouter()
@@ -40,9 +42,9 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
   const handleCopyAccount = async () => {
     try {
       await navigator.clipboard.writeText(BANK_DETAILS.accountNumber)
-      toast.success('Copied!')
+      toast.success(t('copied'))
     } catch {
-      toast.error('Could not copy to clipboard.')
+      toast.error(t('copyFailed'))
     }
   }
 
@@ -78,7 +80,7 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
       clearCart()
       router.push(`/checkout/confirmation?orderId=${orderId}`)
     } catch {
-      toast.error('Order failed. Please try again.')
+      toast.error(t('orderFailed'))
     } finally {
       setLoading(false)
     }
@@ -86,12 +88,12 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
 
   return (
     <div>
-      <h2 className="font-serif text-2xl text-secondary mb-6">Payment Method</h2>
+      <h2 className="font-serif text-2xl text-secondary mb-6">{t('paymentMethod')}</h2>
 
       <div className="space-y-3 mb-8">
         <PaymentCard
           id="cod"
-          label="Cash on Delivery"
+          label={t('cod')}
           selected={method === 'cod'}
           onSelect={() => setMethod('cod')}
           icon={<TruckIcon />}
@@ -99,7 +101,7 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
 
         <PaymentCard
           id="bank_transfer"
-          label="Bank Transfer"
+          label={t('bankTransfer')}
           selected={method === 'bank_transfer'}
           onSelect={() => setMethod('bank_transfer')}
           icon={<BankIcon />}
@@ -108,22 +110,22 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
 
       {method === 'bank_transfer' && (
         <div className="bg-[#f9f9f9] border border-gray-200 p-5 mb-8">
-          <p className="font-serif text-sm text-secondary mb-3 font-semibold">Bank Account Details</p>
+          <p className="font-serif text-sm text-secondary mb-3 font-semibold">{t('bankDetails')}</p>
           <dl className="space-y-1.5 font-mono text-sm text-secondary">
             <div className="flex gap-4">
-              <dt className="w-36 text-gray-500">Bank</dt>
+              <dt className="w-36 text-gray-500">{t('bank')}</dt>
               <dd>{BANK_DETAILS.bank}</dd>
             </div>
             <div className="flex gap-4">
-              <dt className="w-36 text-gray-500">Account Number</dt>
+              <dt className="w-36 text-gray-500">{t('accountNumber')}</dt>
               <dd>{BANK_DETAILS.accountNumber}</dd>
             </div>
             <div className="flex gap-4">
-              <dt className="w-36 text-gray-500">Account Name</dt>
+              <dt className="w-36 text-gray-500">{t('accountName')}</dt>
               <dd>{BANK_DETAILS.accountName}</dd>
             </div>
             <div className="flex gap-4">
-              <dt className="w-36 text-gray-500">Branch</dt>
+              <dt className="w-36 text-gray-500">{t('branch')}</dt>
               <dd>{BANK_DETAILS.branch}</dd>
             </div>
           </dl>
@@ -132,7 +134,7 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
             onClick={handleCopyAccount}
             className="mt-3 font-serif text-xs text-accent hover:underline"
           >
-            Copy account number
+            {t('copyAccountNumber')}
           </button>
         </div>
       )}
@@ -145,7 +147,7 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
           loading={loading}
           onClick={handlePlaceOrder}
         >
-          Place Order
+          {t('placeOrder')}
         </Button>
 
         <Button
@@ -154,7 +156,7 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
           onClick={onBack}
           disabled={loading}
         >
-          ← Back to Info
+          {t('backToInfo')}
         </Button>
       </div>
     </div>

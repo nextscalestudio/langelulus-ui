@@ -47,7 +47,9 @@
     "certsHeading":       "Certifications",
     "catalogueHeading":   "Catalogue",
     "catalogueCtaLabel":  "Download Catalogue",
-    "catalogueDescr":     "Explore L'ANGELULUS's unique perfume collection."
+    "catalogueDescr":     "Explore L'ANGELULUS's unique perfume collection.",
+    "overviewDescription": "Discover the world of L'ANGELULUS — from our founding story to brand philosophy, our talented perfumers, and our commitment to quality.",
+    "learnMore":          "Learn more →"
   },
   "home": {
     "hero": {
@@ -109,11 +111,215 @@
     "signOut": "Sign Out"
   },
   "cart": {
-    "title": "Your Cart",
-    "empty": "Your cart is empty",
-    "continueShopping": "Continue Shopping",
-    "subtotal": "Subtotal",
-    "checkout": "Proceed to Checkout"
+    "title":              "Your Cart",
+    "pageTitle":          "Shopping Cart",
+    "empty":              "Your cart is empty",
+    "continueShopping":   "Continue Shopping",
+    "backToShopping":     "← Continue Shopping",
+    "subtotal":           "Subtotal",
+    "discount":           "Discount",
+    "total":              "Total",
+    "checkout":           "Proceed to Checkout",
+    "orderSummary":       "Order Summary",
+    "couponPlaceholder":  "Coupon code",
+    "apply":              "Apply",
+    "remove":             "Remove",
+    "invalidCoupon":      "Invalid or expired coupon code"
+  },
+  "checkout": {
+    "heading":            "Checkout",
+    "step1":              "1. Recipient Info",
+    "step2":              "2. Payment",
+    "recipientInfo":      "Recipient Info",
+    "fullName":           "Full Name",
+    "phone":              "Phone",
+    "email":              "Email",
+    "streetAddress":      "Street Address",
+    "city":               "City",
+    "district":           "District",
+    "ward":               "Ward",
+    "orderNote":          "Order Note",
+    "notePlaceholder":    "Special instructions (optional)",
+    "selectCity":         "Select city",
+    "selectDistrict":     "Select district",
+    "selectWard":         "Select ward",
+    "backToCart":         "← Back to Cart",
+    "continueToPayment":  "Continue to Payment",
+    "errors": {
+      "fullName":   "Full name must be at least 2 characters",
+      "phone":      "Phone must be 10 digits starting with 0",
+      "email":      "Please enter a valid email address",
+      "address":    "Address is required",
+      "city":       "City is required",
+      "district":   "District is required",
+      "ward":       "Ward is required"
+    },
+    "paymentMethod":      "Payment Method",
+    "cod":                "Cash on Delivery",
+    "bankTransfer":       "Bank Transfer",
+    "bankDetails":        "Bank Account Details",
+    "bank":               "Bank",
+    "accountNumber":      "Account Number",
+    "accountName":        "Account Name",
+    "branch":             "Branch",
+    "copyAccountNumber":  "Copy account number",
+    "placeOrder":         "Place Order",
+    "backToInfo":         "← Back to Info",
+    "orderFailed":        "Order failed. Please try again.",
+    "copied":             "Copied!",
+    "copyFailed":         "Could not copy to clipboard."
+  },
+  "confirmation": {
+    "notFound":               "Order not found.",
+    "backToHome":             "← Back to Home",
+    "orderPlaced":            "Order Placed!",
+    "itemsOrdered":           "Items Ordered",
+    "subtotal":               "Subtotal",
+    "discount":               "Discount",
+    "total":                  "Total",
+    "deliveryDetails":        "Delivery Details",
+    "name":                   "Name",
+    "phone":                  "Phone",
+    "email":                  "Email",
+    "address":                "Address",
+    "note":                   "Note",
+    "payment":                "Payment",
+    "cod":                    "Cash on Delivery",
+    "bankTransfer":           "Bank Transfer",
+    "paymentInstructions":    "Payment Instructions",
+    "transferInstructions":   "Please transfer the exact amount to the account below within 24 hours to confirm your order.",
+    "bank":                   "Bank",
+    "accountNumber":          "Account Number",
+    "accountName":            "Account Name",
+    "branch":                 "Branch",
+    "transferNote":           "Transfer Note",
+    "continueShopping":       "Continue Shopping"
+  },
+  "contact": {
+    "heading":    "Get in Touch",
+    "fullName":   "Full Name",
+    "email":      "Email",
+    "phone":      "Phone",
+    "message":    "Message",
+    "send":       "Send Message",
+    "infoHeading": "Contact Information",
+    "success":    "Message sent! We'll reply within 24 hours.",
+    "error":      "Failed to send message. Please try again.",
+    "errors": {
+      "fullNameRequired": "Full name is required",
+      "emailRequired":    "Email is required",
+      "emailInvalid":     "Invalid email address",
+      "phoneRequired":    "Phone is required",
+      "phoneInvalid":     "Phone must be 10 digits",
+      "messageRequired":  "Message is required"
+    }
+  },
+  "blog": {
+    "readMore":     "Read more",
+    "all":          "All",
+    "noPostsFound": "No posts found.",
+    "latestPosts":  "Latest Posts",
+    "categories":   "Categories"
+  },
+  "search": {
+    "placeholder": "Search products, articles…",
+    "hint":        "Try searching for a product or article",
+    "noResults":   "No results for \"{query}\"",
+    "groups": {
+      "product": "Products",
+      "blog":    "Articles",
+      "page":    "Pages"
+    }
+  },
+  "product": {
+    "addToCart":           "Add to Cart",
+    "addedToCart":         "Added to cart",
+    "outOfStock":          "Out of Stock",
+    "volume":              "Volume",
+    "quantity":            "Quantity",
+    "buyNow":              "Buy Now",
+    "addToWishlist":       "Add to Wishlist",
+    "removeFromWishlist":  "Remove from Wishlist",
+    "allProducts":         "All Products",
+    "showing":             "Showing {count} products",
+    "noProducts":          "No products found.",
+    "specs": {
+      "heading":       "Product Specifications",
+      "volume":        "Volume",
+      "concentration": "Concentration",
+      "origin":        "Origin",
+      "longevity":     "Longevity",
+      "sillage":       "Sillage",
+      "gender":        "Gender"
+    },
+    "usageGuide": {
+      "heading":         "Usage Guide",
+      "sprayPositions":  "Spray Positions",
+      "longevityTips":   "How to Make Scent Last",
+      "storageTips":     "Storage Tips"
+    },
+    "scentInfo": {
+      "heading":              "Scent Information",
+      "fragranceFamily":      "Fragrance Family",
+      "fragranceNotes":       "Fragrance Notes",
+      "top":                  "Top",
+      "middle":               "Middle",
+      "base":                 "Base",
+      "style":                "Style",
+      "occasion":             "Occasion",
+      "emotionalDescription": "Emotional Description",
+      "targetAudience":       "Target Audience",
+      "feeling":              "Feeling"
+    },
+    "policies": {
+      "shipping": {
+        "title":       "Free Shipping",
+        "description": "Free shipping on orders over 500.000 ₫"
+      },
+      "returns": {
+        "title":       "Easy Returns",
+        "description": "7-day return policy"
+      },
+      "payment": {
+        "title":       "Flexible Payment",
+        "description": "COD and bank transfer accepted"
+      },
+      "support": {
+        "title":       "Expert Support",
+        "description": "Chat or call for advice"
+      },
+      "learnMore": "Learn more"
+    },
+    "related": {
+      "sameFamily":       "Same Fragrance Family",
+      "sameCollection":   "Same Collection",
+      "frequentlyBought": "Frequently Bought Together"
+    },
+    "reviews": {
+      "heading":      "Customer Reviews",
+      "writeReview":  "Write a Review",
+      "noReviews":    "No reviews yet. Be the first to share your experience!",
+      "submitted":    "Review submitted!",
+      "count":        "{count, plural, =1 {# review} other {# reviews}}",
+      "modalTitle":   "Write a Review"
+    },
+    "reviewForm": {
+      "rating":            "Rating *",
+      "name":              "Your Name *",
+      "namePlaceholder":   "Enter your name",
+      "reviewLabel":       "Review *",
+      "reviewPlaceholder": "Share your experience with this fragrance...",
+      "photos":            "Photos (optional)",
+      "addPhotos":         "Add Photos",
+      "cancel":            "Cancel",
+      "submit":            "Submit Review"
+    },
+    "filters": {
+      "category":        "Category",
+      "collection":      "Collection",
+      "fragranceFamily": "Fragrance Family",
+      "priceRange":      "Price Range"
+    }
   },
   "footer": {
     "copyright": "© 2024 PARFUM. All rights reserved."

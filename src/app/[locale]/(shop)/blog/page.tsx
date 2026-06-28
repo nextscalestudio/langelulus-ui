@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
 import blogPosts from '@/data/blog-posts'
 import PostCard from '@/components/blog/PostCard'
 import BlogSidebar from '@/components/blog/BlogSidebar'
@@ -24,6 +24,8 @@ interface BlogPageProps {
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
   const { category, page } = await searchParams
+  const locale = await getLocale()
+  const t = await getTranslations('blog')
 
   const sorted = [...blogPosts].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
@@ -38,7 +40,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE)
   const paginated = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE)
 
-  const featuredDate = new Date(featured.publishedAt).toLocaleDateString('en-US', {
+  const featuredDate = new Date(featured.publishedAt).toLocaleDateString(locale, {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -66,7 +68,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             href={`/blog/${featured.slug}`}
             className="mt-3 font-serif text-sm text-white underline hover:text-accent transition-colors"
           >
-            Read more
+            {t('readMore')}
           </Link>
         </div>
       </div>
@@ -82,7 +84,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 : 'border border-secondary text-secondary hover:text-accent hover:border-accent'
             }`}
           >
-            All
+            {t('all')}
           </Link>
           {categories.map((cat) => (
             <Link
@@ -103,7 +105,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           {/* Post grid */}
           <div className="flex-1">
             {paginated.length === 0 ? (
-              <p className="font-serif text-secondary/60 py-12 text-center">No posts found.</p>
+              <p className="font-serif text-secondary/60 py-12 text-center">{t('noPostsFound')}</p>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {paginated.map((post) => (

@@ -1,11 +1,5 @@
+import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
-
-interface PolicyItem {
-  icon: React.ReactNode
-  title: string
-  description: string
-  href: string
-}
 
 const ShippingIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8 text-accent">
@@ -31,34 +25,16 @@ const SupportIcon = () => (
   </svg>
 )
 
-const policies: PolicyItem[] = [
-  {
-    icon: <ShippingIcon />,
-    title: 'Free Shipping',
-    description: 'Free shipping on orders over 500.000 ₫',
-    href: '/policy#shipping',
-  },
-  {
-    icon: <ReturnIcon />,
-    title: 'Easy Returns',
-    description: '7-day return policy',
-    href: '/policy#returns',
-  },
-  {
-    icon: <PaymentIcon />,
-    title: 'Flexible Payment',
-    description: 'COD and bank transfer accepted',
-    href: '/policy#payment',
-  },
-  {
-    icon: <SupportIcon />,
-    title: 'Expert Support',
-    description: 'Chat or call for advice',
-    href: '/policy#support',
-  },
-]
+export default async function ProductPolicies() {
+  const t = await getTranslations('product.policies')
 
-export default function ProductPolicies() {
+  const policies = [
+    { icon: <ShippingIcon />, title: t('shipping.title'), description: t('shipping.description'), href: '/policy#shipping' },
+    { icon: <ReturnIcon />,   title: t('returns.title'),  description: t('returns.description'),  href: '/policy#returns' },
+    { icon: <PaymentIcon />,  title: t('payment.title'),  description: t('payment.description'),  href: '/policy#payment' },
+    { icon: <SupportIcon />,  title: t('support.title'),  description: t('support.description'),  href: '/policy#support' },
+  ]
+
   return (
     <div className="bg-[#f9f9f9] py-6 px-4">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -68,7 +44,7 @@ export default function ProductPolicies() {
             <p className="font-serif font-bold text-[14px] text-secondary">{policy.title}</p>
             <p className="font-serif text-[13px] text-gray-500 leading-snug">{policy.description}</p>
             <Link href={policy.href} className="font-serif text-[12px] text-accent hover:underline">
-              Learn more
+              {t('learnMore')}
             </Link>
           </div>
         ))}

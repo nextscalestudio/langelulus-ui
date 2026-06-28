@@ -89,18 +89,19 @@ function applyFiltersAndSort(params: SearchParams) {
   return { filtered: result, sort }
 }
 
-export default function ProductsPage({
+export default async function ProductsPage({
   searchParams,
 }: {
   searchParams: SearchParams
 }) {
   const { filtered, sort } = applyFiltersAndSort(searchParams)
+  const t = await getTranslations('product')
 
   return (
     <main className="bg-bg py-10 px-4">
       <div className="max-w-7xl mx-auto">
-        <h1 className="font-serif text-4xl text-secondary mb-2">All Products</h1>
-        <p className="text-sm text-gray-500 mb-6">Showing {filtered.length} products</p>
+        <h1 className="font-serif text-4xl text-secondary mb-2">{t('allProducts')}</h1>
+        <p className="text-sm text-gray-500 mb-6">{t('showing', { count: filtered.length })}</p>
 
         {/* Mobile filter button */}
         <div className="lg:hidden mb-4">
@@ -131,7 +132,7 @@ export default function ProductsPage({
             </div>
 
             {filtered.length === 0 ? (
-              <p className="text-center text-gray-500 py-20">No products found.</p>
+              <p className="text-center text-gray-500 py-20">{t('noProducts')}</p>
             ) : (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {filtered.map(product => (

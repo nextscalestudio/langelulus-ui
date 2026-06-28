@@ -8,6 +8,7 @@ import Badge from '@/components/ui/Badge'
 import { useToast } from '@/components/ui/Toast'
 import StarRating from './StarRating'
 import { useCartStore } from '@/lib/store/cart-store'
+import { useTranslations } from 'next-intl'
 
 const formatVND = (price: number) =>
   new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
@@ -17,12 +18,13 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const t = useTranslations('product')
   const toast = useToast()
   const addItem = useCartStore((state) => state.addItem)
 
   function handleAddToCart() {
     addItem(product, product.availableVolumes[0])
-    toast.success('Added to cart')
+    toast.success(t('addedToCart'))
   }
 
   return (
@@ -41,7 +43,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         />
         {!product.inStock && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-            <Badge>Out of Stock</Badge>
+            <Badge>{t('outOfStock')}</Badge>
           </div>
         )}
       </div>
@@ -63,7 +65,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             aria-label={`Add ${product.name} to cart`}
             className="w-full"
           >
-            Add to Cart
+            {t('addToCart')}
           </Button>
         </div>
       </div>

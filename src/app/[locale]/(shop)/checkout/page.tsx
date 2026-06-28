@@ -5,10 +5,12 @@ import RecipientForm from '@/components/checkout/RecipientForm'
 import CheckoutSummary from '@/components/checkout/CheckoutSummary'
 import PaymentSelector from '@/components/checkout/PaymentSelector'
 import type { RecipientInfo } from '@/types'
+import { useTranslations } from 'next-intl'
 
 type CheckoutStep = 'form' | 'payment'
 
 export default function CheckoutPage() {
+  const t = useTranslations('checkout')
   const [step, setStep] = useState<CheckoutStep>('form')
   const [recipientInfo, setRecipientInfo] = useState<RecipientInfo | null>(null)
 
@@ -19,13 +21,13 @@ export default function CheckoutPage() {
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="font-serif text-4xl text-secondary mb-10">Checkout</h1>
+      <h1 className="font-serif text-4xl text-secondary mb-10">{t('heading')}</h1>
 
       {/* Step indicator */}
       <div className="flex items-center gap-3 mb-10">
-        <StepDot active={step === 'form'} done={step === 'payment'} label="1. Recipient Info" />
+        <StepDot active={step === 'form'} done={step === 'payment'} label={t('step1')} />
         <div className="flex-1 h-px bg-gray-200" />
-        <StepDot active={step === 'payment'} done={false} label="2. Payment" />
+        <StepDot active={step === 'payment'} done={false} label={t('step2')} />
       </div>
 
       <div className="lg:grid lg:grid-cols-5 lg:gap-12">

@@ -6,6 +6,7 @@ import { useRouter } from '@/i18n/navigation'
 import { useUIStore } from '@/lib/store/ui-store'
 import products from '@/data/products'
 import blogPosts from '@/data/blog-posts'
+import { useTranslations } from 'next-intl'
 
 type SearchResultType = 'product' | 'blog' | 'page'
 
@@ -111,15 +112,17 @@ function PageIcon() {
   )
 }
 
-const GROUP_LABELS: Record<SearchResultType, string> = {
-  product: 'Products',
-  blog: 'Articles',
-  page: 'Pages',
-}
+// GROUP_LABELS is now built inside the component using translations
 
 const GROUP_ORDER: SearchResultType[] = ['product', 'blog', 'page']
 
 export default function SearchModal() {
+  const t = useTranslations('search')
+  const GROUP_LABELS: Record<SearchResultType, string> = {
+    product: t('groups.product'),
+    blog:    t('groups.blog'),
+    page:    t('groups.page'),
+  }
   const isOpen = useUIStore((s) => s.isSearchOpen)
   const closeSearch = useUIStore((s) => s.closeSearch)
   const router = useRouter()
@@ -201,7 +204,7 @@ export default function SearchModal() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Search products, articles…"
+          placeholder={t('placeholder')}
           className="w-full h-14 bg-white text-secondary font-serif px-6 outline-none"
           style={{ fontSize: '18px', fontFamily: 'Times New Roman, serif' }}
           aria-label="Search"
@@ -210,13 +213,13 @@ export default function SearchModal() {
 
         {query.length === 0 && (
           <p className="text-white/60 text-center mt-8 font-serif text-lg">
-            Try searching for a product or article
+            {t('hint')}
           </p>
         )}
 
         {query.length >= 2 && results.length === 0 && (
           <p className="text-white/60 text-center mt-8 font-serif text-lg">
-            No results for &ldquo;{query}&rdquo;
+            {t('noResults', { query })}
           </p>
         )}
 

@@ -1,5 +1,6 @@
 import { Link } from '@/i18n/navigation'
 import type { BlogPost } from '@/types'
+import { getTranslations } from 'next-intl/server'
 
 interface BlogSidebarProps {
   latestPosts: BlogPost[]
@@ -7,12 +8,13 @@ interface BlogSidebarProps {
   activeCategory: string
 }
 
-export default function BlogSidebar({ latestPosts, categories, activeCategory }: BlogSidebarProps) {
+export default async function BlogSidebar({ latestPosts, categories, activeCategory }: BlogSidebarProps) {
+  const t = await getTranslations('blog')
   return (
     <aside className="w-[280px] shrink-0 hidden lg:block space-y-8">
       <div>
         <h2 className="font-serif font-bold text-[16px] text-secondary border-b border-secondary pb-2 mb-4">
-          Latest Posts
+          {t('latestPosts')}
         </h2>
         <ul className="space-y-2">
           {latestPosts.slice(0, 5).map((post) => (
@@ -30,7 +32,7 @@ export default function BlogSidebar({ latestPosts, categories, activeCategory }:
 
       <div>
         <h2 className="font-serif font-bold text-[16px] text-secondary border-b border-secondary pb-2 mb-4">
-          Categories
+          {t('categories')}
         </h2>
         <div className="flex flex-wrap gap-2">
           <Link
@@ -41,7 +43,7 @@ export default function BlogSidebar({ latestPosts, categories, activeCategory }:
                 : 'border-secondary text-secondary hover:text-accent hover:border-accent'
             }`}
           >
-            All
+            {t('all')}
           </Link>
           {categories.map((cat) => (
             <Link

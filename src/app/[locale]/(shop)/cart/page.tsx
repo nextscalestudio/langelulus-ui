@@ -7,6 +7,7 @@ import { useCartStore } from '@/lib/store/cart-store'
 import { useToast } from '@/components/ui/Toast'
 import Button from '@/components/ui/Button'
 import coupons from '@/data/coupons'
+import { useTranslations } from 'next-intl'
 
 const fmt = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' })
 
@@ -26,6 +27,7 @@ function calcDiscount(
 }
 
 export default function CartPage() {
+  const t = useTranslations('cart')
   const router = useRouter()
   const toast = useToast()
 
@@ -56,7 +58,7 @@ export default function CartPage() {
       (!found.minOrderValue || subtotal >= found.minOrderValue)
 
     if (!isValid) {
-      toast.error('Invalid or expired coupon code')
+      toast.error(t('invalidCoupon'))
       return
     }
 
@@ -68,7 +70,7 @@ export default function CartPage() {
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="font-serif text-4xl text-secondary mb-10">Shopping Cart</h1>
+      <h1 className="font-serif text-4xl text-secondary mb-10">{t('pageTitle')}</h1>
 
       <div className="lg:grid lg:grid-cols-5 lg:gap-12">
         {/* Items column */}
@@ -179,11 +181,11 @@ export default function CartPage() {
                   value={couponInput}
                   onChange={(e) => setCouponInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleApplyCoupon()}
-                  placeholder="Coupon code"
+                  placeholder={t('couponPlaceholder')}
                   className="flex-1 border border-secondary px-3 py-2 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-secondary"
                 />
                 <Button variant="secondary" size="sm" onClick={handleApplyCoupon}>
-                  Apply
+                  {t('apply')}
                 </Button>
               </div>
             )}
@@ -194,7 +196,7 @@ export default function CartPage() {
               href="/products"
               className="font-serif text-sm text-secondary hover:text-accent underline underline-offset-2 transition-colors"
             >
-              ← Continue Shopping
+              {t('backToShopping')}
             </Link>
           </div>
         </div>
@@ -202,23 +204,23 @@ export default function CartPage() {
         {/* Order summary */}
         <div className="lg:col-span-2 mt-10 lg:mt-0">
           <div className="border border-gray-200 p-6">
-            <h2 className="font-serif font-bold text-lg text-secondary mb-4">Order Summary</h2>
+            <h2 className="font-serif font-bold text-lg text-secondary mb-4">{t('orderSummary')}</h2>
 
             <div className="space-y-3 font-serif text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-600">Subtotal</span>
+                <span className="text-gray-600">{t('subtotal')}</span>
                 <span className="text-secondary">{fmt.format(subtotal)}</span>
               </div>
 
               {discount > 0 && (
                 <div className="flex justify-between text-green-600">
-                  <span>Discount</span>
+                  <span>{t('discount')}</span>
                   <span>− {fmt.format(discount)}</span>
                 </div>
               )}
 
               <div className="flex justify-between border-t border-gray-200 pt-3 font-bold text-base">
-                <span className="text-secondary">Total</span>
+                <span className="text-secondary">{t('total')}</span>
                 <span className="text-secondary">{fmt.format(total)}</span>
               </div>
             </div>
@@ -228,7 +230,7 @@ export default function CartPage() {
               className="w-full mt-6"
               onClick={() => router.push('/checkout')}
             >
-              Proceed to Checkout
+              {t('checkout')}
             </Button>
           </div>
         </div>

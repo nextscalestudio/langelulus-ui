@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Button from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
+import { useTranslations } from 'next-intl'
 
 interface ContactFormData {
   fullName: string
@@ -25,26 +26,23 @@ const initialForm: ContactFormData = {
   message: '',
 }
 
-function validate(data: ContactFormData): FieldErrors {
-  const errors: FieldErrors = {}
-
-  if (!data.fullName.trim()) errors.fullName = 'Full name is required'
-
-  if (!data.email.trim()) {
-    errors.email = 'Email is required'
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-    errors.email = 'Invalid email address'
+function makeValidate(errMsgs: Record<string, string>) {
+  return function validate(data: ContactFormData): FieldErrors {
+    const errors: FieldErrors = {}
+    if (!data.fullName.trim()) errors.fullName = errMsgs.fullNameRequired
+    if (!data.email.trim()) {
+      errors.email = errMsgs.emailRequired
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      errors.email = errMsgs.emailInvalid
+    }
+    if (!data.phone.trim()) {
+      errors.phone = errMsgs.phoneRequired
+    } else if (!/^\d{10}$/.test(data.phone.replace(/\s/g, ''))) {
+      errors.phone = errMsgs.phoneInvalid
+    }
+    if (!data.message.trim()) errors.message = errMsgs.messageRequired
+    return errors
   }
-
-  if (!data.phone.trim()) {
-    errors.phone = 'Phone is required'
-  } else if (!/^\d{10}$/.test(data.phone.replace(/\s/g, ''))) {
-    errors.phone = 'Phone must be 10 digits'
-  }
-
-  if (!data.message.trim()) errors.message = 'Message is required'
-
-  return errors
 }
 
 const inputClass =
@@ -54,6 +52,15 @@ const textareaClass =
 const labelClass = 'block font-serif text-sm font-bold text-secondary mb-1'
 
 export default function ContactForm() {
+  const t = useTranslations('contact')
+  const validate = makeValidate({
+    fullNameRequired: t('errors.fullNameRequired'),
+    emailRequired:   t('errors.emailRequired'),
+    emailInvalid:    t('errors.emailInvalid'),
+    phoneRequired:   t('errors.phoneRequired'),
+    phoneInvalid:    t('errors.phoneInvalid'),
+    messageRequired: t('errors.messageRequired'),
+  })
   const toast = useToast()
   const [form, setForm] = useState<ContactFormData>(initialForm)
   const [errors, setErrors] = useState<FieldErrors>({})
@@ -86,11 +93,11 @@ export default function ContactForm() {
 
       if (!res.ok) throw new Error('Failed to send')
 
-      toast.success("Message sent! We'll reply within 24 hours.")
+      toast.success(t('success'))
       setForm(initialForm)
       setErrors({})
     } catch {
-      toast.error('Failed to send message. Please try again.')
+      toast.error(t('error'))
     } finally {
       setLoading(false)
     }
@@ -101,11 +108,11 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Contact Form */}
         <section>
-          <h1 className="font-serif text-[28px] text-secondary mb-8">Get in Touch</h1>
+          <h1 className="font-serif text-[28px] text-secondary mb-8">{t('heading')}</h1>
           <form onSubmit={handleSubmit} noValidate className="space-y-6">
             <div>
               <label htmlFor="fullName" className={labelClass}>
-                Full Name
+                {t('fullName')}
               </label>
               <input
                 id="fullName"
@@ -123,7 +130,7 @@ export default function ContactForm() {
 
             <div>
               <label htmlFor="email" className={labelClass}>
-                Email
+                {t('email')}
               </label>
               <input
                 id="email"
@@ -141,7 +148,7 @@ export default function ContactForm() {
 
             <div>
               <label htmlFor="phone" className={labelClass}>
-                Phone
+                {t('phone')}
               </label>
               <input
                 id="phone"
@@ -159,7 +166,7 @@ export default function ContactForm() {
 
             <div>
               <label htmlFor="message" className={labelClass}>
-                Message
+                {t('message')}
               </label>
               <textarea
                 id="message"
@@ -174,7 +181,7 @@ export default function ContactForm() {
             </div>
 
             <Button type="submit" loading={loading}>
-              Send Message
+              {t('send')}
             </Button>
           </form>
         </section>
@@ -182,7 +189,7 @@ export default function ContactForm() {
         {/* Info + Map */}
         <section className="space-y-6">
           <div className="bg-secondary p-8 space-y-4">
-            <h2 className="font-serif text-xl font-bold text-white">Contact Information</h2>
+            <h2 className="font-serif text-xl font-bold text-white">{t('infoHeading')}</h2>
             <ul className="font-serif text-sm text-white/90 space-y-3 list-none">
               <li>123 Tran Hung Dao, Hoan Kiem, Hanoi</li>
               <li>+84 900 000 000</li>

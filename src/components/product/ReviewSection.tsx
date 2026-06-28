@@ -8,6 +8,7 @@ import StarRating from './StarRating'
 import ReviewCard from './ReviewCard'
 import ReviewForm from './ReviewForm'
 import type { NewReviewForm, Review } from '@/types'
+import { useTranslations } from 'next-intl'
 
 interface ReviewSectionProps {
   productId: string
@@ -19,6 +20,7 @@ function computeAvg(reviews: Review[]): number {
 }
 
 export default function ReviewSection({ productId }: ReviewSectionProps) {
+  const t = useTranslations('product.reviews')
   const toast = useToast()
   const [reviews, setReviews] = useState<Review[]>([])
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -54,12 +56,12 @@ export default function ReviewSection({ productId }: ReviewSectionProps) {
 
     setReviews((prev) => [...prev, newReview])
     setIsFormOpen(false)
-    toast.success('Review submitted!')
+    toast.success(t('submitted'))
   }
 
   return (
     <section className="mt-12">
-      <h2 className="font-serif text-2xl text-secondary mb-6">Customer Reviews</h2>
+      <h2 className="font-serif text-2xl text-secondary mb-6">{t('heading')}</h2>
 
       <div className="flex flex-col sm:flex-row gap-8 mb-8">
         <div className="flex flex-col items-center justify-center min-w-[120px]">
@@ -68,7 +70,7 @@ export default function ReviewSection({ productId }: ReviewSectionProps) {
           </p>
           <StarRating rating={avgRating} className="mt-2" />
           <p className="font-serif text-sm text-gray-500 mt-1">
-            {reviews.length} {reviews.length === 1 ? 'review' : 'reviews'}
+            {t('count', { count: reviews.length })}
           </p>
         </div>
 
@@ -96,20 +98,20 @@ export default function ReviewSection({ productId }: ReviewSectionProps) {
         onClick={() => setIsFormOpen(true)}
         className="border border-secondary font-serif text-sm text-secondary px-6 py-2 hover:bg-secondary hover:text-white transition-colors mb-6"
       >
-        Write a Review
+        {t('writeReview')}
       </button>
 
       <div>
         {reviews.length === 0 ? (
           <p className="font-serif text-sm text-gray-500 py-4">
-            No reviews yet. Be the first to share your experience!
+            {t('noReviews')}
           </p>
         ) : (
           reviews.map((review) => <ReviewCard key={review.id} review={review} />)
         )}
       </div>
 
-      <Modal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} title="Write a Review">
+      <Modal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} title={t('modalTitle')}>
         <ReviewForm onSubmit={handleSubmit} onClose={() => setIsFormOpen(false)} />
       </Modal>
     </section>
