@@ -104,6 +104,17 @@
       "heading": "Life in Scent"
     }
   },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "continueShopping": "Continue Shopping",
+    "subtotal": "Subtotal",
+    "checkout": "Proceed to Checkout"
+  },
   "footer": {
     "copyright": "© 2024 PARFUM. All rights reserved."
   }

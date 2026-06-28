@@ -2,18 +2,16 @@
 
 import { useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
-import { useRouter } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 
 export default function LocaleSwitcher() {
   const locale = useLocale()
-  const router = useRouter()
   const rawPathname = usePathname()
 
   function switchLocale(next: string) {
     const localePattern = new RegExp(`^/(${routing.locales.join('|')})(\/|$)`)
     const stripped = rawPathname.replace(localePattern, '/') || '/'
-    router.replace(stripped, { locale: next })
+    window.location.href = `/${next}${stripped === '/' ? '' : stripped}`
   }
 
   return (

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { Link, useRouter } from '@/i18n/navigation'
 import { useUIStore } from '@/lib/store/ui-store'
 import { useCartStore } from '@/lib/store/cart-store'
@@ -13,6 +14,7 @@ function subtotal(items: ReturnType<typeof useCartStore.getState>['items']) {
 }
 
 export default function CartDrawer() {
+  const t = useTranslations('cart')
   const isOpen = useUIStore((s) => s.isCartOpen)
   const closeCart = useUIStore((s) => s.closeCart)
   const items = useCartStore((s) => s.items)
@@ -54,7 +56,7 @@ export default function CartDrawer() {
       >
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200">
-          <h2 className="font-serif font-bold text-xl text-secondary">Your Cart</h2>
+          <h2 className="font-serif font-bold text-xl text-secondary">{t('title')}</h2>
           <button
             aria-label="Close cart"
             onClick={closeCart}
@@ -68,13 +70,13 @@ export default function CartDrawer() {
         <div className="flex-1 overflow-y-auto px-5">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
-              <p className="font-serif text-secondary">Your cart is empty</p>
+              <p className="font-serif text-secondary">{t('empty')}</p>
               <Link
                 href="/products"
                 onClick={closeCart}
                 className="font-serif text-sm text-accent underline underline-offset-2"
               >
-                Continue Shopping
+                {t('continueShopping')}
               </Link>
             </div>
           ) : (
@@ -93,7 +95,7 @@ export default function CartDrawer() {
         {items.length > 0 && (
           <div className="px-5 py-4 border-t border-gray-200">
             <div className="flex items-center justify-between mb-4">
-              <span className="font-serif font-bold text-base text-secondary">Subtotal</span>
+              <span className="font-serif font-bold text-base text-secondary">{t('subtotal')}</span>
               <span className="font-serif font-bold text-base text-secondary">
                 {fmt.format(subtotal(items))}
               </span>
@@ -102,7 +104,7 @@ export default function CartDrawer() {
               onClick={handleCheckout}
               className="w-full bg-accent text-white font-serif font-bold py-3 text-sm hover:opacity-90 transition-opacity"
             >
-              Proceed to Checkout
+              {t('checkout')}
             </button>
           </div>
         )}

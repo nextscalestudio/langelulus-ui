@@ -3,6 +3,7 @@
 import { signIn, signOut } from 'next-auth/react'
 import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { useCartStore } from '@/lib/store/cart-store'
 
 interface NavbarAuthButtonProps {
@@ -17,6 +18,7 @@ export default function NavbarAuthButton({ user }: NavbarAuthButtonProps) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   const clearCart = useCartStore((state) => state.clearCart)
+  const t = useTranslations('auth')
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -31,11 +33,11 @@ export default function NavbarAuthButton({ user }: NavbarAuthButtonProps) {
   if (!user) {
     return (
       <button
-        aria-label="Sign in"
+        aria-label={t('signIn')}
         onClick={() => signIn('google')}
         className="font-serif border border-secondary px-4 py-1.5 text-secondary hover:bg-secondary hover:text-bg transition-colors"
       >
-        Sign In
+        {t('signIn')}
       </button>
     )
   }
@@ -72,7 +74,7 @@ export default function NavbarAuthButton({ user }: NavbarAuthButtonProps) {
             }}
             className="w-full text-left px-4 py-2 font-serif text-[14px] text-secondary hover:text-accent transition-colors"
           >
-            Sign Out
+            {t('signOut')}
           </button>
         </div>
       )}

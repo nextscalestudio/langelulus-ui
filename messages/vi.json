@@ -104,6 +104,17 @@
       "heading": "Cuộc Sống Trong Hương Thơm"
     }
   },
+  "auth": {
+    "signIn": "Đăng nhập",
+    "signOut": "Đăng xuất"
+  },
+  "cart": {
+    "title": "Giỏ hàng",
+    "empty": "Giỏ hàng của bạn đang trống",
+    "continueShopping": "Tiếp tục mua sắm",
+    "subtotal": "Tạm tính",
+    "checkout": "Thanh toán"
+  },
   "footer": {
     "copyright": "© 2024 PARFUM. Tất cả quyền được bảo lưu."
   }
