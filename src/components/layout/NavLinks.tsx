@@ -76,12 +76,12 @@ export default function NavLinks() {
   return (
     <ul
       ref={navRef}
-      className="hidden md:flex items-center gap-10 lg:gap-12 list-none m-0 p-0"
+      className="hidden md:flex items-center gap-10 lg:gap-12 list-none m-0 p-0 overflow-visible"
     >
       {NAV_ITEMS.map((item, i) => (
         <li
           key={item.href}
-          className="relative"
+          className={`relative ${openIndex === i ? 'z-[9999]' : 'z-0'}`}
           onMouseEnter={() => item.children && setOpenIndex(i)}
           onMouseLeave={() => setOpenIndex(null)}
         >
@@ -90,19 +90,19 @@ export default function NavLinks() {
           </Link>
 
           {item.children && (
-            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
+            <div className="nav-dropdown">
               <div
-                className={`bg-bg-elevated/95 backdrop-blur-xl border border-border rounded-2xl shadow-soft-lg min-w-48 py-3 px-1 transition-all duration-300 ease-luxury ${
+                className={`nav-dropdown-panel ${
                   openIndex === i
-                    ? 'opacity-100 translate-y-0 pointer-events-auto'
-                    : 'opacity-0 translate-y-2 pointer-events-none'
+                    ? 'opacity-100 translate-y-0 visible pointer-events-auto'
+                    : 'opacity-0 translate-y-2 invisible pointer-events-none'
                 }`}
               >
                 {item.children.map((child) => (
                   <Link
                     key={child.href}
                     href={child.href}
-                    className="block px-4 py-2.5 font-sans text-sm text-secondary/70 hover:text-secondary rounded-xl hover:bg-secondary/[0.04] transition-colors duration-300"
+                    className="block px-4 py-2.5 font-sans text-sm text-muted hover:text-secondary rounded-xl hover:bg-secondary/[0.04] transition-colors duration-300"
                     onClick={() => setOpenIndex(null)}
                   >
                     {t(child.labelKey)}

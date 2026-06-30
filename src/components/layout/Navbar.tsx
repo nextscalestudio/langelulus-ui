@@ -12,9 +12,9 @@ export default async function Navbar() {
   return (
     <nav
       aria-label="Main navigation"
-      className="sticky top-0 z-50 glass-nav border-b border-border h-[52px] md:h-14 flex items-center px-6 md:px-10 lg:px-16"
+      className="sticky top-0 z-[100] glass-nav h-[52px] md:h-14 flex items-center px-6 md:px-10 lg:px-16 overflow-visible"
     >
-      <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
+      <div className="flex items-center justify-between w-full max-w-7xl mx-auto overflow-visible">
         <Link
           href="/"
           aria-label="PARFUM home"

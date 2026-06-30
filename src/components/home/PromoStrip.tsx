@@ -27,7 +27,7 @@ export default function PromoStrip() {
       variants={slideDown}
       initial="hidden"
       animate="visible"
-      className="bg-bg-subtle border-b border-border h-9 flex items-center justify-center px-6"
+      className="relative z-[1] bg-bg-subtle border-b border-border h-9 flex items-center justify-center px-6"
     >
       <p
         className={`font-sans text-xs text-muted text-center tracking-wide transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
