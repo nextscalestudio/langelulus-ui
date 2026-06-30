@@ -98,10 +98,10 @@ export default async function ProductsPage({
   const t = await getTranslations('product')
 
   return (
-    <main className="bg-bg py-10 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="font-serif text-4xl text-secondary mb-2">{t('allProducts')}</h1>
-        <p className="text-sm text-gray-500 mb-6">{t('showing', { count: filtered.length })}</p>
+    <main className="section-padding bg-bg pt-16 md:pt-20">
+      <div className="section-container">
+        <h1 className="font-display font-light text-display-md text-secondary mb-3">{t('allProducts')}</h1>
+        <p className="font-sans text-sm text-muted mb-10">{t('showing', { count: filtered.length })}</p>
 
         {/* Mobile filter button */}
         <div className="lg:hidden mb-4">
@@ -134,7 +134,7 @@ export default async function ProductsPage({
             {filtered.length === 0 ? (
               <p className="text-center text-gray-500 py-20">{t('noProducts')}</p>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-12 md:gap-x-8 md:gap-y-16">
                 {filtered.map(product => (
                   <ProductCard key={product.id} product={product} />
                 ))}

@@ -55,7 +55,8 @@
     "hero": {
       "heading":    "Khám Phá Hương Thơm Của Bạn",
       "subheading": "Nước hoa cao cấp dành cho những người dám sống đáng nhớ",
-      "cta":        "Mua Ngay"
+      "cta":        "Mua Ngay",
+      "learnMore":  "Tìm hiểu thêm"
     },
     "brandIntro": {
       "tagline": "Hương thơm là ký ức. Chúng tôi tạo nên ký ức của bạn.",
@@ -84,7 +85,8 @@
     "featuredProducts": {
       "heading":    "Hương Thơm Nổi Bật",
       "subheading": "Những lựa chọn tinh tế cho mọi dịp",
-      "viewAll":    "Xem Tất Cả"
+      "viewAll":    "Xem Tất Cả",
+      "shopProduct": "Mua hương thơm này"
     },
     "collections": {
       "heading": "Bộ Sưu Tập Của Chúng Tôi",
@@ -322,6 +324,7 @@
     }
   },
   "footer": {
+    "tagline": "Nước hoa cao cấp, tinh tế trong từng giọt.",
     "copyright": "© 2024 PARFUM. Tất cả quyền được bảo lưu."
   }
 }

@@ -8,11 +8,11 @@ import { fadeUp } from '@/lib/animations'
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-1 mb-4">
+    <div className="flex gap-0.5 mb-6" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <span
           key={i}
-          className={i < rating ? 'text-accent' : 'text-white/30'}
+          className={`text-sm ${i < rating ? 'text-accent' : 'text-secondary/15'}`}
           aria-hidden="true"
         >
           ★
@@ -56,41 +56,46 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="bg-secondary py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
+    <section className="section-padding bg-gradient-section">
+      <div className="section-container">
+        <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="font-serif text-[36px] text-white text-center mb-12"
+          className="text-center mb-16 max-w-2xl mx-auto"
         >
-          {t('heading')}
-        </motion.h2>
+          <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted mb-4">
+            Testimonials
+          </p>
+          <h2 className="font-display font-light text-display-md text-secondary">
+            {t('heading')}
+          </h2>
+        </motion.div>
 
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
+          className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-6 px-6 md:-mx-10 md:px-10"
         >
-          {testimonials.map((t, i) => (
+          {testimonials.map((item, i) => (
             <article
-              key={t.id}
+              key={item.id}
               data-card-index={i}
-              className="flex-none w-[80vw] max-w-sm snap-start rounded-lg p-8 border bg-white/5 border-white/10"
+              className="flex-none w-[85vw] max-w-md snap-start rounded-3xl p-8 md:p-10 bg-bg-elevated shadow-soft border border-border"
             >
-              <StarRating rating={t.rating} />
-              <blockquote className="font-serif italic text-[16px] text-white leading-relaxed mb-6">
-                &ldquo;{t.quote}&rdquo;
+              <StarRating rating={item.rating} />
+              <blockquote className="font-display text-lg md:text-xl text-secondary/80 leading-relaxed mb-8 font-light italic">
+                &ldquo;{item.quote}&rdquo;
               </blockquote>
               <footer>
-                <p className="font-serif font-bold text-[14px] text-accent">{t.author}</p>
-                <p className="font-serif text-[13px] text-white/50 mt-1">{t.product}</p>
+                <p className="font-sans text-sm font-medium text-secondary">{item.author}</p>
+                <p className="font-sans text-xs text-muted mt-1">{item.product}</p>
               </footer>
             </article>
           ))}
         </div>
 
-        <div className="flex justify-center gap-2 mt-6" role="tablist" aria-label="Testimonial navigation">
+        <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="Testimonial navigation">
           {testimonials.map((_, i) => (
             <button
               key={i}
@@ -98,8 +103,8 @@ export default function Testimonials() {
               aria-selected={i === activeIndex}
               aria-label={`Go to testimonial ${i + 1}`}
               onClick={() => scrollToCard(i)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                i === activeIndex ? 'bg-accent' : 'bg-white/30'
+              className={`h-1 rounded-full transition-all duration-300 ${
+                i === activeIndex ? 'w-6 bg-accent' : 'w-2 bg-secondary/15'
               }`}
             />
           ))}

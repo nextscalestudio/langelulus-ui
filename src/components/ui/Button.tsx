@@ -1,6 +1,6 @@
 'use client'
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost'
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
 interface ButtonProps {
@@ -15,15 +15,20 @@ interface ButtonProps {
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-accent text-white hover:bg-blue-800',
-  secondary: 'border border-secondary text-secondary hover:bg-secondary hover:text-white',
-  ghost: 'text-secondary hover:text-accent',
+  primary:
+    'bg-button-primary text-white shadow-button hover:shadow-button-hover hover:brightness-110 active:scale-[0.98]',
+  secondary:
+    'bg-secondary text-white shadow-soft hover:shadow-soft-lg hover:bg-secondary/90 active:scale-[0.98]',
+  outline:
+    'border border-secondary/20 text-secondary bg-transparent hover:border-secondary/40 hover:bg-secondary/[0.03] active:scale-[0.98]',
+  ghost:
+    'text-accent hover:opacity-70 bg-transparent',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: 'px-3 py-1.5 text-sm',
-  md: 'px-5 py-2.5 text-base',
-  lg: 'px-7 py-3 text-lg',
+  sm: 'px-4 py-2 text-xs tracking-wide',
+  md: 'px-6 py-2.5 text-sm tracking-wide',
+  lg: 'px-8 py-3.5 text-sm tracking-wide',
 }
 
 export default function Button({
@@ -43,7 +48,7 @@ export default function Button({
       disabled={disabled || loading}
       aria-disabled={disabled || loading}
       aria-busy={loading}
-      className={`inline-flex items-center justify-center gap-2 font-serif transition-colors ${variantClasses[variant]} ${sizeClasses[size]} disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+      className={`inline-flex items-center justify-center gap-2 font-sans font-medium rounded-full transition-all duration-300 ease-luxury ${variantClasses[variant]} ${sizeClasses[size]} disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 ${className}`}
     >
       {loading && (
         <svg

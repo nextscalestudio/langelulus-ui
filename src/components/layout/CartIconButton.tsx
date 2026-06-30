@@ -13,12 +13,12 @@ export default function CartIconButton() {
     <button
       aria-label={`Cart, ${count} item${count === 1 ? '' : 's'}`}
       onClick={openCart}
-      className="relative flex items-center justify-center"
+      className="relative flex items-center justify-center text-secondary/70 hover:text-secondary transition-colors duration-300"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -33,7 +33,7 @@ export default function CartIconButton() {
       </svg>
       {count > 0 && (
         <span
-          className="absolute -top-2 -right-2 flex items-center justify-center bg-accent text-white text-[10px] font-bold rounded-full w-[18px] h-[18px]"
+          className="absolute -top-1.5 -right-1.5 flex items-center justify-center bg-accent text-white text-[9px] font-medium rounded-full w-4 h-4"
           aria-hidden="true"
         >
           {count}

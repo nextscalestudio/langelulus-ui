@@ -55,7 +55,8 @@
     "hero": {
       "heading":    "Discover Your Signature Scent",
       "subheading": "Luxury perfumes crafted for those who dare to be unforgettable",
-      "cta":        "Shop Now"
+      "cta":        "Shop Now",
+      "learnMore":  "Learn more"
     },
     "brandIntro": {
       "tagline": "Scent is memory. We craft yours.",
@@ -84,7 +85,8 @@
     "featuredProducts": {
       "heading":    "Featured Fragrances",
       "subheading": "Handpicked signatures for every occasion",
-      "viewAll":    "View All"
+      "viewAll":    "View All",
+      "shopProduct": "Shop this fragrance"
     },
     "collections": {
       "heading": "Our Collections",
@@ -322,6 +324,7 @@
     }
   },
   "footer": {
+    "tagline": "Luxury fragrance, refined in every drop.",
     "copyright": "© 2024 PARFUM. All rights reserved."
   }
 }

@@ -30,35 +30,28 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group block border border-[#e5e7eb] bg-white transition-all hover:-translate-y-1 hover:shadow-md"
+      className="group block"
       aria-label={product.name}
     >
-      <div className="relative aspect-square overflow-hidden">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-bg-subtle mb-5">
         <Image
           src={product.images[0]}
           alt={product.name}
           fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-700 ease-luxury group-hover:scale-[1.03]"
+          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
         />
         {!product.inStock && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+          <div className="absolute inset-0 flex items-center justify-center bg-secondary/20 backdrop-blur-[2px]">
             <Badge>{t('outOfStock')}</Badge>
           </div>
         )}
-      </div>
-
-      <div className="p-4 flex flex-col gap-2">
-        <p className="font-serif text-[16px] text-secondary leading-snug">{product.name}</p>
-        <StarRating rating={product.rating} />
-        <p className="font-serif font-bold text-accent">{formatVND(product.price)}</p>
-
         <div
+          className="absolute inset-x-0 bottom-0 p-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-luxury"
           onClick={(e) => e.stopPropagation()}
-          className="mt-1"
         >
           <Button
-            variant="primary"
+            variant="secondary"
             size="sm"
             disabled={!product.inStock}
             onClick={handleAddToCart}
@@ -67,6 +60,21 @@ export default function ProductCard({ product }: ProductCardProps) {
           >
             {t('addToCart')}
           </Button>
+        </div>
+      </div>
+
+      <div className="px-1">
+        <p className="font-sans text-xs text-muted tracking-wide uppercase mb-1">
+          {product.brand}
+        </p>
+        <p className="font-sans text-sm text-secondary leading-snug mb-2 group-hover:text-accent transition-colors duration-300">
+          {product.name}
+        </p>
+        <div className="flex items-center justify-between gap-2">
+          <StarRating rating={product.rating} />
+          <p className="font-sans text-sm font-medium text-secondary">
+            {formatVND(product.price)}
+          </p>
         </div>
       </div>
     </Link>
