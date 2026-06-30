@@ -1,0 +1,327 @@
+{
+  "nav": {
+    "home":            "Trang chủ",
+    "products":        "Sản phẩm",
+    "productsAll":     "Tất cả sản phẩm",
+    "productsNam":     "Nam",
+    "productsNu":      "Nữ",
+    "productsUnisex":  "Unisex",
+    "about":           "Về chúng tôi",
+    "aboutStory":      "Câu chuyện",
+    "aboutPhilosophy": "Triết lý thương hiệu",
+    "aboutPerfumers":  "Nhà sáng tác hương",
+    "aboutCerts":      "Chứng nhận",
+    "aboutCatalogue":  "Catalogue",
+    "blog":            "Blog",
+    "blogAll":         "Tất cả bài viết",
+    "blogGuide":       "Hướng dẫn nước hoa",
+    "blogLifestyle":   "Phong cách sống",
+    "contact":         "Liên hệ",
+    "policy":          "Chính sách"
+  },
+  "localeSwitcher": {
+    "label": "Ngôn ngữ",
+    "vi":    "VI",
+    "en":    "EN"
+  },
+  "meta": {
+    "siteName":              "Parfum",
+    "homeTitle":             "Trang chủ | Parfum",
+    "homeDescription":       "Nước hoa cao cấp L'ANGELULUS — hương thơm kể câu chuyện của bạn.",
+    "productsTitle":         "Sản phẩm | Parfum",
+    "aboutTitle":            "Về chúng tôi | Parfum",
+    "aboutStoryTitle":       "Câu chuyện | Parfum",
+    "aboutPhilosophyTitle":  "Triết lý thương hiệu | Parfum",
+    "aboutPerfumersTitle":   "Nhà sáng tác hương | Parfum",
+    "aboutCertsTitle":       "Chứng nhận | Parfum",
+    "aboutCatalogueTitle":   "Catalogue | Parfum",
+    "blogTitle":             "Blog | Parfum",
+    "contactTitle":          "Liên hệ | Parfum",
+    "policyTitle":           "Chính sách | Parfum"
+  },
+  "about": {
+    "overviewHeading":    "Về chúng tôi",
+    "storyHeading":       "Câu chuyện",
+    "philosophyHeading":  "Triết lý thương hiệu",
+    "perfumersHeading":   "Nhà sáng tác hương",
+    "certsHeading":       "Chứng nhận",
+    "catalogueHeading":   "Catalogue",
+    "catalogueCtaLabel":  "Tải xuống Catalogue",
+    "catalogueDescr":     "Khám phá bộ sưu tập nước hoa độc đáo của L'ANGELULUS.",
+    "overviewDescription": "Khám phá thế giới của L'ANGELULUS — từ câu chuyện sáng lập đến triết lý thương hiệu, những nghệ nhân tài hoa và cam kết chất lượng của chúng tôi.",
+    "learnMore":          "Xem thêm →"
+  },
+  "home": {
+    "hero": {
+      "heading":    "Khám Phá Hương Thơm Của Bạn",
+      "subheading": "Nước hoa cao cấp dành cho những người dám sống đáng nhớ",
+      "cta":        "Mua Ngay"
+    },
+    "brandIntro": {
+      "tagline": "Hương thơm là ký ức. Chúng tôi tạo nên ký ức của bạn.",
+      "body1":   "Tại Parfum, chúng tôi tin rằng mỗi hương thơm đều kể một câu chuyện. Được sáng lập bởi những người đam mê nước hoa đã đi khắp thế giới để tìm kiếm những nguyên liệu tốt nhất, bộ sưu tập của chúng tôi là bức thư tình gửi đến nghệ thuật nước hoa tinh tế.",
+      "body2":   "Mỗi chai không chỉ là một mùi hương — đó là lời mời khám phá con người thật của bạn. Chân thực. Tinh tế. Không thể quên."
+    },
+    "whyChooseUs": {
+      "heading": "Tại Sao Chọn Chúng Tôi",
+      "authentic": {
+        "title": "Hương Thơm Chính Hãng",
+        "desc":  "100% chính hãng, nhập khẩu trực tiếp từ nguồn gốc"
+      },
+      "shipping": {
+        "title": "Miễn Phí Vận Chuyển",
+        "desc":  "Cho tất cả đơn hàng trên 500.000 ₫"
+      },
+      "returns": {
+        "title": "Đổi Trả Dễ Dàng",
+        "desc":  "Chính sách đổi trả không rắc rối trong 7 ngày"
+      },
+      "expert": {
+        "title": "Tư Vấn Chuyên Nghiệp",
+        "desc":  "Tư vấn hương thơm cá nhân với các chuyên gia của chúng tôi"
+      }
+    },
+    "featuredProducts": {
+      "heading":    "Hương Thơm Nổi Bật",
+      "subheading": "Những lựa chọn tinh tế cho mọi dịp",
+      "viewAll":    "Xem Tất Cả"
+    },
+    "collections": {
+      "heading": "Bộ Sưu Tập Của Chúng Tôi",
+      "explore": "Khám Phá"
+    },
+    "scentStories": {
+      "heading":  "Câu Chuyện Hương Thơm",
+      "readMore": "Đọc thêm"
+    },
+    "testimonials": {
+      "heading": "Khách Hàng Nói Gì"
+    },
+    "featuredArticles": {
+      "heading":  "Từ Nhật Ký Thương Hiệu",
+      "readMore": "Đọc thêm",
+      "viewAll":  "Xem Tất Cả Bài Viết"
+    },
+    "gallery": {
+      "heading": "Cuộc Sống Trong Hương Thơm"
+    }
+  },
+  "auth": {
+    "signIn": "Đăng nhập",
+    "signOut": "Đăng xuất"
+  },
+  "cart": {
+    "title":              "Giỏ hàng",
+    "pageTitle":          "Giỏ hàng của bạn",
+    "empty":              "Giỏ hàng của bạn đang trống",
+    "continueShopping":   "Tiếp tục mua sắm",
+    "backToShopping":     "← Tiếp tục mua sắm",
+    "subtotal":           "Tạm tính",
+    "discount":           "Giảm giá",
+    "total":              "Tổng cộng",
+    "checkout":           "Thanh toán",
+    "orderSummary":       "Tóm tắt đơn hàng",
+    "couponPlaceholder":  "Mã giảm giá",
+    "apply":              "Áp dụng",
+    "remove":             "Xoá",
+    "invalidCoupon":      "Mã giảm giá không hợp lệ hoặc đã hết hạn"
+  },
+  "checkout": {
+    "heading":            "Thanh toán",
+    "step1":              "1. Thông tin người nhận",
+    "step2":              "2. Phương thức thanh toán",
+    "recipientInfo":      "Thông tin người nhận",
+    "fullName":           "Họ và tên",
+    "phone":              "Số điện thoại",
+    "email":              "Email",
+    "streetAddress":      "Địa chỉ",
+    "city":               "Tỉnh/Thành phố",
+    "district":           "Quận/Huyện",
+    "ward":               "Phường/Xã",
+    "orderNote":          "Ghi chú đơn hàng",
+    "notePlaceholder":    "Yêu cầu đặc biệt (tuỳ chọn)",
+    "selectCity":         "Chọn tỉnh/thành",
+    "selectDistrict":     "Chọn quận/huyện",
+    "selectWard":         "Chọn phường/xã",
+    "backToCart":         "← Quay lại giỏ hàng",
+    "continueToPayment":  "Tiếp tục thanh toán",
+    "errors": {
+      "fullName":   "Họ và tên phải có ít nhất 2 ký tự",
+      "phone":      "Số điện thoại phải có 10 chữ số bắt đầu bằng 0",
+      "email":      "Vui lòng nhập địa chỉ email hợp lệ",
+      "address":    "Vui lòng nhập địa chỉ",
+      "city":       "Vui lòng chọn tỉnh/thành phố",
+      "district":   "Vui lòng chọn quận/huyện",
+      "ward":       "Vui lòng chọn phường/xã"
+    },
+    "paymentMethod":      "Phương thức thanh toán",
+    "cod":                "Thanh toán khi nhận hàng",
+    "bankTransfer":       "Chuyển khoản ngân hàng",
+    "bankDetails":        "Thông tin tài khoản ngân hàng",
+    "bank":               "Ngân hàng",
+    "accountNumber":      "Số tài khoản",
+    "accountName":        "Tên tài khoản",
+    "branch":             "Chi nhánh",
+    "copyAccountNumber":  "Sao chép số tài khoản",
+    "placeOrder":         "Đặt hàng",
+    "backToInfo":         "← Quay lại thông tin",
+    "orderFailed":        "Đặt hàng thất bại. Vui lòng thử lại.",
+    "copied":             "Đã sao chép!",
+    "copyFailed":         "Không thể sao chép."
+  },
+  "confirmation": {
+    "notFound":             "Không tìm thấy đơn hàng.",
+    "backToHome":           "← Về trang chủ",
+    "orderPlaced":          "Đặt hàng thành công!",
+    "itemsOrdered":         "Sản phẩm đã đặt",
+    "subtotal":             "Tạm tính",
+    "discount":             "Giảm giá",
+    "total":                "Tổng cộng",
+    "deliveryDetails":      "Thông tin giao hàng",
+    "name":                 "Tên",
+    "phone":                "Số điện thoại",
+    "email":                "Email",
+    "address":              "Địa chỉ",
+    "note":                 "Ghi chú",
+    "payment":              "Thanh toán",
+    "cod":                  "Thanh toán khi nhận hàng",
+    "bankTransfer":         "Chuyển khoản ngân hàng",
+    "paymentInstructions":  "Hướng dẫn thanh toán",
+    "transferInstructions": "Vui lòng chuyển đúng số tiền vào tài khoản dưới đây trong vòng 24 giờ để xác nhận đơn hàng.",
+    "bank":                 "Ngân hàng",
+    "accountNumber":        "Số tài khoản",
+    "accountName":          "Tên tài khoản",
+    "branch":               "Chi nhánh",
+    "transferNote":         "Nội dung chuyển khoản",
+    "continueShopping":     "Tiếp tục mua sắm"
+  },
+  "contact": {
+    "heading":    "Liên hệ với chúng tôi",
+    "fullName":   "Họ và tên",
+    "email":      "Email",
+    "phone":      "Số điện thoại",
+    "message":    "Tin nhắn",
+    "send":       "Gửi tin nhắn",
+    "infoHeading": "Thông tin liên hệ",
+    "success":    "Gửi thành công! Chúng tôi sẽ phản hồi trong vòng 24 giờ.",
+    "error":      "Gửi thất bại. Vui lòng thử lại.",
+    "errors": {
+      "fullNameRequired": "Vui lòng nhập họ và tên",
+      "emailRequired":    "Vui lòng nhập email",
+      "emailInvalid":     "Địa chỉ email không hợp lệ",
+      "phoneRequired":    "Vui lòng nhập số điện thoại",
+      "phoneInvalid":     "Số điện thoại phải có 10 chữ số",
+      "messageRequired":  "Vui lòng nhập nội dung tin nhắn"
+    }
+  },
+  "blog": {
+    "readMore":     "Đọc thêm",
+    "all":          "Tất cả",
+    "noPostsFound": "Không tìm thấy bài viết.",
+    "latestPosts":  "Bài viết mới nhất",
+    "categories":   "Danh mục"
+  },
+  "search": {
+    "placeholder": "Tìm kiếm sản phẩm, bài viết...",
+    "hint":        "Thử tìm kiếm sản phẩm hoặc bài viết",
+    "noResults":   "Không có kết quả cho \"{query}\"",
+    "groups": {
+      "product": "Sản phẩm",
+      "blog":    "Bài viết",
+      "page":    "Trang"
+    }
+  },
+  "product": {
+    "addToCart":           "Thêm vào giỏ",
+    "addedToCart":         "Đã thêm vào giỏ",
+    "outOfStock":          "Hết hàng",
+    "volume":              "Dung tích",
+    "quantity":            "Số lượng",
+    "buyNow":              "Mua ngay",
+    "addToWishlist":       "Thêm vào yêu thích",
+    "removeFromWishlist":  "Xóa khỏi yêu thích",
+    "allProducts":         "Tất cả sản phẩm",
+    "showing":             "Hiển thị {count} sản phẩm",
+    "noProducts":          "Không tìm thấy sản phẩm.",
+    "specs": {
+      "heading":       "Thông số sản phẩm",
+      "volume":        "Dung tích",
+      "concentration": "Nồng độ",
+      "origin":        "Xuất xứ",
+      "longevity":     "Độ lưu hương",
+      "sillage":       "Tỏa hương",
+      "gender":        "Giới tính"
+    },
+    "usageGuide": {
+      "heading":        "Hướng dẫn sử dụng",
+      "sprayPositions": "Vị trí xịt",
+      "longevityTips":  "Mẹo lưu hương",
+      "storageTips":    "Mẹo bảo quản"
+    },
+    "scentInfo": {
+      "heading":              "Thông tin hương thơm",
+      "fragranceFamily":      "Họ hương",
+      "fragranceNotes":       "Nốt hương",
+      "top":                  "Đầu",
+      "middle":               "Giữa",
+      "base":                 "Cuối",
+      "style":                "Phong cách",
+      "occasion":             "Dịp dùng",
+      "emotionalDescription": "Cảm xúc",
+      "targetAudience":       "Đối tượng",
+      "feeling":              "Cảm giác"
+    },
+    "policies": {
+      "shipping": {
+        "title":       "Miễn phí vận chuyển",
+        "description": "Miễn phí cho đơn hàng trên 500.000 ₫"
+      },
+      "returns": {
+        "title":       "Đổi trả dễ dàng",
+        "description": "Chính sách hoàn trả 7 ngày"
+      },
+      "payment": {
+        "title":       "Thanh toán linh hoạt",
+        "description": "COD và chuyển khoản ngân hàng"
+      },
+      "support": {
+        "title":       "Hỗ trợ chuyên nghiệp",
+        "description": "Chat hoặc gọi để được tư vấn"
+      },
+      "learnMore": "Xem thêm"
+    },
+    "related": {
+      "sameFamily":       "Cùng họ hương",
+      "sameCollection":   "Cùng bộ sưu tập",
+      "frequentlyBought": "Thường mua cùng"
+    },
+    "reviews": {
+      "heading":     "Đánh giá từ khách hàng",
+      "writeReview": "Viết đánh giá",
+      "noReviews":   "Chưa có đánh giá. Hãy là người đầu tiên!",
+      "submitted":   "Đã gửi đánh giá!",
+      "count":       "{count} đánh giá",
+      "modalTitle":  "Viết đánh giá"
+    },
+    "reviewForm": {
+      "rating":            "Đánh giá *",
+      "name":              "Tên của bạn *",
+      "namePlaceholder":   "Nhập tên của bạn",
+      "reviewLabel":       "Nhận xét *",
+      "reviewPlaceholder": "Chia sẻ trải nghiệm của bạn về mùi hương này...",
+      "photos":            "Ảnh (tuỳ chọn)",
+      "addPhotos":         "Thêm ảnh",
+      "cancel":            "Huỷ",
+      "submit":            "Gửi đánh giá"
+    },
+    "filters": {
+      "category":        "Danh mục",
+      "collection":      "Bộ sưu tập",
+      "fragranceFamily": "Họ hương",
+      "priceRange":      "Khoảng giá"
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 PARFUM. Tất cả quyền được bảo lưu."
+  }
+}
