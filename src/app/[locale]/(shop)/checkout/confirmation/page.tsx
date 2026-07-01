@@ -10,7 +10,7 @@ import { useTranslations } from 'next-intl'
 const BANK_DETAILS = {
   bank: 'Vietcombank',
   accountNumber: '1234567890',
-  accountName: 'PARFUM CO. LTD',
+  accountName: "L'ANGELULUS CO. LTD",
   branch: 'Ho Chi Minh City',
 }
 
@@ -29,7 +29,7 @@ export default function ConfirmationPage() {
       return
     }
     try {
-      const stored: Order[] = JSON.parse(localStorage.getItem('parfum-orders') ?? '[]')
+      const stored: Order[] = JSON.parse(localStorage.getItem('langelulus-orders') ?? '[]')
       const found = stored.find((o) => o.id === orderId) ?? null
       setOrder(found)
     } catch {

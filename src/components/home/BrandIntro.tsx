@@ -20,7 +20,7 @@ export default function BrandIntro() {
         >
           <Image
             src="/images/brand-intro.jpg"
-            alt="Parfum brand story"
+            alt="L'Angelulus brand story"
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"

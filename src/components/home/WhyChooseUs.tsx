@@ -22,7 +22,7 @@ export default function WhyChooseUs() {
           className="text-center pt-16 pb-20 max-w-2xl mx-auto"
         >
           <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted mb-4">
-            Why Parfum
+            Why L&apos;Angelulus
           </p>
           <h2 className="font-display font-light text-display-md text-secondary">
             {t('heading')}

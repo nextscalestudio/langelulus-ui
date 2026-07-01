@@ -47,7 +47,7 @@ export default function AdminDashboardPage() {
 
   useEffect(() => {
     try {
-      const stored: Order[] = JSON.parse(localStorage.getItem('parfum-orders') ?? '[]')
+      const stored: Order[] = JSON.parse(localStorage.getItem('langelulus-orders') ?? '[]')
       const uniqueCustomers = new Set(stored.map((o) => o.recipient.email)).size
       const revenue = stored.reduce((sum, o) => sum + o.total, 0)
       const sorted = [...stored].sort(

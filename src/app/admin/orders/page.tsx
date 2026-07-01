@@ -6,7 +6,7 @@ import { ToastProvider, useToast } from '@/components/ui/Toast'
 import OrdersTable from './_components/OrdersTable'
 import OrderDetailModal from './_components/OrderDetailModal'
 
-const STORAGE_KEY = 'parfum-orders'
+const STORAGE_KEY = 'langelulus-orders'
 
 type TabValue = 'all' | Order['status']
 

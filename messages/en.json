@@ -25,19 +25,19 @@
     "en":    "EN"
   },
   "meta": {
-    "siteName":              "Parfum",
-    "homeTitle":             "Home | Parfum",
+    "siteName":              "L'Angelulus",
+    "homeTitle":             "Home | L'Angelulus",
     "homeDescription":       "Premium perfumes L'ANGELULUS — fragrances that tell your story.",
-    "productsTitle":         "Products | Parfum",
-    "aboutTitle":            "About Us | Parfum",
-    "aboutStoryTitle":       "Our Story | Parfum",
-    "aboutPhilosophyTitle":  "Brand Philosophy | Parfum",
-    "aboutPerfumersTitle":   "Our Perfumers | Parfum",
-    "aboutCertsTitle":       "Certifications | Parfum",
-    "aboutCatalogueTitle":   "Catalogue | Parfum",
-    "blogTitle":             "Blog | Parfum",
-    "contactTitle":          "Contact | Parfum",
-    "policyTitle":           "Policy | Parfum"
+    "productsTitle":         "Products | L'Angelulus",
+    "aboutTitle":            "About Us | L'Angelulus",
+    "aboutStoryTitle":       "Our Story | L'Angelulus",
+    "aboutPhilosophyTitle":  "Brand Philosophy | L'Angelulus",
+    "aboutPerfumersTitle":   "Our Perfumers | L'Angelulus",
+    "aboutCertsTitle":       "Certifications | L'Angelulus",
+    "aboutCatalogueTitle":   "Catalogue | L'Angelulus",
+    "blogTitle":             "Blog | L'Angelulus",
+    "contactTitle":          "Contact | L'Angelulus",
+    "policyTitle":           "Policy | L'Angelulus"
   },
   "about": {
     "overviewHeading":    "About Us",
@@ -60,7 +60,7 @@
     },
     "brandIntro": {
       "tagline": "Scent is memory. We craft yours.",
-      "body1":   "At Parfum, we believe every fragrance tells a story. Founded by passionate perfumers who travelled the world sourcing the finest ingredients, our collection is a love letter to the art of fine fragrance.",
+      "body1":   "At L'Angelulus, we believe every fragrance tells a story. Founded by passionate perfumers who travelled the world sourcing the finest ingredients, our collection is a love letter to the art of fine fragrance.",
       "body2":   "Each bottle is more than a scent — it's an invitation to discover who you are. Authentic. Refined. Unforgettable."
     },
     "whyChooseUs": {

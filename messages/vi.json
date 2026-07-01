@@ -25,19 +25,19 @@
     "en":    "EN"
   },
   "meta": {
-    "siteName":              "Parfum",
-    "homeTitle":             "Trang chủ | Parfum",
+    "siteName":              "L'Angelulus",
+    "homeTitle":             "Trang chủ | L'Angelulus",
     "homeDescription":       "Nước hoa cao cấp L'ANGELULUS — hương thơm kể câu chuyện của bạn.",
-    "productsTitle":         "Sản phẩm | Parfum",
-    "aboutTitle":            "Về chúng tôi | Parfum",
-    "aboutStoryTitle":       "Câu chuyện | Parfum",
-    "aboutPhilosophyTitle":  "Triết lý thương hiệu | Parfum",
-    "aboutPerfumersTitle":   "Nhà sáng tác hương | Parfum",
-    "aboutCertsTitle":       "Chứng nhận | Parfum",
-    "aboutCatalogueTitle":   "Catalogue | Parfum",
-    "blogTitle":             "Blog | Parfum",
-    "contactTitle":          "Liên hệ | Parfum",
-    "policyTitle":           "Chính sách | Parfum"
+    "productsTitle":         "Sản phẩm | L'Angelulus",
+    "aboutTitle":            "Về chúng tôi | L'Angelulus",
+    "aboutStoryTitle":       "Câu chuyện | L'Angelulus",
+    "aboutPhilosophyTitle":  "Triết lý thương hiệu | L'Angelulus",
+    "aboutPerfumersTitle":   "Nhà sáng tác hương | L'Angelulus",
+    "aboutCertsTitle":       "Chứng nhận | L'Angelulus",
+    "aboutCatalogueTitle":   "Catalogue | L'Angelulus",
+    "blogTitle":             "Blog | L'Angelulus",
+    "contactTitle":          "Liên hệ | L'Angelulus",
+    "policyTitle":           "Chính sách | L'Angelulus"
   },
   "about": {
     "overviewHeading":    "Về chúng tôi",
@@ -60,7 +60,7 @@
     },
     "brandIntro": {
       "tagline": "Hương thơm là ký ức. Chúng tôi tạo nên ký ức của bạn.",
-      "body1":   "Tại Parfum, chúng tôi tin rằng mỗi hương thơm đều kể một câu chuyện. Được sáng lập bởi những người đam mê nước hoa đã đi khắp thế giới để tìm kiếm những nguyên liệu tốt nhất, bộ sưu tập của chúng tôi là bức thư tình gửi đến nghệ thuật nước hoa tinh tế.",
+      "body1":   "Tại L'Angelulus, chúng tôi tin rằng mỗi hương thơm đều kể một câu chuyện. Được sáng lập bởi những người đam mê nước hoa đã đi khắp thế giới để tìm kiếm những nguyên liệu tốt nhất, bộ sưu tập của chúng tôi là bức thư tình gửi đến nghệ thuật nước hoa tinh tế.",
       "body2":   "Mỗi chai không chỉ là một mùi hương — đó là lời mời khám phá con người thật của bạn. Chân thực. Tinh tế. Không thể quên."
     },
     "whyChooseUs": {

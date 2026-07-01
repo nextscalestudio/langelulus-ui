@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
   const post = getPostBySlug(slug)
   if (!post) return {}
   return {
-    title: `${post.title} | Parfum`,
+    title: `${post.title} | L'Angelulus`,
     description: post.description,
   }
 }
@@ -80,7 +80,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
             {/* Meta row */}
             <p className="font-serif text-[14px] text-[#6b7280] mb-6">
-              Parfum Editorial · {publishedDate} · {post.readTime} min read
+              L&apos;Angelulus Editorial · {publishedDate} · {post.readTime} min read
             </p>
 
             {/* Share buttons */}

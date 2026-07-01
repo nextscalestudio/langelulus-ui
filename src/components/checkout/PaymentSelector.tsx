@@ -18,7 +18,7 @@ type PaymentMethod = 'cod' | 'bank_transfer'
 const BANK_DETAILS = {
   bank: 'Vietcombank',
   accountNumber: '1234567890',
-  accountName: 'PARFUM CO. LTD',
+  accountName: "L'ANGELULUS CO. LTD",
   branch: 'Ho Chi Minh City',
 }
 
@@ -74,8 +74,8 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
       if (!res.ok) throw new Error('Order failed')
 
       // Mock persistence — store in localStorage for confirmation page
-      const existing = JSON.parse(localStorage.getItem('parfum-orders') ?? '[]')
-      localStorage.setItem('parfum-orders', JSON.stringify([...existing, order]))
+      const existing = JSON.parse(localStorage.getItem('langelulus-orders') ?? '[]')
+      localStorage.setItem('langelulus-orders', JSON.stringify([...existing, order]))
 
       clearCart()
       router.push(`/checkout/confirmation?orderId=${orderId}`)

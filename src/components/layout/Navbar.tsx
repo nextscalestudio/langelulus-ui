@@ -17,10 +17,10 @@ export default async function Navbar() {
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto overflow-visible">
         <Link
           href="/"
-          aria-label="PARFUM home"
+          aria-label="L'Angelulus home"
           className="font-display font-medium text-secondary text-lg tracking-[0.15em] hover:opacity-70 transition-opacity duration-300"
         >
-          PARFUM
+          L&apos;ANGELULUS
         </Link>
 
         <NavLinks />

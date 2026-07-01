@@ -12,13 +12,13 @@ interface SocialLink {
 const SOCIAL_LINKS: SocialLink[] = [
   {
     name: 'Facebook',
-    href: 'https://facebook.com/parfum',
+    href: 'https://facebook.com/langelulus',
     color: '#1877f2',
     icon: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z',
   },
   {
     name: 'Messenger',
-    href: 'https://m.me/parfum',
+    href: 'https://m.me/langelulus',
     color: '#0084ff',
     icon: 'M12 2C6.477 2 2 6.145 2 11.243c0 2.914 1.318 5.52 3.393 7.288V22l3.068-1.695A11.15 11.15 0 0 0 12 20.485c5.523 0 10-4.145 10-9.242C22 6.145 17.523 2 12 2zm1.002 12.443-2.547-2.72-4.97 2.72 5.467-5.797 2.61 2.72 4.906-2.72-5.466 5.797z',
   },

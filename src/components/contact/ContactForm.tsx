@@ -193,7 +193,7 @@ export default function ContactForm() {
             <ul className="font-serif text-sm text-white/90 space-y-3 list-none">
               <li>123 Tran Hung Dao, Hoan Kiem, Hanoi</li>
               <li>+84 900 000 000</li>
-              <li>contact@parfum.vn</li>
+              <li>hello@langelulus.com</li>
               <li>Mon–Sat 9am–6pm</li>
             </ul>
           </div>
