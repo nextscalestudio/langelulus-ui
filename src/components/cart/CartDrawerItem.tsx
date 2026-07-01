@@ -16,8 +16,8 @@ export default function CartDrawerItem({ item }: Props) {
   const { product, quantity, selectedVolume } = item
 
   return (
-    <div className="flex gap-3 py-4 border-b border-gray-200 last:border-b-0">
-      <div className="relative w-20 h-20 shrink-0 border border-gray-200 overflow-hidden">
+    <div className="flex gap-4 py-5 border-b border-gray-100 last:border-b-0">
+      <div className="relative w-20 h-20 shrink-0 rounded-[8px] border border-gray-100 overflow-hidden">
         <Image
           src={product.images[0]}
           alt={product.name}
@@ -33,34 +33,34 @@ export default function CartDrawerItem({ item }: Props) {
           <button
             aria-label="Remove item"
             onClick={() => updateQuantity(product.id, selectedVolume, 0)}
-            className="text-gray-400 hover:text-red-500 transition-colors shrink-0 text-lg leading-none"
+            className="w-6 h-6 flex items-center justify-center rounded-full text-gray-400 hover:text-secondary hover:bg-gray-100 transition-all duration-200 shrink-0 text-lg leading-none"
           >
             ×
           </button>
         </div>
 
-        <p className="text-xs text-gray-500 mt-0.5">{selectedVolume}</p>
+        <p className="text-xs text-gray-400 mt-1 tracking-wide">{selectedVolume}</p>
 
-        <div className="flex items-center justify-between mt-2">
-          <div className="flex items-center gap-1">
+        <div className="flex items-center justify-between mt-3">
+          <div className="flex items-center gap-0.5">
             <button
               aria-label="Decrease quantity"
               onClick={() => updateQuantity(product.id, selectedVolume, quantity - 1)}
-              className="w-7 h-7 flex items-center justify-center border border-gray-300 text-secondary hover:bg-gray-100 transition-colors"
+              className="w-7 h-7 flex items-center justify-center rounded-l-[8px] border border-gray-200 text-secondary hover:bg-gray-50 hover:shadow-sm transition-all duration-200"
             >
               −
             </button>
-            <span className="w-7 text-center text-sm font-serif">{quantity}</span>
+            <span className="w-8 text-center text-sm font-serif border-y border-gray-200 h-7 flex items-center justify-center">{quantity}</span>
             <button
               aria-label="Increase quantity"
               onClick={() => updateQuantity(product.id, selectedVolume, quantity + 1)}
-              className="w-7 h-7 flex items-center justify-center border border-gray-300 text-secondary hover:bg-gray-100 transition-colors"
+              className="w-7 h-7 flex items-center justify-center rounded-r-[8px] border border-gray-200 text-secondary hover:bg-gray-50 hover:shadow-sm transition-all duration-200"
             >
               +
             </button>
           </div>
 
-          <p className="font-serif font-bold text-sm text-accent">
+          <p className="font-serif font-bold text-sm text-secondary">
             {fmt.format(product.price * quantity)}
           </p>
         </div>
