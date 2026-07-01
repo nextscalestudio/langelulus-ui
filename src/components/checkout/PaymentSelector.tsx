@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { useRouter } from '@/i18n/navigation'
 import Button from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
@@ -18,7 +19,7 @@ type PaymentMethod = 'cod' | 'bank_transfer'
 const BANK_DETAILS = {
   bank: 'Vietcombank',
   accountNumber: '1234567890',
-  accountName: 'PARFUM CO. LTD',
+  accountName: "L'ANGELULUS CO. LTD",
   branch: 'Ho Chi Minh City',
 }
 
@@ -74,8 +75,8 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
       if (!res.ok) throw new Error('Order failed')
 
       // Mock persistence — store in localStorage for confirmation page
-      const existing = JSON.parse(localStorage.getItem('parfum-orders') ?? '[]')
-      localStorage.setItem('parfum-orders', JSON.stringify([...existing, order]))
+      const existing = JSON.parse(localStorage.getItem('langelulus-orders') ?? '[]')
+      localStorage.setItem('langelulus-orders', JSON.stringify([...existing, order]))
 
       clearCart()
       router.push(`/checkout/confirmation?orderId=${orderId}`)
@@ -87,10 +88,14 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
   }
 
   return (
-    <div>
-      <h2 className="font-serif text-2xl text-secondary mb-6">{t('paymentMethod')}</h2>
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+    >
+      <h2 className="font-serif text-2xl tracking-wide text-secondary mb-10">{t('paymentMethod')}</h2>
 
-      <div className="space-y-3 mb-8">
+      <div className="space-y-4 mb-10">
         <PaymentCard
           id="cod"
           label={t('cod')}
@@ -109,9 +114,14 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
       </div>
 
       {method === 'bank_transfer' && (
-        <div className="bg-[#f9f9f9] border border-gray-200 p-5 mb-8">
-          <p className="font-serif text-sm text-secondary mb-3 font-semibold">{t('bankDetails')}</p>
-          <dl className="space-y-1.5 font-mono text-sm text-secondary">
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="bg-gray-50/80 border border-gray-100 rounded-[10px] p-6 mb-10"
+        >
+          <p className="font-serif text-sm text-secondary mb-5 font-semibold tracking-wide">{t('bankDetails')}</p>
+          <dl className="space-y-2 font-mono text-sm text-secondary">
             <div className="flex gap-4">
               <dt className="w-36 text-gray-500">{t('bank')}</dt>
               <dd>{BANK_DETAILS.bank}</dd>
@@ -132,14 +142,14 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
           <button
             type="button"
             onClick={handleCopyAccount}
-            className="mt-3 font-serif text-xs text-accent hover:underline"
+            className="mt-4 font-serif text-xs text-accent hover:underline underline-offset-4 transition-all duration-200"
           >
             {t('copyAccountNumber')}
           </button>
-        </div>
+        </motion.div>
       )}
 
-      <div className="space-y-3">
+      <div className="space-y-4">
         <Button
           variant="primary"
           size="lg"
@@ -159,7 +169,7 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
           {t('backToInfo')}
         </Button>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -176,22 +186,24 @@ function PaymentCard({ label, selected, onSelect, icon }: PaymentCardProps) {
     <button
       type="button"
       onClick={onSelect}
-      className={`w-full flex items-center gap-4 p-4 border transition-colors text-left ${
+      className={`w-full flex items-center gap-4 p-5 border rounded-[10px] transition-all duration-200 text-left ${
         selected
-          ? 'border-accent bg-[rgba(0,0,255,0.03)]'
-          : 'border-gray-200 hover:border-gray-300'
+          ? 'border-secondary bg-gray-50/60 shadow-sm'
+          : 'border-gray-200 hover:border-gray-300 hover:shadow-sm'
       }`}
     >
       {/* Radio indicator */}
       <span
-        className={`w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center ${
-          selected ? 'border-accent' : 'border-gray-400'
+        className={`w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center transition-all duration-200 ${
+          selected ? 'border-secondary' : 'border-gray-300'
         }`}
       >
-        {selected && <span className="w-2 h-2 rounded-full bg-accent" />}
+        {selected && <span className="w-1.5 h-1.5 rounded-full bg-secondary" />}
       </span>
 
-      <span className="text-accent shrink-0">{icon}</span>
+      <span className={`shrink-0 transition-colors duration-200 ${selected ? 'text-secondary' : 'text-gray-400'}`}>
+        {icon}
+      </span>
 
       <span className="font-serif text-sm text-secondary">{label}</span>
     </button>

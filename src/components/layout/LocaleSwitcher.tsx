@@ -15,22 +15,20 @@ export default function LocaleSwitcher() {
   }
 
   return (
-    <div className="flex items-center gap-1 font-serif text-sm" aria-label="Language switcher">
-      {routing.locales.map((l, i) => (
-        <span key={l} className="flex items-center gap-1">
-          {i > 0 && <span className="text-secondary/40" aria-hidden="true">/</span>}
-          <button
-            onClick={() => switchLocale(l)}
-            className={`transition-colors ${
-              locale === l
-                ? 'text-accent font-bold'
-                : 'text-secondary hover:text-accent'
-            }`}
-            aria-current={locale === l ? 'true' : undefined}
-          >
-            {l.toUpperCase()}
-          </button>
-        </span>
+    <div className="flex items-center gap-2 font-sans text-xs tracking-wide" aria-label="Language switcher">
+      {routing.locales.map((l) => (
+        <button
+          key={l}
+          onClick={() => switchLocale(l)}
+          className={`transition-colors duration-300 ${
+            locale === l
+              ? 'text-secondary font-medium'
+              : 'text-muted hover:text-secondary'
+          }`}
+          aria-current={locale === l ? 'true' : undefined}
+        >
+          {l.toUpperCase()}
+        </button>
       ))}
     </div>
   )

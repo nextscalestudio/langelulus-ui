@@ -60,23 +60,26 @@ export default function CommentSection({ slug }: CommentSectionProps) {
     setBody('')
   }
 
+  const fieldClass =
+    'w-full border border-gray-200 rounded-[8px] px-4 py-2.5 font-serif text-sm text-secondary bg-white focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-all duration-200'
+
   return (
-    <section className="mt-12">
-      <h2 className="font-serif font-bold text-secondary text-xl border-b border-secondary pb-3 mb-6">
+    <section className="mt-16 pt-12 border-t border-gray-100">
+      <h2 className="font-serif font-bold text-secondary text-2xl border-b border-gray-100 pb-4 mb-8">
         Comments ({comments.length})
       </h2>
 
       {comments.length === 0 ? (
-        <p className="font-serif text-[#6b7280] text-sm mb-8">
+        <p className="font-serif text-gray-400 text-[15px] mb-10">
           No comments yet. Be the first to share your thoughts.
         </p>
       ) : (
         <ul className="space-y-6 mb-8">
           {comments.map((c) => (
-            <li key={c.id} className="border-b border-secondary/20 pb-6">
-              <div className="flex items-baseline gap-3 mb-1">
+            <li key={c.id} className="border-b border-gray-100 pb-6">
+              <div className="flex items-baseline gap-3 mb-1.5">
                 <span className="font-serif font-bold text-secondary text-sm">{c.author}</span>
-                <span className="font-serif text-[#6b7280] text-xs">
+                <span className="font-serif text-gray-400 text-xs">
                   {new Date(c.createdAt).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'short',
@@ -90,11 +93,11 @@ export default function CommentSection({ slug }: CommentSectionProps) {
         </ul>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <h3 className="font-serif font-bold text-secondary text-base">Leave a Comment</h3>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <h3 className="font-serif font-bold text-secondary text-xl tracking-wide">Leave a Comment</h3>
         {error && <p className="font-serif text-red-500 text-sm">{error}</p>}
         <div>
-          <label htmlFor="comment-author" className="block font-serif text-secondary text-sm mb-1">
+          <label htmlFor="comment-author" className="block font-serif text-secondary text-sm mb-2">
             Name
           </label>
           <input
@@ -102,12 +105,12 @@ export default function CommentSection({ slug }: CommentSectionProps) {
             type="text"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
-            className="w-full border border-secondary px-3 py-2 font-serif text-sm text-secondary bg-bg focus:outline-none focus:border-accent"
+            className={fieldClass}
             placeholder="Your name"
           />
         </div>
         <div>
-          <label htmlFor="comment-body" className="block font-serif text-secondary text-sm mb-1">
+          <label htmlFor="comment-body" className="block font-serif text-secondary text-sm mb-2">
             Comment
           </label>
           <textarea
@@ -115,13 +118,13 @@ export default function CommentSection({ slug }: CommentSectionProps) {
             rows={4}
             value={body}
             onChange={(e) => setBody(e.target.value)}
-            className="w-full border border-secondary px-3 py-2 font-serif text-sm text-secondary bg-bg focus:outline-none focus:border-accent resize-none"
+            className={`${fieldClass} resize-none`}
             placeholder="Share your thoughts…"
           />
         </div>
         <button
           type="submit"
-          className="font-serif text-sm border border-secondary px-6 py-2 text-secondary hover:bg-secondary hover:text-bg transition-colors"
+          className="font-serif text-sm border border-gray-300 rounded-[8px] px-6 py-2.5 text-secondary hover:border-secondary hover:shadow-md transition-all duration-300"
         >
           Submit
         </button>

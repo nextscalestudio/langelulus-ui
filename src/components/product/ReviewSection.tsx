@@ -60,16 +60,17 @@ export default function ReviewSection({ productId }: ReviewSectionProps) {
   }
 
   return (
-    <section className="mt-12">
-      <h2 className="font-serif text-2xl text-secondary mb-6">{t('heading')}</h2>
+    <section className="mt-20 lg:mt-28">
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent mb-10" />
+      <h2 className="font-serif text-[28px] md:text-[32px] text-secondary mb-8">{t('heading')}</h2>
 
-      <div className="flex flex-col sm:flex-row gap-8 mb-8">
+      <div className="flex flex-col sm:flex-row gap-8 mb-10">
         <div className="flex flex-col items-center justify-center min-w-[120px]">
           <p className="font-serif text-[48px] font-bold text-secondary leading-none">
             {avgRating.toFixed(1)}
           </p>
           <StarRating rating={avgRating} className="mt-2" />
-          <p className="font-serif text-sm text-gray-500 mt-1">
+          <p className="font-serif text-sm text-secondary/50 mt-1">
             {t('count', { count: reviews.length })}
           </p>
         </div>
@@ -78,16 +79,16 @@ export default function ReviewSection({ productId }: ReviewSectionProps) {
           {distribution.map(({ star, count }) => (
             <div key={star} className="flex items-center gap-2">
               <span className="font-serif text-sm text-secondary w-3 text-right">{star}</span>
-              <span className="text-sm text-gray-500">★</span>
-              <div className="flex-1 h-2 bg-[#e5e7eb] overflow-hidden">
+              <span className="text-sm text-secondary/40">★</span>
+              <div className="flex-1 h-2 bg-secondary/10 overflow-hidden rounded-full">
                 <div
-                  className="h-full bg-accent transition-all"
+                  className="h-full bg-accent transition-all rounded-full"
                   style={{
                     width: reviews.length > 0 ? `${(count / reviews.length) * 100}%` : '0%',
                   }}
                 />
               </div>
-              <span className="font-serif text-sm text-gray-500 w-4">{count}</span>
+              <span className="font-serif text-sm text-secondary/50 w-4">{count}</span>
             </div>
           ))}
         </div>
@@ -96,14 +97,14 @@ export default function ReviewSection({ productId }: ReviewSectionProps) {
       <button
         type="button"
         onClick={() => setIsFormOpen(true)}
-        className="border border-secondary font-serif text-sm text-secondary px-6 py-2 hover:bg-secondary hover:text-white transition-colors mb-6"
+        className="font-serif text-sm text-secondary border border-secondary/40 rounded-[10px] px-6 py-2.5 hover:border-secondary hover:shadow-md transition-all duration-300 mb-8"
       >
         {t('writeReview')}
       </button>
 
       <div>
         {reviews.length === 0 ? (
-          <p className="font-serif text-sm text-gray-500 py-4">
+          <p className="font-serif text-[16px] text-secondary/50 py-6">
             {t('noReviews')}
           </p>
         ) : (

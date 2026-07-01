@@ -12,20 +12,20 @@ export default async function Navbar() {
   return (
     <nav
       aria-label="Main navigation"
-      className="sticky top-0 z-50 bg-bg border-b border-secondary h-16 flex items-center px-6"
+      className="sticky top-0 z-[100] glass-nav h-[52px] md:h-14 flex items-center px-6 md:px-10 lg:px-16 overflow-visible"
     >
-      <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
+      <div className="flex items-center justify-between w-full max-w-7xl mx-auto overflow-visible">
         <Link
           href="/"
-          aria-label="PARFUM home"
-          className="font-serif font-bold text-accent text-xl tracking-widest"
+          aria-label="L'Angelulus home"
+          className="font-display font-medium text-secondary text-lg tracking-[0.15em] hover:opacity-70 transition-opacity duration-300"
         >
-          PARFUM
+          L&apos;ANGELULUS
         </Link>
 
         <NavLinks />
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5 md:gap-6">
           <LocaleSwitcher />
           <SearchIconButton />
           <CartIconButton />

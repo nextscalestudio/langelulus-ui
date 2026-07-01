@@ -25,19 +25,19 @@
     "en":    "EN"
   },
   "meta": {
-    "siteName":              "Parfum",
-    "homeTitle":             "Home | Parfum",
+    "siteName":              "L'Angelulus",
+    "homeTitle":             "Home | L'Angelulus",
     "homeDescription":       "Premium perfumes L'ANGELULUS — fragrances that tell your story.",
-    "productsTitle":         "Products | Parfum",
-    "aboutTitle":            "About Us | Parfum",
-    "aboutStoryTitle":       "Our Story | Parfum",
-    "aboutPhilosophyTitle":  "Brand Philosophy | Parfum",
-    "aboutPerfumersTitle":   "Our Perfumers | Parfum",
-    "aboutCertsTitle":       "Certifications | Parfum",
-    "aboutCatalogueTitle":   "Catalogue | Parfum",
-    "blogTitle":             "Blog | Parfum",
-    "contactTitle":          "Contact | Parfum",
-    "policyTitle":           "Policy | Parfum"
+    "productsTitle":         "Products | L'Angelulus",
+    "aboutTitle":            "About Us | L'Angelulus",
+    "aboutStoryTitle":       "Our Story | L'Angelulus",
+    "aboutPhilosophyTitle":  "Brand Philosophy | L'Angelulus",
+    "aboutPerfumersTitle":   "Our Perfumers | L'Angelulus",
+    "aboutCertsTitle":       "Certifications | L'Angelulus",
+    "aboutCatalogueTitle":   "Catalogue | L'Angelulus",
+    "blogTitle":             "Blog | L'Angelulus",
+    "contactTitle":          "Contact | L'Angelulus",
+    "policyTitle":           "Policy | L'Angelulus"
   },
   "about": {
     "overviewHeading":    "About Us",
@@ -55,11 +55,12 @@
     "hero": {
       "heading":    "Discover Your Signature Scent",
       "subheading": "Luxury perfumes crafted for those who dare to be unforgettable",
-      "cta":        "Shop Now"
+      "cta":        "Shop Now",
+      "learnMore":  "Learn more"
     },
     "brandIntro": {
       "tagline": "Scent is memory. We craft yours.",
-      "body1":   "At Parfum, we believe every fragrance tells a story. Founded by passionate perfumers who travelled the world sourcing the finest ingredients, our collection is a love letter to the art of fine fragrance.",
+      "body1":   "At L'Angelulus, we believe every fragrance tells a story. Founded by passionate perfumers who travelled the world sourcing the finest ingredients, our collection is a love letter to the art of fine fragrance.",
       "body2":   "Each bottle is more than a scent — it's an invitation to discover who you are. Authentic. Refined. Unforgettable."
     },
     "whyChooseUs": {
@@ -84,7 +85,8 @@
     "featuredProducts": {
       "heading":    "Featured Fragrances",
       "subheading": "Handpicked signatures for every occasion",
-      "viewAll":    "View All"
+      "viewAll":    "View All",
+      "shopProduct": "Shop this fragrance"
     },
     "collections": {
       "heading": "Our Collections",
@@ -197,6 +199,7 @@
   },
   "contact": {
     "heading":    "Get in Touch",
+    "subheading": "We'd love to hear from you.",
     "fullName":   "Full Name",
     "email":      "Email",
     "phone":      "Phone",
@@ -319,9 +322,38 @@
       "collection":      "Collection",
       "fragranceFamily": "Fragrance Family",
       "priceRange":      "Price Range"
+    },
+    "sort": {
+      "label":      "Sort",
+      "default":    "Default",
+      "priceAsc":   "Price: Low to High",
+      "priceDesc":  "Price: High to Low",
+      "nameAsc":    "Name A–Z",
+      "newest":     "Newest"
     }
   },
+  "policy": {
+    "heading":     "Our Policies",
+    "subheading":  "Transparency and trust, at every step.",
+    "lastUpdated": "Last Updated: January 2025",
+    "contents":    "Contents"
+  },
   "footer": {
-    "copyright": "© 2024 PARFUM. All rights reserved."
+    "tagline": "Luxury fragrance, refined in every drop.",
+    "description": "Every scent is a story. We craft your memories from the world's purest ingredients.",
+    "copyright": "© 2024 L'ANGELULUS. All rights reserved.",
+    "madeIn": "Crafted in Vietnam",
+    "address": "74 Nguyen Trai, Ben Thanh Ward, District 1, Ho Chi Minh City",
+    "phone": "+84 28 3822 9999",
+    "email": "hello@langelulus.com",
+    "followUs": "Follow us",
+    "shopTitle": "SHOP",
+    "companyTitle": "BRAND",
+    "supportTitle": "SUPPORT",
+    "newsletter": {
+      "heading": "Get exclusive offers",
+      "placeholder": "Your email address",
+      "cta": "Subscribe"
+    }
   }
 }

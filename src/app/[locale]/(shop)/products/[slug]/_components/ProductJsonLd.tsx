@@ -5,7 +5,7 @@ interface ProductJsonLdProps {
 }
 
 export default function ProductJsonLd({ product }: ProductJsonLdProps) {
-  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://parfum.vn'
+  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://langelulus.com'
 
   const jsonLd = {
     '@context': 'https://schema.org',

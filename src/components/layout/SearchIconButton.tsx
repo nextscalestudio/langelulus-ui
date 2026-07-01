@@ -9,12 +9,12 @@ export default function SearchIconButton() {
     <button
       aria-label="Open search"
       onClick={openSearch}
-      className="flex items-center justify-center text-secondary hover:text-accent transition-colors"
+      className="flex items-center justify-center text-secondary/70 hover:text-secondary transition-colors duration-300"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="22"
-        height="22"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

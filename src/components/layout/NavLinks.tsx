@@ -76,52 +76,33 @@ export default function NavLinks() {
   return (
     <ul
       ref={navRef}
-      className="hidden md:flex items-center gap-8 list-none m-0 p-0"
+      className="hidden md:flex items-center gap-10 lg:gap-12 list-none m-0 p-0 overflow-visible"
     >
       {NAV_ITEMS.map((item, i) => (
         <li
           key={item.href}
-          className="relative"
+          className={`relative ${openIndex === i ? 'z-[9999]' : 'z-0'}`}
           onMouseEnter={() => item.children && setOpenIndex(i)}
           onMouseLeave={() => setOpenIndex(null)}
         >
-          <Link
-            href={item.href}
-            className="font-serif text-secondary hover:text-accent transition-colors flex items-center gap-1"
-          >
+          <Link href={item.href} className="nav-link">
             {t(item.labelKey)}
-            {item.children && (
-              <svg
-                aria-hidden="true"
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={`transition-transform duration-150 ${openIndex === i ? 'rotate-180' : ''}`}
-              >
-                <polyline points="2,4 6,8 10,4" />
-              </svg>
-            )}
           </Link>
 
           {item.children && (
-            <div className="absolute top-full left-0 pt-2">
+            <div className="nav-dropdown">
               <div
-                className={`bg-white border border-black/10 shadow-lg min-w-44 py-2 transition-all duration-150 ${
+                className={`nav-dropdown-panel ${
                   openIndex === i
-                    ? 'opacity-100 translate-y-0 pointer-events-auto'
-                    : 'opacity-0 translate-y-1 pointer-events-none'
+                    ? 'opacity-100 translate-y-0 visible pointer-events-auto'
+                    : 'opacity-0 translate-y-2 invisible pointer-events-none'
                 }`}
               >
                 {item.children.map((child) => (
                   <Link
                     key={child.href}
                     href={child.href}
-                    className="block px-4 py-2.5 font-serif text-sm text-secondary hover:text-accent hover:bg-gray-50 transition-colors"
+                    className="block px-4 py-2.5 font-sans text-sm text-muted hover:text-secondary rounded-xl hover:bg-secondary/[0.04] transition-colors duration-300"
                     onClick={() => setOpenIndex(null)}
                   >
                     {t(child.labelKey)}

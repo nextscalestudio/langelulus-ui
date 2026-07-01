@@ -19,23 +19,25 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
   return (
     <>
       {/* Mobile collapsible */}
-      <div className="lg:hidden mb-6 border border-secondary">
+      <div className="lg:hidden mb-6 border border-gray-200 rounded-[10px] overflow-hidden">
         <button
           onClick={() => setOpen((prev) => !prev)}
-          className="w-full flex items-center justify-between px-4 py-3 font-serif font-bold text-secondary text-sm"
+          className="w-full flex items-center justify-between px-4 py-3 font-serif font-bold text-secondary text-sm tracking-wide"
           aria-expanded={open}
         >
           Table of Contents
-          <span aria-hidden="true">{open ? '−' : '+'}</span>
+          <span aria-hidden="true" className="text-gray-400 transition-transform duration-200" style={{ display: 'inline-block', transform: open ? 'rotate(45deg)' : 'none' }}>
+            +
+          </span>
         </button>
         {open && (
-          <ul className="px-4 pb-4 space-y-2">
+          <ul className="px-4 pb-4 space-y-2.5 border-t border-gray-100">
             {items.map((item) => (
-              <li key={item.id}>
+              <li key={item.id} className="first:pt-3">
                 <a
                   href={`#${item.id}`}
                   onClick={() => setOpen(false)}
-                  className="font-serif text-[14px] text-[#6b7280] hover:text-accent transition-colors"
+                  className="font-serif text-sm text-gray-500 hover:text-accent underline-offset-2 hover:underline transition-all duration-200"
                 >
                   {item.text}
                 </a>
@@ -48,15 +50,15 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
       {/* Desktop sticky */}
       <aside className="hidden lg:block w-56 shrink-0">
         <div className="sticky top-24">
-          <h2 className="font-serif font-bold text-secondary text-sm mb-3 border-b border-secondary pb-2">
+          <h2 className="font-serif text-xs tracking-[0.2em] uppercase text-secondary/40 mb-4 border-b border-gray-100 pb-2.5">
             Contents
           </h2>
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {items.map((item) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
-                  className="font-serif text-[14px] text-[#6b7280] hover:text-accent transition-colors block"
+                  className="font-serif text-sm text-gray-500 hover:text-accent underline-offset-2 hover:underline transition-all duration-200 block"
                 >
                   {item.text}
                 </a>

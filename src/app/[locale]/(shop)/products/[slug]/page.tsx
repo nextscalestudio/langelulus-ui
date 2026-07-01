@@ -29,17 +29,17 @@ export default function ProductDetailPage({ params }: PageProps) {
   return (
     <>
       <ProductJsonLd product={product} />
-      <main className="bg-bg py-10 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <main className="bg-bg section-padding pt-24 lg:pt-36">
+      <div className="section-container">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           <ProductGallery images={product.images} name={product.name} />
           <ProductInfo product={product} />
         </div>
-        <div className="mt-10 flex flex-col gap-0">
+        <div className="mt-20 lg:mt-32 flex flex-col gap-0">
           <ScentInfoSection scentProfile={product.scentProfile} />
           <ProductSpecsSection specs={product.specs} usageGuide={product.usageGuide} />
         </div>
-        <div className="mt-8">
+        <div className="mt-20 lg:mt-28">
           <ProductPolicies />
         </div>
         <ReviewSection productId={product.id} />

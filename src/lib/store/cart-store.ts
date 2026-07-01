@@ -70,7 +70,7 @@ export const useCartStore = create<CartStore>()(
       removeCoupon: () => set({ coupon: null }),
     }),
     {
-      name: 'parfum-cart',
+      name: 'langelulus-cart',
       partialize: (state) => ({ items: state.items, coupon: state.coupon }),
     }
   )

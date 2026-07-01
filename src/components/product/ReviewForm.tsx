@@ -62,7 +62,7 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
               <svg
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className={`w-8 h-8 transition-colors ${star <= displayRating ? 'text-accent' : 'text-[#e5e7eb]'}`}
+                className={`w-8 h-8 transition-colors ${star <= displayRating ? 'text-accent' : 'text-secondary/15'}`}
                 aria-hidden="true"
               >
                 <path d={STAR_PATH} />
@@ -82,7 +82,7 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
           required
-          className="w-full border border-[#e5e7eb] font-serif text-sm text-secondary px-3 py-2 focus:outline-none focus:border-secondary"
+          className="w-full border border-secondary/20 rounded-[8px] font-serif text-sm text-secondary px-3 py-2.5 focus:outline-none focus:border-secondary/60 transition-colors"
           placeholder={t('namePlaceholder')}
         />
       </div>
@@ -97,7 +97,7 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
           onChange={(e) => setComment(e.target.value)}
           required
           rows={4}
-          className="w-full border border-[#e5e7eb] font-serif text-sm text-secondary px-3 py-2 focus:outline-none focus:border-secondary resize-none"
+          className="w-full border border-secondary/20 rounded-[8px] font-serif text-sm text-secondary px-3 py-2.5 focus:outline-none focus:border-secondary/60 transition-colors resize-none"
           placeholder={t('reviewPlaceholder')}
         />
       </div>
@@ -116,7 +116,7 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
         <button
           type="button"
           onClick={() => fileRef.current?.click()}
-          className="border border-[#e5e7eb] font-serif text-sm text-secondary px-4 py-1.5 hover:border-secondary transition-colors"
+          className="border border-secondary/20 rounded-[8px] font-serif text-sm text-secondary px-4 py-2 hover:border-secondary/50 transition-colors duration-200"
         >
           {t('addPhotos')}
         </button>
@@ -127,7 +127,7 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
                 <img
                   src={src}
                   alt={`Preview ${i + 1}`}
-                  className="w-full h-full object-cover border border-[#e5e7eb]"
+                  className="w-full h-full object-cover border border-secondary/15 rounded-[6px]"
                 />
                 <button
                   type="button"
@@ -147,14 +147,14 @@ export default function ReviewForm({ onSubmit, onClose }: ReviewFormProps) {
         <button
           type="button"
           onClick={onClose}
-          className="font-serif text-sm text-secondary px-4 py-2 border border-[#e5e7eb] hover:border-secondary transition-colors"
+          className="font-serif text-sm text-secondary px-4 py-2.5 border border-secondary/20 rounded-[10px] hover:border-secondary/50 transition-colors duration-200"
         >
           {t('cancel')}
         </button>
         <button
           type="submit"
           disabled={!isValid}
-          className="font-serif text-sm bg-secondary text-white px-6 py-2 hover:bg-accent transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          className="font-serif text-sm bg-gradient-to-b from-secondary to-secondary/85 text-white px-6 py-2.5 rounded-[10px] hover:shadow-md transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
         >
           {t('submit')}
         </button>

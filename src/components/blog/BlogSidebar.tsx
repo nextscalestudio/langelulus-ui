@@ -11,17 +11,17 @@ interface BlogSidebarProps {
 export default async function BlogSidebar({ latestPosts, categories, activeCategory }: BlogSidebarProps) {
   const t = await getTranslations('blog')
   return (
-    <aside className="w-[280px] shrink-0 hidden lg:block space-y-8">
+    <aside className="w-[280px] shrink-0 hidden lg:block space-y-12">
       <div>
-        <h2 className="font-serif font-bold text-[16px] text-secondary border-b border-secondary pb-2 mb-4">
+        <h2 className="font-serif text-xs tracking-[0.2em] uppercase text-secondary/40 border-b border-gray-100 pb-3 mb-6">
           {t('latestPosts')}
         </h2>
-        <ul className="space-y-2">
+        <ul className="space-y-4">
           {latestPosts.slice(0, 5).map((post) => (
             <li key={post.id}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="font-serif text-sm text-secondary hover:text-accent transition-colors line-clamp-2"
+                className="font-serif text-[15px] text-secondary hover:text-accent underline-offset-2 hover:underline transition-all duration-200 line-clamp-2 leading-snug"
               >
                 {post.title}
               </Link>
@@ -31,16 +31,16 @@ export default async function BlogSidebar({ latestPosts, categories, activeCateg
       </div>
 
       <div>
-        <h2 className="font-serif font-bold text-[16px] text-secondary border-b border-secondary pb-2 mb-4">
+        <h2 className="font-serif text-xs tracking-[0.2em] uppercase text-secondary/40 border-b border-gray-100 pb-3 mb-6">
           {t('categories')}
         </h2>
         <div className="flex flex-wrap gap-2">
           <Link
             href="/blog"
-            className={`font-serif text-sm px-3 py-1 border transition-colors ${
+            className={`font-serif text-xs px-3 py-1.5 rounded-[8px] border transition-all duration-200 ${
               !activeCategory
-                ? 'bg-accent text-white border-accent'
-                : 'border-secondary text-secondary hover:text-accent hover:border-accent'
+                ? 'border-accent text-accent bg-accent/[0.05]'
+                : 'border-gray-200 text-secondary hover:border-gray-400'
             }`}
           >
             {t('all')}
@@ -49,10 +49,10 @@ export default async function BlogSidebar({ latestPosts, categories, activeCateg
             <Link
               key={cat}
               href={`/blog?category=${encodeURIComponent(cat)}`}
-              className={`font-serif text-sm px-3 py-1 border transition-colors ${
+              className={`font-serif text-xs px-3 py-1.5 rounded-[8px] border transition-all duration-200 ${
                 activeCategory === cat
-                  ? 'bg-accent text-white border-accent'
-                  : 'border-secondary text-secondary hover:text-accent hover:border-accent'
+                  ? 'border-accent text-accent bg-accent/[0.05]'
+                  : 'border-gray-200 text-secondary hover:border-gray-400'
               }`}
             >
               {cat}

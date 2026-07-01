@@ -5,6 +5,7 @@ import blogPosts from '@/data/blog-posts'
 import PostCard from '@/components/blog/PostCard'
 import BlogSidebar from '@/components/blog/BlogSidebar'
 import { Link } from '@/i18n/navigation'
+import { FadeInView } from '@/components/FadeInView'
 
 export async function generateMetadata({
   params,
@@ -48,8 +49,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   return (
     <div className="min-h-screen bg-bg">
-      {/* Featured banner */}
-      <div className="relative w-full h-64 md:h-80">
+      {/* Featured hero — full-bleed editorial */}
+      <div className="relative w-full h-[480px] md:h-[620px]">
         <Image
           src={featured.thumbnail}
           alt={featured.title}
@@ -58,56 +59,62 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 max-w-7xl mx-auto">
-          <span className="font-serif text-white/70 text-xs mb-2">{featuredDate}</span>
-          <h1 className="font-serif font-bold text-white text-3xl md:text-[32px] leading-snug max-w-xl">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-16 pb-14 md:pb-20 max-w-7xl mx-auto">
+          <span className="font-serif text-white/60 text-xs tracking-[0.2em] uppercase mb-4">
+            {featuredDate}
+          </span>
+          <h1 className="font-serif font-bold text-white text-[42px] md:text-[72px] leading-tight max-w-2xl">
             {featured.title}
           </h1>
           <Link
             href={`/blog/${featured.slug}`}
-            className="mt-3 font-serif text-sm text-white underline hover:text-accent transition-colors"
+            className="mt-6 inline-block font-serif text-sm text-white border border-white/50 rounded-[8px] px-6 py-2.5 hover:bg-white/10 hover:border-white transition-all duration-300 w-fit"
           >
             {t('readMore')}
           </Link>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto px-6 py-[60px] lg:py-[120px]">
         {/* Category tabs */}
-        <div className="flex gap-3 mb-8 overflow-x-auto pb-2">
-          <Link
-            href="/blog"
-            className={`font-serif text-sm px-4 py-1.5 shrink-0 transition-colors ${
-              !category
-                ? 'bg-accent text-white'
-                : 'border border-secondary text-secondary hover:text-accent hover:border-accent'
-            }`}
-          >
-            {t('all')}
-          </Link>
-          {categories.map((cat) => (
+        <FadeInView>
+          <div className="flex gap-2 mb-12 overflow-x-auto pb-2">
             <Link
-              key={cat}
-              href={`/blog?category=${encodeURIComponent(cat)}`}
-              className={`font-serif text-sm px-4 py-1.5 shrink-0 transition-colors ${
-                category === cat
-                  ? 'bg-accent text-white'
-                  : 'border border-secondary text-secondary hover:text-accent hover:border-accent'
+              href="/blog"
+              className={`font-serif text-sm px-5 py-2 shrink-0 rounded-[8px] border transition-all duration-200 ${
+                !category
+                  ? 'border-accent text-accent bg-accent/[0.05]'
+                  : 'border-gray-200 text-secondary hover:border-gray-400'
               }`}
             >
-              {cat}
+              {t('all')}
             </Link>
-          ))}
-        </div>
+            {categories.map((cat) => (
+              <Link
+                key={cat}
+                href={`/blog?category=${encodeURIComponent(cat)}`}
+                className={`font-serif text-sm px-5 py-2 shrink-0 rounded-[8px] border transition-all duration-200 ${
+                  category === cat
+                    ? 'border-accent text-accent bg-accent/[0.05]'
+                    : 'border-gray-200 text-secondary hover:border-gray-400'
+                }`}
+              >
+                {cat}
+              </Link>
+            ))}
+          </div>
+        </FadeInView>
 
-        <div className="flex gap-10">
+        <div className="flex gap-12">
           {/* Post grid */}
           <div className="flex-1">
             {paginated.length === 0 ? (
-              <p className="font-serif text-secondary/60 py-12 text-center">{t('noPostsFound')}</p>
+              <p className="font-serif text-secondary/60 py-24 text-center text-lg">
+                {t('noPostsFound')}
+              </p>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {paginated.map((post) => (
                   <PostCard key={post.id} post={post} />
                 ))}
@@ -116,7 +123,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-2 mt-10">
+              <div className="flex items-center justify-center gap-2 mt-16">
                 {Array.from({ length: totalPages }).map((_, i) => {
                   const pageNum = i + 1
                   const href = category
@@ -126,10 +133,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     <Link
                       key={pageNum}
                       href={href}
-                      className={`font-serif text-sm w-9 h-9 flex items-center justify-center border transition-colors ${
+                      className={`font-serif text-sm w-10 h-10 flex items-center justify-center rounded-[8px] border transition-all duration-200 ${
                         currentPage === pageNum
-                          ? 'bg-accent text-white border-accent'
-                          : 'border-secondary text-secondary hover:border-accent hover:text-accent'
+                          ? 'border-accent text-accent bg-accent/[0.05]'
+                          : 'border-gray-200 text-secondary hover:border-gray-400'
                       }`}
                     >
                       {pageNum}

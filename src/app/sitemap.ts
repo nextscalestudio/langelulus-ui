@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import products from '@/data/products'
 import blogPosts from '@/data/blog-posts'
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://parfum.vn'
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://langelulus.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

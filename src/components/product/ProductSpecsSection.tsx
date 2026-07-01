@@ -21,7 +21,7 @@ function AccordionHeader({
   return (
     <button
       onClick={onToggle}
-      className="flex w-full items-center justify-between py-4 text-left"
+      className="flex w-full items-center justify-between py-5 text-left"
       aria-expanded={open}
     >
       <span className="font-serif font-bold text-[18px] text-secondary">{title}</span>
@@ -56,20 +56,23 @@ export default function ProductSpecsSection({ specs, usageGuide }: ProductSpecsS
 
   return (
     <div className="flex flex-col">
+      {/* Gradient divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent" />
+
       {/* Product Specifications accordion */}
-      <div className="border-t border-b border-gray-200">
+      <div>
         <AccordionHeader
           title={t('specs.heading')}
           open={specsOpen}
           onToggle={() => setSpecsOpen((o) => !o)}
         />
         {specsOpen && (
-          <div className="pb-6">
+          <div className="pb-8">
             <table className="w-full text-[14px]">
               <tbody>
                 {specRows.map((row, i) => (
-                  <tr key={row.label} className={i % 2 === 0 ? 'bg-[#f9f9f9]' : 'bg-white'}>
-                    <td className="font-serif text-gray-500 py-2 px-3 w-[40%]">{row.label}</td>
+                  <tr key={row.label} className={i % 2 === 0 ? 'bg-bg-subtle' : 'bg-transparent'}>
+                    <td className="font-serif text-secondary/45 py-2 px-3 w-[40%]">{row.label}</td>
                     <td className="font-serif text-secondary py-2 px-3">{row.value}</td>
                   </tr>
                 ))}
@@ -79,15 +82,18 @@ export default function ProductSpecsSection({ specs, usageGuide }: ProductSpecsS
         )}
       </div>
 
+      {/* Gradient divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent" />
+
       {/* Usage Guide accordion */}
-      <div className="border-b border-gray-200">
+      <div>
         <AccordionHeader
           title={t('usageGuide.heading')}
           open={usageOpen}
           onToggle={() => setUsageOpen((o) => !o)}
         />
         {usageOpen && (
-          <div className="pb-6">
+          <div className="pb-8">
             <SubHeading label={t('usageGuide.sprayPositions')} />
             <ol className="list-decimal list-inside font-serif text-[15px] text-secondary leading-[1.7] space-y-1 pl-1">
               {usageGuide.sprayPositions.map((item) => (
@@ -111,6 +117,9 @@ export default function ProductSpecsSection({ specs, usageGuide }: ProductSpecsS
           </div>
         )}
       </div>
+
+      {/* Gradient divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent" />
     </div>
   )
 }

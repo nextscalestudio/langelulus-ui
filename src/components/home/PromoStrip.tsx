@@ -27,13 +27,13 @@ export default function PromoStrip() {
       variants={slideDown}
       initial="hidden"
       animate="visible"
-      className="bg-accent h-[44px] flex items-center justify-center px-4"
+      className="relative z-[1] bg-bg-subtle border-b border-border h-9 flex items-center justify-center px-6"
     >
       <p
-        className={`font-serif text-[14px] text-white text-center transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
+        className={`font-sans text-xs text-muted text-center tracking-wide transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
       >
         {item.message}
-        {item.code && <span className="ml-2 font-bold">{item.code}</span>}
+        {item.code && <span className="ml-2 text-secondary font-medium">{item.code}</span>}
       </p>
     </motion.div>
   )

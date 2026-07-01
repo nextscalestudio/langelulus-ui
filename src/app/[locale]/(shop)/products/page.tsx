@@ -9,6 +9,7 @@ import ProductFilters from '@/components/product/ProductFilters'
 import FilterDrawer from '@/components/product/FilterDrawer'
 import ActiveFilters from '@/components/product/ActiveFilters'
 import Skeleton from '@/components/ui/Skeleton'
+import { FadeInView } from '@/components/FadeInView'
 
 export async function generateMetadata({
   params,
@@ -98,10 +99,12 @@ export default async function ProductsPage({
   const t = await getTranslations('product')
 
   return (
-    <main className="bg-bg py-10 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="font-serif text-4xl text-secondary mb-2">{t('allProducts')}</h1>
-        <p className="text-sm text-gray-500 mb-6">{t('showing', { count: filtered.length })}</p>
+    <main className="section-padding bg-bg pt-24 lg:pt-36">
+      <div className="section-container">
+        <FadeInView>
+          <h1 className="font-serif text-[48px] md:text-[72px] leading-tight text-secondary mb-4">{t('allProducts')}</h1>
+          <p className="font-serif text-[16px] text-secondary/50 mb-12">{t('showing', { count: filtered.length })}</p>
+        </FadeInView>
 
         {/* Mobile filter button */}
         <div className="lg:hidden mb-4">
@@ -132,9 +135,9 @@ export default async function ProductsPage({
             </div>
 
             {filtered.length === 0 ? (
-              <p className="text-center text-gray-500 py-20">{t('noProducts')}</p>
+              <p className="font-serif text-center text-secondary/50 py-24 text-[18px]">{t('noProducts')}</p>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-12 md:gap-x-8 md:gap-y-16">
                 {filtered.map(product => (
                   <ProductCard key={product.id} product={product} />
                 ))}

@@ -35,7 +35,7 @@ export default function NavbarAuthButton({ user }: NavbarAuthButtonProps) {
       <button
         aria-label={t('signIn')}
         onClick={() => signIn('google')}
-        className="font-serif border border-secondary px-4 py-1.5 text-secondary hover:bg-secondary hover:text-bg transition-colors"
+        className="font-sans text-xs tracking-wide text-secondary/70 hover:text-secondary transition-colors duration-300"
       >
         {t('signIn')}
       </button>
@@ -47,7 +47,7 @@ export default function NavbarAuthButton({ user }: NavbarAuthButtonProps) {
       <button
         aria-label="Account menu"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex items-center justify-center rounded-full overflow-hidden w-8 h-8 border border-secondary focus:outline-none"
+        className="flex items-center justify-center rounded-full overflow-hidden w-7 h-7 ring-1 ring-border focus:outline-none focus:ring-secondary/20 transition-shadow duration-300"
       >
         {user.image ? (
           <Image
@@ -65,14 +65,14 @@ export default function NavbarAuthButton({ user }: NavbarAuthButtonProps) {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-36 bg-white border border-[#e5e7eb] shadow-md z-50">
+        <div className="absolute right-0 mt-3 w-40 bg-bg-elevated/95 backdrop-blur-xl border border-border rounded-2xl shadow-soft-lg z-50 py-1">
           <button
             onClick={async () => {
               setOpen(false)
               clearCart()
               await signOut()
             }}
-            className="w-full text-left px-4 py-2 font-serif text-[14px] text-secondary hover:text-accent transition-colors"
+            className="w-full text-left px-4 py-2.5 font-sans text-sm text-secondary/70 hover:text-secondary rounded-xl hover:bg-secondary/[0.04] transition-colors duration-300"
           >
             {t('signOut')}
           </button>

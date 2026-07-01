@@ -59,7 +59,7 @@ export default function AdminSidebar() {
         {/* Logo */}
         <div className="px-6 py-6 border-b border-white/10">
           <span className="font-serif text-sm font-bold tracking-widest text-white">
-            PARFUM ADMIN
+          L&apos;Angelulus ADMIN
           </span>
         </div>
 

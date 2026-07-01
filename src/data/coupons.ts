@@ -2,7 +2,7 @@ import type { Coupon } from '@/types'
 
 const coupons: Coupon[] = [
   {
-    code: 'PARFUM10',
+    code: 'ANGELULUS10',
     discountType: 'percentage',
     discountValue: 10,
     minOrderValue: 500_000,

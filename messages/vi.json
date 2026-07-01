@@ -25,19 +25,19 @@
     "en":    "EN"
   },
   "meta": {
-    "siteName":              "Parfum",
-    "homeTitle":             "Trang chủ | Parfum",
+    "siteName":              "L'Angelulus",
+    "homeTitle":             "Trang chủ | L'Angelulus",
     "homeDescription":       "Nước hoa cao cấp L'ANGELULUS — hương thơm kể câu chuyện của bạn.",
-    "productsTitle":         "Sản phẩm | Parfum",
-    "aboutTitle":            "Về chúng tôi | Parfum",
-    "aboutStoryTitle":       "Câu chuyện | Parfum",
-    "aboutPhilosophyTitle":  "Triết lý thương hiệu | Parfum",
-    "aboutPerfumersTitle":   "Nhà sáng tác hương | Parfum",
-    "aboutCertsTitle":       "Chứng nhận | Parfum",
-    "aboutCatalogueTitle":   "Catalogue | Parfum",
-    "blogTitle":             "Blog | Parfum",
-    "contactTitle":          "Liên hệ | Parfum",
-    "policyTitle":           "Chính sách | Parfum"
+    "productsTitle":         "Sản phẩm | L'Angelulus",
+    "aboutTitle":            "Về chúng tôi | L'Angelulus",
+    "aboutStoryTitle":       "Câu chuyện | L'Angelulus",
+    "aboutPhilosophyTitle":  "Triết lý thương hiệu | L'Angelulus",
+    "aboutPerfumersTitle":   "Nhà sáng tác hương | L'Angelulus",
+    "aboutCertsTitle":       "Chứng nhận | L'Angelulus",
+    "aboutCatalogueTitle":   "Catalogue | L'Angelulus",
+    "blogTitle":             "Blog | L'Angelulus",
+    "contactTitle":          "Liên hệ | L'Angelulus",
+    "policyTitle":           "Chính sách | L'Angelulus"
   },
   "about": {
     "overviewHeading":    "Về chúng tôi",
@@ -55,11 +55,12 @@
     "hero": {
       "heading":    "Khám Phá Hương Thơm Của Bạn",
       "subheading": "Nước hoa cao cấp dành cho những người dám sống đáng nhớ",
-      "cta":        "Mua Ngay"
+      "cta":        "Mua Ngay",
+      "learnMore":  "Tìm hiểu thêm"
     },
     "brandIntro": {
       "tagline": "Hương thơm là ký ức. Chúng tôi tạo nên ký ức của bạn.",
-      "body1":   "Tại Parfum, chúng tôi tin rằng mỗi hương thơm đều kể một câu chuyện. Được sáng lập bởi những người đam mê nước hoa đã đi khắp thế giới để tìm kiếm những nguyên liệu tốt nhất, bộ sưu tập của chúng tôi là bức thư tình gửi đến nghệ thuật nước hoa tinh tế.",
+      "body1":   "Tại L'Angelulus, chúng tôi tin rằng mỗi hương thơm đều kể một câu chuyện. Được sáng lập bởi những người đam mê nước hoa đã đi khắp thế giới để tìm kiếm những nguyên liệu tốt nhất, bộ sưu tập của chúng tôi là bức thư tình gửi đến nghệ thuật nước hoa tinh tế.",
       "body2":   "Mỗi chai không chỉ là một mùi hương — đó là lời mời khám phá con người thật của bạn. Chân thực. Tinh tế. Không thể quên."
     },
     "whyChooseUs": {
@@ -84,7 +85,8 @@
     "featuredProducts": {
       "heading":    "Hương Thơm Nổi Bật",
       "subheading": "Những lựa chọn tinh tế cho mọi dịp",
-      "viewAll":    "Xem Tất Cả"
+      "viewAll":    "Xem Tất Cả",
+      "shopProduct": "Mua hương thơm này"
     },
     "collections": {
       "heading": "Bộ Sưu Tập Của Chúng Tôi",
@@ -197,6 +199,7 @@
   },
   "contact": {
     "heading":    "Liên hệ với chúng tôi",
+    "subheading": "Chúng tôi lắng nghe và luôn sẵn sàng hỗ trợ bạn.",
     "fullName":   "Họ và tên",
     "email":      "Email",
     "phone":      "Số điện thoại",
@@ -319,9 +322,38 @@
       "collection":      "Bộ sưu tập",
       "fragranceFamily": "Họ hương",
       "priceRange":      "Khoảng giá"
+    },
+    "sort": {
+      "label":      "Sắp xếp",
+      "default":    "Mặc định",
+      "priceAsc":   "Giá: Thấp đến Cao",
+      "priceDesc":  "Giá: Cao đến Thấp",
+      "nameAsc":    "Tên A–Z",
+      "newest":     "Mới nhất"
     }
   },
+  "policy": {
+    "heading":     "Chính Sách",
+    "subheading":  "Minh bạch và tin tưởng trong từng bước.",
+    "lastUpdated": "Cập nhật: Tháng 1 năm 2025",
+    "contents":    "Mục lục"
+  },
   "footer": {
-    "copyright": "© 2024 PARFUM. Tất cả quyền được bảo lưu."
+    "tagline": "Nước hoa cao cấp, tinh tế trong từng giọt.",
+    "description": "Mỗi hương thơm là một câu chuyện. Chúng tôi tạo nên ký ức của bạn từ những nguyên liệu thuần khiết nhất thế giới.",
+    "copyright": "© 2024 L'ANGELULUS. Tất cả quyền được bảo lưu.",
+    "madeIn": "Chế tác tại Việt Nam",
+    "address": "74 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
+    "phone": "+84 28 3822 9999",
+    "email": "hello@langelulus.com",
+    "followUs": "Theo dõi chúng tôi",
+    "shopTitle": "SẢN PHẨM",
+    "companyTitle": "THƯƠNG HIỆU",
+    "supportTitle": "HỖ TRỢ",
+    "newsletter": {
+      "heading": "Nhận ưu đãi độc quyền",
+      "placeholder": "Địa chỉ email của bạn",
+      "cta": "Đăng ký"
+    }
   }
 }

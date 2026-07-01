@@ -19,11 +19,11 @@ export default function ReviewCard({ review }: ReviewCardProps) {
 
   return (
     <>
-      <div className="border-b border-[#e5e7eb] py-4 bg-white">
+      <div className="py-6 bg-bg">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="font-serif font-bold text-sm text-secondary">{review.author}</p>
-            <p className="font-serif text-xs text-gray-500 mt-0.5">{formattedDate}</p>
+            <p className="font-serif text-xs text-secondary/45 mt-0.5">{formattedDate}</p>
           </div>
           <StarRating rating={review.rating} />
         </div>
@@ -35,7 +35,7 @@ export default function ReviewCard({ review }: ReviewCardProps) {
                 key={i}
                 type="button"
                 onClick={() => setLightboxSrc(src)}
-                className="w-[60px] h-[60px] overflow-hidden border border-[#e5e7eb] flex-shrink-0"
+                className="w-[60px] h-[60px] overflow-hidden border border-secondary/15 rounded-[8px] flex-shrink-0 hover:border-secondary/40 transition-colors"
                 aria-label={`View photo ${i + 1}`}
               >
                 {/* base64 data URIs are not supported by next/image optimization */}
@@ -45,6 +45,7 @@ export default function ReviewCard({ review }: ReviewCardProps) {
           </div>
         )}
       </div>
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/10 to-transparent" />
 
       {lightboxSrc && (
         <div
