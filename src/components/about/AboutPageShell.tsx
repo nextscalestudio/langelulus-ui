@@ -13,7 +13,7 @@ export default function AboutPageShell({ title, subtitle, children }: AboutPageS
   return (
     <>
       {/* Hero — full-bleed with gradient fade to white */}
-      <div className="relative h-[60vh] min-h-[480px] flex items-center justify-center">
+      <div className="relative min-h-[70vh] flex items-center justify-center">
         <Image
           src="/images/about/hero.jpg"
           alt={title}
@@ -24,7 +24,7 @@ export default function AboutPageShell({ title, subtitle, children }: AboutPageS
         <div className="absolute inset-0 bg-secondary/55" />
 
         {/* Gradient fade at bottom into page */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white to-transparent" />
 
         <div className="relative text-center px-6 max-w-3xl mx-auto">
           <motion.h1
@@ -40,7 +40,7 @@ export default function AboutPageShell({ title, subtitle, children }: AboutPageS
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-              className="font-serif text-xl text-white/75 mt-4"
+              className="font-serif text-[24px] md:text-[28px] text-white/75 mt-6 leading-relaxed"
             >
               {subtitle}
             </motion.p>
@@ -53,7 +53,7 @@ export default function AboutPageShell({ title, subtitle, children }: AboutPageS
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        className="max-w-4xl mx-auto px-6 py-[80px] md:py-[130px]"
+        className="max-w-4xl mx-auto px-6 py-[60px] md:py-[140px]"
       >
         {children}
       </motion.div>
