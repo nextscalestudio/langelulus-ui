@@ -321,6 +321,14 @@
       "collection":      "Bộ sưu tập",
       "fragranceFamily": "Họ hương",
       "priceRange":      "Khoảng giá"
+    },
+    "sort": {
+      "label":      "Sắp xếp",
+      "default":    "Mặc định",
+      "priceAsc":   "Giá: Thấp đến Cao",
+      "priceDesc":  "Giá: Cao đến Thấp",
+      "nameAsc":    "Tên A–Z",
+      "newest":     "Mới nhất"
     }
   },
   "footer": {

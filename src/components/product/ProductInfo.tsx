@@ -54,24 +54,24 @@ export default function ProductInfo({ product }: ProductInfoProps) {
   }
 
   return (
-    <div className="flex flex-col gap-6">
-      <h1 className="font-serif text-[2rem] leading-tight text-secondary">{product.name}</h1>
+    <div className="flex flex-col gap-7">
+      <h1 className="font-serif text-3xl lg:text-[2.6rem] leading-tight text-secondary">{product.name}</h1>
 
-      <p className="text-sm leading-relaxed text-gray-600">{product.shortDescription}</p>
+      <p className="text-base leading-relaxed text-muted">{product.shortDescription}</p>
 
-      <p className="font-serif font-bold text-[1.75rem] text-accent">{formatPrice(product.price)}</p>
+      <p className="font-serif font-light text-[2rem] text-secondary tracking-tight">{formatPrice(product.price)}</p>
 
-      <div className="flex flex-col gap-2">
-        <span className="text-sm font-medium text-secondary">{t('volume')}</span>
+      <div className="flex flex-col gap-3">
+        <span className="text-sm font-medium text-muted tracking-wide uppercase">{t('volume')}</span>
         <div className="flex flex-wrap gap-2">
           {product.availableVolumes.map((vol) => (
             <button
               key={vol}
               onClick={() => setSelectedVolume(vol)}
-              className={`px-4 py-2 text-sm font-serif border transition-colors ${
+              className={`px-4 py-2 text-sm font-serif rounded-[10px] border transition-all duration-300 ${
                 selectedVolume === vol
-                  ? 'border-secondary bg-secondary text-white'
-                  : 'border-secondary text-secondary hover:bg-gray-50'
+                  ? 'border-secondary bg-gradient-to-b from-secondary/[0.08] to-secondary/[0.04] text-secondary font-medium shadow-sm'
+                  : 'border-border text-secondary hover:border-secondary/40 hover:bg-bg-subtle'
               }`}
             >
               {vol}
@@ -80,22 +80,22 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <span className="text-sm font-medium text-secondary">{t('quantity')}</span>
-        <div className="flex items-center border border-secondary w-fit">
+      <div className="flex flex-col gap-3">
+        <span className="text-sm font-medium text-muted tracking-wide uppercase">{t('quantity')}</span>
+        <div className="flex items-center border border-border rounded-[10px] w-fit overflow-hidden">
           <button
             onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-            className="px-3 py-2 text-secondary hover:bg-gray-50 transition-colors"
+            className="px-4 py-2.5 text-secondary hover:bg-bg-subtle transition-colors duration-200"
             aria-label="Decrease quantity"
           >
             −
           </button>
-          <span className="min-w-[3rem] py-2 text-center font-serif text-secondary">
+          <span className="min-w-[3rem] py-2.5 text-center font-serif text-secondary border-x border-border">
             {quantity}
           </span>
           <button
             onClick={() => setQuantity((q) => q + 1)}
-            className="px-3 py-2 text-secondary hover:bg-gray-50 transition-colors"
+            className="px-4 py-2.5 text-secondary hover:bg-bg-subtle transition-colors duration-200"
             aria-label="Increase quantity"
           >
             +

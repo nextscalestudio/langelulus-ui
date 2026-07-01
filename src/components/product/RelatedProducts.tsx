@@ -16,10 +16,10 @@ function Row({ title, items }: RowProps) {
   if (items.length === 0) return null
   return (
     <div>
-      <h3 className="font-serif font-bold text-xl text-secondary mb-4">{title}</h3>
-      <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2">
+      <h3 className="font-serif font-light text-2xl lg:text-3xl text-secondary mb-8">{title}</h3>
+      <div className="flex gap-6 overflow-x-auto scrollbar-hide pb-2">
         {items.map((product) => (
-          <div key={product.id} className="w-56 flex-shrink-0">
+          <div key={product.id} className="w-64 flex-shrink-0">
             <ProductCard product={product} />
           </div>
         ))}
@@ -48,7 +48,7 @@ export default async function RelatedProducts({ current }: RelatedProductsProps)
   }
 
   return (
-    <section className="bg-white mt-12 flex flex-col gap-10">
+    <section className="mt-20 lg:mt-28 pt-12 lg:pt-16 border-t border-border flex flex-col gap-16 lg:gap-20">
       <Row title={t('sameFamily')} items={byFamily} />
       <Row title={t('sameCollection')} items={byCollection} />
       <Row title={t('frequentlyBought')} items={frequentlyBought} />

@@ -33,7 +33,7 @@ export default function ScentInfoSection({ scentProfile }: ScentInfoSectionProps
     <div className="border-t border-b border-gray-200">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center justify-between py-4 text-left"
+        className="flex w-full items-center justify-between py-5 text-left"
         aria-expanded={open}
       >
         <span className="font-serif font-bold text-[18px] text-secondary">{t('heading')}</span>
@@ -43,14 +43,14 @@ export default function ScentInfoSection({ scentProfile }: ScentInfoSectionProps
       </button>
 
       {open && (
-        <div className="pb-6 flex flex-col gap-6">
+        <div className="pb-8 flex flex-col gap-8">
           <Field label={t('fragranceFamily')} value={scentProfile.family} />
 
           <div>
             <p className="font-serif uppercase text-[12px] text-gray-500 tracking-wide mb-3">
               {t('fragranceNotes')}
             </p>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-6">
               {(
                 [
                   { key: 'top' as const, notes: scentProfile.notes.top },

@@ -9,6 +9,7 @@ import { useToast } from '@/components/ui/Toast'
 import StarRating from './StarRating'
 import { useCartStore } from '@/lib/store/cart-store'
 import { useTranslations } from 'next-intl'
+import { motion } from 'framer-motion'
 
 const formatVND = (price: number) =>
   new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)
@@ -28,6 +29,12 @@ export default function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
     <Link
       href={`/products/${product.slug}`}
       className="group block"
@@ -78,5 +85,6 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </div>
     </Link>
+    </motion.div>
   )
 }

@@ -98,7 +98,7 @@ export default async function ProductsPage({
   const t = await getTranslations('product')
 
   return (
-    <main className="section-padding bg-bg pt-16 md:pt-20">
+    <main className="section-padding bg-bg pt-24 lg:pt-36">
       <div className="section-container">
         <h1 className="font-display font-light text-display-md text-secondary mb-3">{t('allProducts')}</h1>
         <p className="font-sans text-sm text-muted mb-10">{t('showing', { count: filtered.length })}</p>

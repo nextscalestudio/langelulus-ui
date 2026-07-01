@@ -321,6 +321,14 @@
       "collection":      "Collection",
       "fragranceFamily": "Fragrance Family",
       "priceRange":      "Price Range"
+    },
+    "sort": {
+      "label":      "Sort",
+      "default":    "Default",
+      "priceAsc":   "Price: Low to High",
+      "priceDesc":  "Price: High to Low",
+      "nameAsc":    "Name A–Z",
+      "newest":     "Newest"
     }
   },
   "footer": {
