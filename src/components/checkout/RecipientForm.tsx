@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { Link } from '@/i18n/navigation'
 import Button from '@/components/ui/Button'
 import type { RecipientInfo } from '@/types'
@@ -104,17 +105,23 @@ export default function RecipientForm({ onSubmit }: Props) {
   }
 
   const fieldClass =
-    'w-full h-11 border border-gray-200 rounded-[8px] px-4 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-all duration-200'
+    'w-full h-12 border border-gray-200 rounded-[8px] px-4 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-all duration-200'
 
   const labelClass = 'block font-serif font-bold text-sm text-secondary mb-2'
 
   const Required = () => <span className="text-red-500 ml-0.5">*</span>
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
-      <h2 className="font-serif text-2xl tracking-wide text-secondary mb-8">{t('recipientInfo')}</h2>
+    <motion.form
+      onSubmit={handleSubmit}
+      noValidate
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+    >
+      <h2 className="font-serif text-2xl tracking-wide text-secondary mb-10">{t('recipientInfo')}</h2>
 
-      <div className="space-y-5">
+      <div className="space-y-6">
         {/* Full name */}
         <div>
           <label htmlFor="fullName" className={labelClass}>
@@ -129,7 +136,7 @@ export default function RecipientForm({ onSubmit }: Props) {
             placeholder="Nguyễn Văn A"
           />
           {errors.fullName && (
-            <p className="mt-1 text-xs text-red-500">{errors.fullName}</p>
+            <p className="mt-1.5 text-xs text-red-500">{errors.fullName}</p>
           )}
         </div>
 
@@ -148,7 +155,7 @@ export default function RecipientForm({ onSubmit }: Props) {
             maxLength={10}
           />
           {errors.phone && (
-            <p className="mt-1 text-xs text-red-500">{errors.phone}</p>
+            <p className="mt-1.5 text-xs text-red-500">{errors.phone}</p>
           )}
         </div>
 
@@ -166,7 +173,7 @@ export default function RecipientForm({ onSubmit }: Props) {
             placeholder="example@email.com"
           />
           {errors.email && (
-            <p className="mt-1 text-xs text-red-500">{errors.email}</p>
+            <p className="mt-1.5 text-xs text-red-500">{errors.email}</p>
           )}
         </div>
 
@@ -184,7 +191,7 @@ export default function RecipientForm({ onSubmit }: Props) {
             placeholder="12 Nguyễn Huệ"
           />
           {errors.address && (
-            <p className="mt-1 text-xs text-red-500">{errors.address}</p>
+            <p className="mt-1.5 text-xs text-red-500">{errors.address}</p>
           )}
         </div>
 
@@ -205,7 +212,7 @@ export default function RecipientForm({ onSubmit }: Props) {
             ))}
           </select>
           {errors.city && (
-            <p className="mt-1 text-xs text-red-500">{errors.city}</p>
+            <p className="mt-1.5 text-xs text-red-500">{errors.city}</p>
           )}
         </div>
 
@@ -227,7 +234,7 @@ export default function RecipientForm({ onSubmit }: Props) {
             ))}
           </select>
           {errors.district && (
-            <p className="mt-1 text-xs text-red-500">{errors.district}</p>
+            <p className="mt-1.5 text-xs text-red-500">{errors.district}</p>
           )}
         </div>
 
@@ -249,7 +256,7 @@ export default function RecipientForm({ onSubmit }: Props) {
             ))}
           </select>
           {errors.ward && (
-            <p className="mt-1 text-xs text-red-500">{errors.ward}</p>
+            <p className="mt-1.5 text-xs text-red-500">{errors.ward}</p>
           )}
         </div>
 
@@ -263,13 +270,13 @@ export default function RecipientForm({ onSubmit }: Props) {
             value={form.note ?? ''}
             onChange={(e) => set('note', e.target.value)}
             rows={3}
-            className="w-full border border-gray-200 rounded-[8px] px-4 py-3 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-all duration-200 resize-none"
+            className="w-full border border-gray-200 rounded-[8px] px-4 py-3.5 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-all duration-200 resize-none"
             placeholder={t('notePlaceholder')}
           />
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-10">
+      <div className="flex items-center justify-between mt-12">
         <Link
           href="/cart"
           className="font-serif text-sm text-secondary underline underline-offset-4 decoration-gray-300 hover:text-accent hover:decoration-accent transition-all duration-200"
@@ -280,6 +287,6 @@ export default function RecipientForm({ onSubmit }: Props) {
           {t('continueToPayment')}
         </Button>
       </div>
-    </form>
+    </motion.form>
   )
 }

@@ -13,5 +13,9 @@ export async function generateMetadata({
 }
 
 export default function ContactPage() {
-  return <ContactForm />
+  return (
+    <main>
+      <ContactForm />
+    </main>
+  )
 }

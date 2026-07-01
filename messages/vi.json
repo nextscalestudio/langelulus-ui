@@ -199,6 +199,7 @@
   },
   "contact": {
     "heading":    "Liên hệ với chúng tôi",
+    "subheading": "Chúng tôi lắng nghe và luôn sẵn sàng hỗ trợ bạn.",
     "fullName":   "Họ và tên",
     "email":      "Email",
     "phone":      "Số điện thoại",
@@ -330,6 +331,12 @@
       "nameAsc":    "Tên A–Z",
       "newest":     "Mới nhất"
     }
+  },
+  "policy": {
+    "heading":     "Chính Sách",
+    "subheading":  "Minh bạch và tin tưởng trong từng bước.",
+    "lastUpdated": "Cập nhật: Tháng 1 năm 2025",
+    "contents":    "Mục lục"
   },
   "footer": {
     "tagline": "Nước hoa cao cấp, tinh tế trong từng giọt.",

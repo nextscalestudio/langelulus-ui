@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { useCartStore } from '@/lib/store/cart-store'
 import { getSubtotal, getDiscount, getTotal } from '@/lib/store/cart-helpers'
 
@@ -15,10 +16,15 @@ export default function CheckoutSummary() {
   const total = getTotal(subtotal, discount)
 
   return (
-    <div className="border border-gray-100 rounded-[12px] p-6">
-      <h2 className="font-serif font-bold text-lg tracking-wide text-secondary mb-5">Order Summary</h2>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+      className="border border-gray-100 rounded-[12px] p-8 shadow-sm bg-gradient-to-b from-white to-gray-50/60"
+    >
+      <h2 className="font-serif font-bold text-2xl tracking-wide text-secondary mb-6">Order Summary</h2>
 
-      <ul className="divide-y divide-gray-100 mb-5">
+      <ul className="divide-y divide-gray-100 mb-6">
         {items.map((item) => (
           <li
             key={`${item.product.id}-${item.selectedVolume}`}
@@ -48,24 +54,24 @@ export default function CheckoutSummary() {
         ))}
       </ul>
 
-      <div className="space-y-2.5 font-serif text-sm border-t border-gray-100 pt-5">
+      <div className="space-y-3 font-serif text-sm border-t border-gray-100 pt-5">
         <div className="flex justify-between">
           <span className="text-gray-500">Subtotal</span>
           <span className="text-secondary">{fmt.format(subtotal)}</span>
         </div>
 
         {discount > 0 && (
-          <div className="flex justify-between text-green-600">
+          <div className="flex justify-between text-gray-500">
             <span>Discount{coupon ? ` (${coupon.code})` : ''}</span>
             <span>− {fmt.format(discount)}</span>
           </div>
         )}
 
-        <div className="flex justify-between border-t border-gray-100 pt-3 font-bold text-base">
+        <div className="flex justify-between border-t border-gray-100 pt-4 font-bold text-base">
           <span className="text-secondary">Total</span>
           <span className="text-secondary">{fmt.format(total)}</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

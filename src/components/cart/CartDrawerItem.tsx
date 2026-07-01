@@ -16,7 +16,7 @@ export default function CartDrawerItem({ item }: Props) {
   const { product, quantity, selectedVolume } = item
 
   return (
-    <div className="flex gap-4 py-5 border-b border-gray-100 last:border-b-0">
+    <div className="flex gap-5 py-6 border-b border-gray-100 last:border-b-0">
       <div className="relative w-20 h-20 shrink-0 rounded-[8px] border border-gray-100 overflow-hidden">
         <Image
           src={product.images[0]}
@@ -29,11 +29,11 @@ export default function CartDrawerItem({ item }: Props) {
 
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between gap-2">
-          <p className="font-serif text-sm text-secondary leading-snug line-clamp-2">{product.name}</p>
+          <p className="font-serif text-base text-secondary leading-snug line-clamp-2">{product.name}</p>
           <button
             aria-label="Remove item"
             onClick={() => updateQuantity(product.id, selectedVolume, 0)}
-            className="w-6 h-6 flex items-center justify-center rounded-full text-gray-400 hover:text-secondary hover:bg-gray-100 transition-all duration-200 shrink-0 text-lg leading-none"
+            className="w-6 h-6 flex items-center justify-center rounded-full text-gray-300 hover:text-secondary hover:bg-gray-100 transition-all duration-200 shrink-0 text-lg leading-none"
           >
             ×
           </button>
@@ -41,7 +41,7 @@ export default function CartDrawerItem({ item }: Props) {
 
         <p className="text-xs text-gray-400 mt-1 tracking-wide">{selectedVolume}</p>
 
-        <div className="flex items-center justify-between mt-3">
+        <div className="flex items-center justify-between mt-4">
           <div className="flex items-center gap-0.5">
             <button
               aria-label="Decrease quantity"

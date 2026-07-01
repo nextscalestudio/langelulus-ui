@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { Link, useRouter } from '@/i18n/navigation'
 import { useCartStore } from '@/lib/store/cart-store'
 import { useToast } from '@/components/ui/Toast'
@@ -24,6 +25,15 @@ function calcDiscount(
     return Math.round(subtotal * (coupon.discountValue / 100))
   }
   return coupon.discountValue
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  }),
 }
 
 export default function CartPage() {
@@ -69,25 +79,36 @@ export default function CartPage() {
   if (items.length === 0) return null
 
   return (
-    <main className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="font-serif text-4xl text-secondary mb-10">{t('pageTitle')}</h1>
+    <main className="max-w-6xl mx-auto px-6 lg:px-8 py-[120px] lg:py-[160px]">
+      <motion.h1
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="font-serif text-6xl lg:text-7xl text-secondary mb-16"
+      >
+        {t('pageTitle')}
+      </motion.h1>
 
-      <div className="lg:grid lg:grid-cols-5 lg:gap-12">
+      <div className="lg:grid lg:grid-cols-5 lg:gap-16">
         {/* Items column */}
         <div className="lg:col-span-3">
-          <div className="divide-y divide-gray-200">
-            {items.map((item) => (
-              <div
+          <div className="divide-y divide-gray-100">
+            {items.map((item, i) => (
+              <motion.div
                 key={`${item.product.id}-${item.selectedVolume}`}
-                className="flex gap-4 py-6"
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+                className="flex gap-6 py-8"
               >
-                <div className="relative w-[100px] h-[100px] shrink-0 overflow-hidden border border-gray-200">
+                <div className="relative w-[110px] h-[110px] shrink-0 overflow-hidden rounded-[8px] border border-gray-100">
                   <Image
                     src={item.product.images[0]}
                     alt={item.product.name}
                     fill
                     className="object-cover"
-                    sizes="100px"
+                    sizes="110px"
                   />
                 </div>
 
@@ -95,28 +116,30 @@ export default function CartPage() {
                   <p className="font-serif font-bold text-base text-secondary leading-snug">
                     {item.product.name}
                   </p>
-                  <p className="font-serif text-sm text-gray-500 mt-0.5">{item.selectedVolume}</p>
-                  <p className="font-serif font-bold text-accent mt-1">
+                  <p className="font-serif text-sm text-gray-400 mt-1 tracking-wide">{item.selectedVolume}</p>
+                  <p className="font-serif font-bold text-secondary mt-2">
                     {fmt.format(item.product.price)}
                   </p>
 
-                  <div className="flex items-center gap-2 mt-3">
+                  <div className="flex items-center gap-0.5 mt-4">
                     <button
                       aria-label="Decrease quantity"
                       onClick={() =>
                         updateQuantity(item.product.id, item.selectedVolume, item.quantity - 1)
                       }
-                      className="w-8 h-8 flex items-center justify-center border border-gray-300 text-secondary hover:bg-gray-100 transition-colors"
+                      className="w-8 h-8 flex items-center justify-center rounded-l-[8px] border border-gray-200 text-secondary hover:bg-gray-50 hover:shadow-sm transition-all duration-200"
                     >
                       −
                     </button>
-                    <span className="w-8 text-center font-serif text-sm">{item.quantity}</span>
+                    <span className="w-10 text-center font-serif text-sm border-y border-gray-200 h-8 flex items-center justify-center">
+                      {item.quantity}
+                    </span>
                     <button
                       aria-label="Increase quantity"
                       onClick={() =>
                         updateQuantity(item.product.id, item.selectedVolume, item.quantity + 1)
                       }
-                      className="w-8 h-8 flex items-center justify-center border border-gray-300 text-secondary hover:bg-gray-100 transition-colors"
+                      className="w-8 h-8 flex items-center justify-center rounded-r-[8px] border border-gray-200 text-secondary hover:bg-gray-50 hover:shadow-sm transition-all duration-200"
                     >
                       +
                     </button>
@@ -124,15 +147,13 @@ export default function CartPage() {
                 </div>
 
                 <div className="flex flex-col items-end justify-between shrink-0">
-                  <p className="font-serif font-bold text-accent">
+                  <p className="font-serif font-bold text-secondary">
                     {fmt.format(item.product.price * item.quantity)}
                   </p>
                   <button
                     aria-label={`Remove ${item.product.name}`}
-                    onClick={() =>
-                      updateQuantity(item.product.id, item.selectedVolume, 0)
-                    }
-                    className="text-gray-400 hover:text-red-500 transition-colors"
+                    onClick={() => updateQuantity(item.product.id, item.selectedVolume, 0)}
+                    className="text-gray-300 hover:text-secondary transition-all duration-200"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -153,15 +174,20 @@ export default function CartPage() {
                     </svg>
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Coupon */}
-          <div className="mt-6">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="mt-10"
+          >
             {coupon ? (
-              <div className="flex items-center justify-between gap-3 p-3 bg-green-50 border border-green-200">
-                <span className="font-serif text-sm text-green-700">
+              <div className="flex items-center justify-between gap-3 p-4 bg-gray-50 border border-gray-200 rounded-[8px]">
+                <span className="font-serif text-sm text-secondary">
                   Coupon <strong>{coupon.code}</strong> applied —{' '}
                   {coupon.discountType === 'percentage'
                     ? `${coupon.discountValue}% off`
@@ -169,57 +195,67 @@ export default function CartPage() {
                 </span>
                 <button
                   onClick={removeCoupon}
-                  className="text-xs text-gray-500 hover:text-red-500 transition-colors font-serif underline"
+                  className="text-xs text-gray-400 hover:text-secondary transition-colors font-serif underline"
                 >
                   Remove
                 </button>
               </div>
             ) : (
-              <div className="flex gap-2">
+              <div className="flex gap-0">
                 <input
                   type="text"
                   value={couponInput}
                   onChange={(e) => setCouponInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleApplyCoupon()}
                   placeholder={t('couponPlaceholder')}
-                  className="flex-1 border border-secondary px-3 py-2 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-secondary"
+                  className="flex-1 border border-gray-200 border-r-0 px-4 py-3 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-secondary rounded-l-[8px] transition-all duration-200"
                 />
                 <Button variant="secondary" size="sm" onClick={handleApplyCoupon}>
                   {t('apply')}
                 </Button>
               </div>
             )}
-          </div>
+          </motion.div>
 
-          <div className="mt-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="mt-8"
+          >
             <Link
               href="/products"
-              className="font-serif text-sm text-secondary hover:text-accent underline underline-offset-2 transition-colors"
+              className="font-serif text-sm text-secondary hover:text-accent underline underline-offset-4 transition-colors"
             >
               {t('backToShopping')}
             </Link>
-          </div>
+          </motion.div>
         </div>
 
         {/* Order summary */}
-        <div className="lg:col-span-2 mt-10 lg:mt-0">
-          <div className="border border-gray-200 p-6">
-            <h2 className="font-serif font-bold text-lg text-secondary mb-4">{t('orderSummary')}</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="lg:col-span-2 mt-16 lg:mt-0"
+        >
+          <div className="border border-gray-100 rounded-[10px] p-8 shadow-sm bg-gradient-to-b from-white to-gray-50/60">
+            <h2 className="font-serif font-bold text-2xl text-secondary mb-6">{t('orderSummary')}</h2>
 
-            <div className="space-y-3 font-serif text-sm">
+            <div className="space-y-4 font-serif text-base">
               <div className="flex justify-between">
-                <span className="text-gray-600">{t('subtotal')}</span>
+                <span className="text-gray-500">{t('subtotal')}</span>
                 <span className="text-secondary">{fmt.format(subtotal)}</span>
               </div>
 
               {discount > 0 && (
-                <div className="flex justify-between text-green-600">
+                <div className="flex justify-between text-gray-500">
                   <span>{t('discount')}</span>
                   <span>− {fmt.format(discount)}</span>
                 </div>
               )}
 
-              <div className="flex justify-between border-t border-gray-200 pt-3 font-bold text-base">
+              <div className="flex justify-between border-t border-gray-100 pt-4 font-bold text-lg">
                 <span className="text-secondary">{t('total')}</span>
                 <span className="text-secondary">{fmt.format(total)}</span>
               </div>
@@ -227,13 +263,13 @@ export default function CartPage() {
 
             <Button
               variant="primary"
-              className="w-full mt-6"
+              className="w-full mt-8"
               onClick={() => router.push('/checkout')}
             >
               {t('checkout')}
             </Button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </main>
   )
