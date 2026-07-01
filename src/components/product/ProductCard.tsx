@@ -71,15 +71,15 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       <div className="px-1">
-        <p className="font-sans text-xs text-muted tracking-wide uppercase mb-1">
+        <p className="font-serif text-xs text-secondary/40 tracking-wide uppercase mb-1">
           {product.brand}
         </p>
-        <p className="font-sans text-sm text-secondary leading-snug mb-2 group-hover:text-accent transition-colors duration-300">
+        <p className="font-serif text-sm text-secondary leading-snug mb-2 group-hover:text-accent transition-colors duration-300">
           {product.name}
         </p>
         <div className="flex items-center justify-between gap-2">
           <StarRating rating={product.rating} />
-          <p className="font-sans text-sm font-medium text-secondary">
+          <p className="font-serif text-sm text-secondary">
             {formatVND(product.price)}
           </p>
         </div>

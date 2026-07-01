@@ -48,7 +48,8 @@ export default async function RelatedProducts({ current }: RelatedProductsProps)
   }
 
   return (
-    <section className="mt-20 lg:mt-28 pt-12 lg:pt-16 border-t border-border flex flex-col gap-16 lg:gap-20">
+    <section className="mt-20 lg:mt-28 flex flex-col gap-16 lg:gap-20">
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent" />
       <Row title={t('sameFamily')} items={byFamily} />
       <Row title={t('sameCollection')} items={byCollection} />
       <Row title={t('frequentlyBought')} items={frequentlyBought} />

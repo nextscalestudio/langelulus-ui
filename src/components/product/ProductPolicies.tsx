@@ -36,8 +36,8 @@ export default async function ProductPolicies() {
   ]
 
   return (
-    <div className="bg-gradient-to-b from-transparent via-bg-subtle/60 to-bg-subtle py-12 lg:py-16 rounded-2xl">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-10">
+    <div className="bg-gradient-to-b from-transparent via-bg-subtle/60 to-bg-subtle py-14 lg:py-20 rounded-2xl">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
         {policies.map((policy) => (
           <div key={policy.href} className="flex flex-col items-center text-center gap-3">
             {policy.icon}

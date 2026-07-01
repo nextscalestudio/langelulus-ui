@@ -2,8 +2,8 @@ import Skeleton from '@/components/ui/Skeleton'
 
 export default function ProductDetailLoading() {
   return (
-    <main className="bg-bg py-10 px-4">
-      <div className="max-w-6xl mx-auto">
+    <main className="bg-bg px-6 md:px-16 py-[60px] lg:py-[80px]">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="flex flex-col gap-4">
             <Skeleton className="aspect-square w-full" />

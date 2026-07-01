@@ -56,8 +56,11 @@ export default function ProductSpecsSection({ specs, usageGuide }: ProductSpecsS
 
   return (
     <div className="flex flex-col">
+      {/* Gradient divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent" />
+
       {/* Product Specifications accordion */}
-      <div className="border-t border-b border-gray-200">
+      <div>
         <AccordionHeader
           title={t('specs.heading')}
           open={specsOpen}
@@ -69,7 +72,7 @@ export default function ProductSpecsSection({ specs, usageGuide }: ProductSpecsS
               <tbody>
                 {specRows.map((row, i) => (
                   <tr key={row.label} className={i % 2 === 0 ? 'bg-bg-subtle' : 'bg-transparent'}>
-                    <td className="font-serif text-gray-500 py-2 px-3 w-[40%]">{row.label}</td>
+                    <td className="font-serif text-secondary/45 py-2 px-3 w-[40%]">{row.label}</td>
                     <td className="font-serif text-secondary py-2 px-3">{row.value}</td>
                   </tr>
                 ))}
@@ -79,8 +82,11 @@ export default function ProductSpecsSection({ specs, usageGuide }: ProductSpecsS
         )}
       </div>
 
+      {/* Gradient divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent" />
+
       {/* Usage Guide accordion */}
-      <div className="border-b border-gray-200">
+      <div>
         <AccordionHeader
           title={t('usageGuide.heading')}
           open={usageOpen}
@@ -111,6 +117,9 @@ export default function ProductSpecsSection({ specs, usageGuide }: ProductSpecsS
           </div>
         )}
       </div>
+
+      {/* Gradient divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent" />
     </div>
   )
 }

@@ -35,11 +35,11 @@ export default function ProductDetailPage({ params }: PageProps) {
           <ProductGallery images={product.images} name={product.name} />
           <ProductInfo product={product} />
         </div>
-        <div className="mt-16 lg:mt-24 flex flex-col gap-0">
+        <div className="mt-20 lg:mt-32 flex flex-col gap-0">
           <ScentInfoSection scentProfile={product.scentProfile} />
           <ProductSpecsSection specs={product.specs} usageGuide={product.usageGuide} />
         </div>
-        <div className="mt-16 lg:mt-20">
+        <div className="mt-20 lg:mt-28">
           <ProductPolicies />
         </div>
         <ReviewSection productId={product.id} />
