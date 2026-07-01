@@ -104,17 +104,17 @@ export default function RecipientForm({ onSubmit }: Props) {
   }
 
   const fieldClass =
-    'w-full h-10 border border-secondary px-3 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent'
+    'w-full h-11 border border-gray-200 rounded-[8px] px-4 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-all duration-200'
 
-  const labelClass = 'block font-serif font-bold text-sm text-secondary mb-1'
+  const labelClass = 'block font-serif font-bold text-sm text-secondary mb-2'
 
   const Required = () => <span className="text-red-500 ml-0.5">*</span>
 
   return (
     <form onSubmit={handleSubmit} noValidate>
-      <h2 className="font-serif text-2xl text-secondary mb-6">{t('recipientInfo')}</h2>
+      <h2 className="font-serif text-2xl tracking-wide text-secondary mb-8">{t('recipientInfo')}</h2>
 
-      <div className="space-y-4">
+      <div className="space-y-5">
         {/* Full name */}
         <div>
           <label htmlFor="fullName" className={labelClass}>
@@ -263,16 +263,16 @@ export default function RecipientForm({ onSubmit }: Props) {
             value={form.note ?? ''}
             onChange={(e) => set('note', e.target.value)}
             rows={3}
-            className="w-full border border-secondary px-3 py-2 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent resize-none"
+            className="w-full border border-gray-200 rounded-[8px] px-4 py-3 font-serif text-sm text-secondary placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-all duration-200 resize-none"
             placeholder={t('notePlaceholder')}
           />
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-8">
+      <div className="flex items-center justify-between mt-10">
         <Link
           href="/cart"
-          className="font-serif text-sm text-secondary hover:text-accent transition-colors"
+          className="font-serif text-sm text-secondary underline underline-offset-4 decoration-gray-300 hover:text-accent hover:decoration-accent transition-all duration-200"
         >
           {t('backToCart')}
         </Link>

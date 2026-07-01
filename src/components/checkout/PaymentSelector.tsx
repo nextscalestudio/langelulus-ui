@@ -88,9 +88,9 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
 
   return (
     <div>
-      <h2 className="font-serif text-2xl text-secondary mb-6">{t('paymentMethod')}</h2>
+      <h2 className="font-serif text-2xl tracking-wide text-secondary mb-8">{t('paymentMethod')}</h2>
 
-      <div className="space-y-3 mb-8">
+      <div className="space-y-4 mb-8">
         <PaymentCard
           id="cod"
           label={t('cod')}
@@ -109,8 +109,8 @@ export default function PaymentSelector({ recipientInfo, onBack }: PaymentSelect
       </div>
 
       {method === 'bank_transfer' && (
-        <div className="bg-[#f9f9f9] border border-gray-200 p-5 mb-8">
-          <p className="font-serif text-sm text-secondary mb-3 font-semibold">{t('bankDetails')}</p>
+        <div className="bg-[#f9f9f9] border border-gray-100 rounded-[10px] p-5 mb-8">
+          <p className="font-serif text-sm text-secondary mb-4 font-semibold tracking-wide">{t('bankDetails')}</p>
           <dl className="space-y-1.5 font-mono text-sm text-secondary">
             <div className="flex gap-4">
               <dt className="w-36 text-gray-500">{t('bank')}</dt>
@@ -176,10 +176,10 @@ function PaymentCard({ label, selected, onSelect, icon }: PaymentCardProps) {
     <button
       type="button"
       onClick={onSelect}
-      className={`w-full flex items-center gap-4 p-4 border transition-colors text-left ${
+      className={`w-full flex items-center gap-4 p-4 border rounded-[10px] transition-all duration-200 text-left ${
         selected
-          ? 'border-accent bg-[rgba(0,0,255,0.03)]'
-          : 'border-gray-200 hover:border-gray-300'
+          ? 'border-accent bg-[rgba(0,0,255,0.03)] shadow-sm'
+          : 'border-gray-200 hover:border-gray-300 hover:shadow-sm'
       }`}
     >
       {/* Radio indicator */}
