@@ -325,6 +325,20 @@
   },
   "footer": {
     "tagline": "Luxury fragrance, refined in every drop.",
-    "copyright": "© 2024 PARFUM. All rights reserved."
+    "description": "Every scent is a story. We craft your memories from the world's purest ingredients.",
+    "copyright": "© 2024 L'ANGELULUS. All rights reserved.",
+    "madeIn": "Crafted in Vietnam",
+    "address": "74 Nguyen Trai, Ben Thanh Ward, District 1, Ho Chi Minh City",
+    "phone": "+84 28 3822 9999",
+    "email": "hello@langelulus.com",
+    "followUs": "Follow us",
+    "shopTitle": "SHOP",
+    "companyTitle": "BRAND",
+    "supportTitle": "SUPPORT",
+    "newsletter": {
+      "heading": "Get exclusive offers",
+      "placeholder": "Your email address",
+      "cta": "Subscribe"
+    }
   }
 }

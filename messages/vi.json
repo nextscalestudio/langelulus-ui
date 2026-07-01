@@ -325,6 +325,20 @@
   },
   "footer": {
     "tagline": "Nước hoa cao cấp, tinh tế trong từng giọt.",
-    "copyright": "© 2024 PARFUM. Tất cả quyền được bảo lưu."
+    "description": "Mỗi hương thơm là một câu chuyện. Chúng tôi tạo nên ký ức của bạn từ những nguyên liệu thuần khiết nhất thế giới.",
+    "copyright": "© 2024 L'ANGELULUS. Tất cả quyền được bảo lưu.",
+    "madeIn": "Chế tác tại Việt Nam",
+    "address": "74 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
+    "phone": "+84 28 3822 9999",
+    "email": "hello@langelulus.com",
+    "followUs": "Theo dõi chúng tôi",
+    "shopTitle": "SẢN PHẨM",
+    "companyTitle": "THƯƠNG HIỆU",
+    "supportTitle": "HỖ TRỢ",
+    "newsletter": {
+      "heading": "Nhận ưu đãi độc quyền",
+      "placeholder": "Địa chỉ email của bạn",
+      "cta": "Đăng ký"
+    }
   }
 }
